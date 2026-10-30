@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>aroo.</title>
+  <meta name="description" content="aroo.">
+  <meta name="theme-color" content="#6558DD">
+  <link rel="icon" type="image/png" href="assets/brand/icon-512.png">
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
+  <style>
+    :root {
+      --aroo-purple: #6558DD;
+      --aroo-violet: #8C52FF;
+      --aroo-yellow: #FFD230;
+      --aroo-sun: #FFDE59;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #fff;
+      color: #111;
+    }
+
+    .hero {
+      position: relative;
+      height: 100vh;
+      height: 100svh;
+      overflow: hidden;
+      background: var(--aroo-purple);
+    }
+
+    /* The stage holds 1 panel on phones, 3 side by side on desktop. */
+    .stage {
+      position: absolute;
+      inset: 0;
+      display: flex;
+    }
+    .panel {
+      position: relative;
+      flex: 1 1 0;
+      overflow: hidden;
+    }
+
+    /* Each panel has two stacked players: one shows the current scene, the other loads the next, then they crossfade. */
+    .panel video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.9s ease;
+    }
+    .panel video.is-active { opacity: 1; }
+
+    /* Light shade so the white wordmark stays readable over bright scenes. */
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(0,0,0,0.28) 0%, rgba(0,0,0,0.12) 60%, rgba(0,0,0,0.05) 100%);
+      pointer-events: none;
+    }
+
+    .wordmark {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 2;
+      transform: translate(-50%, -50%);
+      width: min(56vw, 560px);
+      margin: 0;
+    }
+    .wordmark img {
+      display: block;
+      width: 100%;
+      height: auto;
+      filter: drop-shadow(0 2px 18px rgba(0,0,0,0.18));
+    }
+    @media (max-width: 640px) {
+      .wordmark { width: 68vw; }
+    }
+
+    /* ---------- About ---------- */
+    .about { background: var(--aroo-violet); }
+
+    .about-photo {
+      position: relative;
+      height: clamp(380px, 60vw, 92vh);
+    }
+    .about-photo > img:first-child {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 62%;
+    }
+    /* White wordmark sits on the photo's bottom edge, dipping slightly onto the purple below. */
+    .about-wordmark {
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      width: 60.5%;
+      transform: translate(-50%, 8%);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .about-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 3.5vw;
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: clamp(56px, 7.5vw, 120px) 4.5vw clamp(72px, 9vw, 150px) 8vw;
+    }
+    .about-text {
+      grid-column: 2;
+      grid-row: 1;
+      font-family: "Jost", "Futura", "Century Gothic", system-ui, sans-serif;
+      font-weight: 600;
+      color: var(--aroo-yellow);
+      font-size: clamp(20px, 2.4vw, 38px);
+      line-height: 1.24;
+      letter-spacing: -0.005em;
+      max-width: 18.5em;
+    }
+    .about-dog {
+      grid-column: 1;
+      grid-row: 1;
+      justify-self: center;
+      width: min(100%, 440px);
+      margin: clamp(80px, 12vw, 200px) 0 0;
+      text-align: center;
+    }
+    .about-dog img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+    .about-dog figcaption {
+      margin-top: 0.9em;
+      font-family: "Jost", "Futura", "Century Gothic", system-ui, sans-serif;
+      font-weight: 600;
+      color: #fff;
+      font-size: clamp(26px, 3.6vw, 56px);
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+    }
+    .about-text .hl { color: #fff; }
+
+    @media (max-width: 720px) {
+      .about-photo { height: 64vh; height: 64svh; }
+      .about-wordmark { width: 82%; }
+      .about-body {
+        grid-template-columns: 1fr;
+        padding: 64px 24px 72px;
+      }
+      .about-text { grid-column: 1; font-size: clamp(21px, 5.6vw, 26px); }
+      .about-dog { grid-column: 1; grid-row: 2; width: min(76vw, 340px); margin-top: 48px; }
+      .about-dog figcaption { font-size: clamp(24px, 7.4vw, 34px); }
+    }
+    /* ---------- Contact ---------- */
+    .contact { background: var(--aroo-sun); overflow: hidden; padding: clamp(72px, 9vw, 130px) 0 clamp(64px, 7vw, 110px); }
+    /* The poster scales as one piece: sizes are in cqw (1cqw = 1% of poster width; design was 1080px wide). */
+    .contact-poster {
+      container-type: inline-size;
+      width: min(100%, 900px);
+      margin: 0 auto;
+      text-align: center;
+    }
+    .contact-poster .wide {
+      font-family: "Archivo", "Arial Black", sans-serif;
+      font-weight: 900;
+      font-stretch: 125%;
+      font-variation-settings: "wdth" 125;
+      line-height: 1;
+    }
+    .contact-poster .brush {
+      font-family: "Chewy", "Comic Sans MS", cursive;
+      font-weight: 400;
+      color: var(--aroo-violet);
+      line-height: 1;
+    }
+    .contact-title {
+      color: #fff;
+      font-size: 8.15cqw;
+      letter-spacing: -0.01em;
+      margin: 0;
+    }
+    .contact-sub { font-size: 3.35cqw; margin: 1.3cqw 0 0; letter-spacing: 0.01em; }
+    .contact-photo {
+      display: block;
+      width: 56.6cqw;
+      height: auto;
+      aspect-ratio: 612 / 564;
+      object-fit: cover;
+      margin: 1.9cqw auto 0;
+    }
+    .contact-cities {
+      display: flex;
+      justify-content: center;
+      gap: 1.1em;
+      list-style: none;
+      margin: 1.9cqw 0 0;
+      padding: 0;
+      color: var(--aroo-violet);
+      font-size: 2.05cqw;
+      letter-spacing: 0.02em;
+    }
+    .contact-row {
+      display: grid;
+      grid-template-columns: 32.2cqw 1fr;
+      align-items: center;
+      margin: 3.5cqw 12.3cqw 0;
+    }
+    .contact-map { display: block; width: 100%; height: auto; }
+    .contact-prices {
+      list-style: none;
+      margin: 0;
+      padding: 0 0 0 7.5cqw;
+      display: grid;
+      gap: 4.6cqw;
+      font-size: 3.5cqw;
+    }
+    .contact-cta { margin: 6cqw 0 0; }
+    .contact-cta .lead {
+      display: block;
+      color: #fff;
+      font-size: 2.45cqw;
+      letter-spacing: 0.02em;
+    }
+    .contact-cta .lead b { color: var(--aroo-violet); font-weight: inherit; }
+    .contact-phone {
+      display: inline-block;
+      margin-top: 1.6cqw;
+      color: var(--aroo-violet);
+      font-size: 5.7cqw;
+      text-decoration: none;
+      letter-spacing: -0.005em;
+      transition: transform 0.2s ease, color 0.2s ease;
+    }
+    .contact-phone:hover, .contact-phone:focus-visible { color: #fff; transform: scale(1.03); }
+    .contact-phone:focus-visible { outline: 3px solid var(--aroo-violet); outline-offset: 6px; }
+
+    @media (max-width: 640px) {
+      .contact { padding: 64px 20px 72px; }
+      .contact-title { font-size: 10.4cqw; }
+      .contact-sub { font-size: 5.6cqw; margin-top: 2.5cqw; }
+      .contact-photo { width: 100%; margin-top: 5cqw; }
+      .contact-cities { flex-wrap: wrap; gap: 0.4em 1em; font-size: 4cqw; margin-top: 5cqw; }
+      .contact-row { grid-template-columns: 1fr; justify-items: center; gap: 7cqw; margin: 8cqw 0 0; }
+      .contact-map { width: 72%; }
+      .contact-prices { padding: 0; gap: 4cqw; font-size: 7cqw; }
+      .contact-cta { margin-top: 12cqw; }
+      .contact-cta .lead { font-size: 4.6cqw; }
+      .contact-phone { font-size: 9.6cqw; margin-top: 3cqw; }
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@600&family=Archivo:wdth,wght@125,900&family=Chewy&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main class="hero">
+    <div class="stage" id="stage"></div>
+    <h1 class="wordmark">
+      <img src="assets/brand/aroo-wordmark-white.png" alt="aroo.">
+    </h1>
+  </main>
+
+  <section class="about" id="about" aria-label="About aroo">
+    <div class="about-photo">
+      <img src="assets/about/about-dog.jpg"
+           srcset="assets/about/about-dog-1200.jpg 1200w, assets/about/about-dog.jpg 2400w"
+           sizes="100vw" alt="A smiling golden-red dog sitting by a lake" loading="lazy">
+      <img class="about-wordmark" src="assets/brand/aroo-wordmark-white.png" alt="" aria-hidden="true">
+    </div>
+    <div class="about-body">
+      <p class="about-text">We are a local, personal dog waste removal company in Kansas. We clean up your dog’s poop so you can <span class="hl">let them go!</span> We offer competitive pricing while delivering premium service. Oh, and we want to know your dog’s name!</p>
+      <figure class="about-dog">
+        <img src="assets/about/ember.jpg" alt="Ember, a black and white puppy, sitting on a porch step" loading="lazy">
+        <figcaption>Ember | Topeka, KS</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="contact" id="contact" aria-label="Contact aroo">
+    <div class="contact-poster">
+      <h2 class="contact-title wide">LET THEM GO</h2>
+      <p class="contact-sub brush">WE HANDLE THE CLEANUP</p>
+      <img class="contact-photo" src="assets/contact/puppy.jpg" width="1400" height="1290" alt="A merle puppy trotting through dry grass" loading="lazy">
+      <ul class="contact-cities wide" aria-label="Service areas">
+        <li>LAWRENCE</li><li>TOPEKA</li><li>MANHATTAN</li>
+      </ul>
+      <div class="contact-row">
+        <img class="contact-map" src="assets/contact/map.png" width="694" height="402" alt="" aria-hidden="true" loading="lazy">
+        <ul class="contact-prices brush">
+          <li>ONE-TIME CLEANUP $49+</li>
+          <li>WEEKLY SERVICE $19+</li>
+        </ul>
+      </div>
+      <p class="contact-cta wide">
+        <span class="lead">TEXT <b>DOG</b> TO</span>
+        <a class="contact-phone" href="sms:+17856008801?&amp;body=DOG" aria-label="Text DOG to (785) 600-8801">(785) 600-8801</a>
+      </p>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      var SCENES = [1, 2, 3, 4, 5].map(function (n) { return 'assets/video/scene' + n + '.mp4'; });
+      var FADE = 0.9;      // seconds of crossfade
+      var LEAD = 1.4;      // start loading the next scene this many seconds before the current one ends
+      // Desktop = landscape screen at least 768px wide: three panels side by side.
+      var desktopQuery = window.matchMedia('(min-width: 768px) and (min-aspect-ratio: 1/1)');
+      var stage = document.getElementById('stage');
+
+      var panels = [];
+      var lastShown = SCENES.map(function (_, i) { return i - SCENES.length; }); // scene 1 counts as "oldest"
+      var clock = 0;
+
+      // Next scene for a panel: one not on screen anywhere, the one that has been off screen longest.
+      function pickScene() {
+        var busy = {};
+        panels.forEach(function (p) {
+          if (p.scene != null) busy[p.scene] = true;
+          if (p.pending != null) busy[p.pending] = true;
+        });
+        var best = null;
+        for (var i = 0; i < SCENES.length; i++) {
+          if (busy[i]) continue;
+          if (best === null || lastShown[i] < lastShown[best]) best = i;
+        }
+        return best;
+      }
+
+      function Panel() {
+        var el = document.createElement('div');
+        el.className = 'panel';
+        this.el = el;
+        this.videos = [0, 1].map(function () {
+          var v = document.createElement('video');
+          v.muted = true;
+          v.playsInline = true;
+          v.setAttribute('muted', '');
+          v.setAttribute('playsinline', '');
+          v.preload = 'auto';
+          el.appendChild(v);
+          return v;
+        });
+        this.current = 0;
+        this.scene = null;
+        this.pending = null;
+        this.loading = false;
+        var self = this;
+        this.videos.forEach(function (v) {
+          v.addEventListener('timeupdate', function () {
+            if (v !== self.videos[self.current] || !v.duration) return;
+            if (v.duration - v.currentTime <= LEAD) self.queueNext();
+          });
+          v.addEventListener('ended', function () {
+            if (v === self.videos[self.current]) self.queueNext();
+          });
+        });
+      }
+
+      Panel.prototype.queueNext = function () {
+        if (this.loading) return;
+        var next = pickScene();
+        if (next === null) return;
+        this.loading = true;
+        this.pending = next;
+        var self = this;
+        var cur = this.videos[this.current];
+        var nxt = this.videos[1 - this.current];
+        nxt.src = SCENES[next];
+        nxt.load();
+        var started = false;
+        function go() {
+          if (started) return;
+          started = true;
+          // Wait until the current clip is nearly done so each scene plays (almost) in full.
+          var wait = cur.duration ? Math.max(0, (cur.duration - cur.currentTime - FADE) * 1000) : 0;
+          setTimeout(function () {
+            nxt.currentTime = 0;
+            var p = nxt.play();
+            var swap = function () {
+              nxt.classList.add('is-active');
+              cur.classList.remove('is-active');
+              self.current = 1 - self.current;
+              lastShown[self.scene] = ++clock; // when the outgoing scene left the screen
+              self.scene = next;
+              self.pending = null;
+              setTimeout(function () {
+                cur.pause();
+                self.loading = false;
+              }, FADE * 1000 + 50);
+            };
+            if (p && p.then) p.then(swap, swap); else swap();
+          }, wait);
+        }
+        nxt.addEventListener('canplay', go, { once: true });
+      };
+
+      Panel.prototype.start = function (sceneIdx) {
+        var v = this.videos[0];
+        this.scene = sceneIdx;
+        v.src = SCENES[sceneIdx];
+        v.classList.add('is-active');
+        var p = v.play();
+        if (p && p.catch) p.catch(function () {
+          // Autoplay blocked (e.g. iOS Low Power Mode): start on first tap.
+          document.addEventListener('touchstart', function () { v.play(); }, { once: true, passive: true });
+        });
+      };
+
+      Panel.prototype.destroy = function () {
+        this.videos.forEach(function (v) { v.pause(); v.removeAttribute('src'); v.load(); });
+        this.el.remove();
+      };
+
+      function build() {
+        panels.forEach(function (p) { p.destroy(); });
+        panels = [];
+        var count = desktopQuery.matches ? 3 : 1;
+        for (var i = 0; i < count; i++) {
+          var p = new Panel();
+          stage.appendChild(p.el);
+          panels.push(p);
+        }
+        panels.forEach(function (p) { p.start(pickScene()); });
+      }
+
+      build();
+
+      // Pause the hero videos while scrolled out of view (saves battery), resume when back.
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (entries) {
+          var visible = entries[0].isIntersecting;
+          panels.forEach(function (p) {
+            var v = p.videos[p.current];
+            if (visible) { var r = v.play(); if (r && r.catch) r.catch(function () {}); }
+            else v.pause();
+          });
+        }).observe(document.querySelector('.hero'));
+      }
+
+      var onChange = function () { build(); };
+      if (desktopQuery.addEventListener) desktopQuery.addEventListener('change', onChange);
+      else desktopQuery.addListener(onChange);
+    })();
+  </script>
+</body>
+</html>
