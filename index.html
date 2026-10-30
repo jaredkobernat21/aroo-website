@@ -4,7 +4,21 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>aroo.</title>
-  <meta name="description" content="aroo.">
+  <meta name="description" content="Local, personal dog waste removal in Lawrence, Topeka and Manhattan, Kansas. Text DOG to (785) 600-8801.">
+  <link rel="canonical" href="https://aroodog.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="aroo.">
+  <meta property="og:title" content="aroo. | Dog waste removal in Kansas">
+  <meta property="og:description" content="Local, personal dog waste removal in Lawrence, Topeka and Manhattan, Kansas. Text DOG to (785) 600-8801.">
+  <meta property="og:url" content="https://aroodog.com/">
+  <meta property="og:image" content="https://aroodog.com/assets/brand/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="aroo. logo">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="aroo. | Dog waste removal in Kansas">
+  <meta name="twitter:description" content="Local, personal dog waste removal in Lawrence, Topeka and Manhattan, Kansas. Text DOG to (785) 600-8801.">
+  <meta name="twitter:image" content="https://aroodog.com/assets/brand/og-image.png">
   <meta name="theme-color" content="#6558DD">
   <link rel="icon" type="image/png" href="assets/brand/icon-512.png">
   <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
@@ -259,13 +273,99 @@
       .contact-cta .lead { font-size: 4.6cqw; }
       .contact-phone { font-size: 9.6cqw; margin-top: 3cqw; }
     }
+    /* ---------- Menu ---------- */
+    html { scroll-behavior: smooth; }
+    .menu {
+      position: fixed;
+      top: max(14px, env(safe-area-inset-top));
+      right: max(14px, env(safe-area-inset-right));
+      z-index: 50;
+    }
+    .menu-toggle {
+      display: grid;
+      place-items: center;
+      width: 52px;
+      height: 52px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .menu-toggle .bars { position: relative; width: 32px; height: 14px; }
+    .menu-toggle .bars span {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      border-radius: 3px;
+      background: #fff;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.28);
+      transition: transform 0.3s ease, top 0.3s ease;
+    }
+    .menu-toggle .bars span:first-child { top: 0; }
+    .menu-toggle .bars span:last-child { top: 11px; }
+    .menu.is-open .bars span { box-shadow: none; }
+    .menu.is-open .bars span:first-child { top: 5.5px; transform: rotate(45deg); }
+    .menu.is-open .bars span:last-child { top: 5.5px; transform: rotate(-45deg); }
+    .menu-toggle:focus-visible { outline: 2px solid #fff; outline-offset: 2px; border-radius: 8px; }
+
+    .menu-panel {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: -1;
+      min-width: 230px;
+      padding: 68px 30px 26px;
+      border-radius: 18px;
+      background: var(--aroo-violet);
+      box-shadow: 0 18px 40px rgba(40, 20, 90, 0.3);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-8px) scale(0.98);
+      transform-origin: top right;
+      transition: opacity 0.22s ease, transform 0.22s ease, visibility 0s linear 0.22s;
+    }
+    .menu.is-open .menu-panel {
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+      transition: opacity 0.22s ease, transform 0.22s ease;
+    }
+    .menu-panel ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+    .menu-panel a {
+      display: block;
+      padding: 8px 0;
+      color: #fff;
+      text-decoration: none;
+      font-family: "Archivo", "Arial Black", sans-serif;
+      font-weight: 900;
+      font-stretch: 125%;
+      font-variation-settings: "wdth" 125;
+      font-size: 22px;
+      letter-spacing: 0.01em;
+      transition: color 0.15s ease;
+    }
+    .menu-panel a:hover, .menu-panel a:focus-visible { color: var(--aroo-yellow); outline: none; }
   </style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@600&family=Archivo:wdth,wght@125,900&family=Chewy&display=swap" rel="stylesheet">
 </head>
 <body>
-  <main class="hero">
+  <nav class="menu" id="menu" aria-label="Site">
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-panel" aria-label="Open menu">
+      <span class="bars" aria-hidden="true"><span></span><span></span></span>
+    </button>
+    <div class="menu-panel" id="menu-panel">
+      <ul>
+        <li><a href="#home">HOME</a></li>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+    </div>
+  </nav>
+  <main class="hero" id="home">
     <div class="stage" id="stage"></div>
     <h1 class="wordmark">
       <img src="assets/brand/aroo-wordmark-white.png" alt="aroo.">
@@ -452,6 +552,30 @@
       var onChange = function () { build(); };
       if (desktopQuery.addEventListener) desktopQuery.addEventListener('change', onChange);
       else desktopQuery.addListener(onChange);
+    })();
+  </script>
+  <script>
+    (function () {
+      var menu = document.getElementById('menu');
+      var btn = menu.querySelector('.menu-toggle');
+      function setOpen(open) {
+        menu.classList.toggle('is-open', open);
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      }
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        setOpen(!menu.classList.contains('is-open'));
+      });
+      menu.querySelectorAll('.menu-panel a').forEach(function (a) {
+        a.addEventListener('click', function () { setOpen(false); });
+      });
+      document.addEventListener('click', function (e) {
+        if (!menu.contains(e.target)) setOpen(false);
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') { setOpen(false); btn.focus(); }
+      });
     })();
   </script>
 </body>
