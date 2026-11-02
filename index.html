@@ -19,15 +19,12 @@
   <meta name="twitter:title" content="aroo. | Dog waste removal in Kansas">
   <meta name="twitter:description" content="Local, personal dog waste removal in Lawrence, Topeka and Manhattan, Kansas. Text DOG to (785) 600-8801.">
   <meta name="twitter:image" content="https://aroodog.com/assets/brand/og-image.png">
-  <meta name="theme-color" content="#6558DD">
+  <meta name="theme-color" content="#15B5B0">
   <link rel="icon" type="image/png" href="assets/brand/icon-512.png">
   <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
   <style>
     :root {
-      --aroo-purple: #6558DD;
-      --aroo-violet: #8C52FF;
-      --aroo-sun: #FFDE59;
-      --aroo-yellow: var(--aroo-sun); /* about text matches the contact background */
+      --aroo-teal: #15B5B0; /* main brand color */
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -40,7 +37,7 @@
       height: 100vh;
       height: 100svh;
       overflow: hidden;
-      background: var(--aroo-purple);
+      background: var(--aroo-teal);
     }
 
     /* The stage holds 1 panel on phones, 3 side by side on desktop. */
@@ -96,7 +93,7 @@
     }
 
     /* ---------- About ---------- */
-    .about { background: var(--aroo-violet); }
+    .about { background: #fff; }
 
     .about-photo {
       position: relative;
@@ -109,7 +106,7 @@
       object-fit: cover;
       object-position: 50% 62%;
     }
-    /* White wordmark sits on the photo's bottom edge, dipping slightly onto the purple below. */
+    /* Teal wordmark sits on the photo's bottom edge, dipping slightly onto the white below. */
     .about-wordmark {
       position: absolute;
       left: 50%;
@@ -133,7 +130,7 @@
       grid-row: 1;
       font-family: "Jost", "Futura", "Century Gothic", system-ui, sans-serif;
       font-weight: 600;
-      color: var(--aroo-yellow);
+      color: var(--aroo-teal);
       font-size: clamp(20px, 2.4vw, 38px);
       line-height: 1.24;
       letter-spacing: -0.005em;
@@ -158,13 +155,12 @@
       margin-top: 0.9em;
       font-family: "Jost", "Futura", "Century Gothic", system-ui, sans-serif;
       font-weight: 600;
-      color: #fff;
+      color: var(--aroo-teal);
       font-size: clamp(26px, 3.6vw, 56px);
       line-height: 1.1;
       letter-spacing: -0.01em;
       white-space: nowrap;
     }
-    .about-text .hl { color: #fff; }
 
     @media (max-width: 720px) {
       .about-photo { height: 64vh; height: 64svh; }
@@ -178,7 +174,7 @@
       .about-dog figcaption { font-size: clamp(24px, 7.4vw, 34px); }
     }
     /* ---------- Contact ---------- */
-    .contact { background: var(--aroo-sun); overflow: hidden; padding: clamp(72px, 9vw, 130px) 0 clamp(64px, 7vw, 110px); }
+    .contact { background: var(--aroo-teal); color: #fff; overflow: hidden; padding: clamp(72px, 9vw, 130px) 0 clamp(64px, 7vw, 110px); }
     /* The poster scales as one piece: sizes are in cqw (1cqw = 1% of poster width; design was 1080px wide). */
     .contact-poster {
       container-type: inline-size;
@@ -196,7 +192,7 @@
     .contact-poster .brush {
       font-family: "Chewy", "Comic Sans MS", cursive;
       font-weight: 400;
-      color: var(--aroo-violet);
+      color: #fff;
       line-height: 1;
     }
     .contact-title {
@@ -221,7 +217,7 @@
       list-style: none;
       margin: 1.9cqw 0 0;
       padding: 0;
-      color: var(--aroo-violet);
+      color: #fff;
       font-size: 2.05cqw;
       letter-spacing: 0.02em;
     }
@@ -247,18 +243,18 @@
       font-size: 2.45cqw;
       letter-spacing: 0.02em;
     }
-    .contact-cta .lead b { color: var(--aroo-violet); font-weight: inherit; }
+    .contact-cta .lead b { font-weight: inherit; }
     .contact-phone {
       display: inline-block;
       margin-top: 1.6cqw;
-      color: var(--aroo-violet);
+      color: #fff;
       font-size: 5.7cqw;
       text-decoration: none;
       letter-spacing: -0.005em;
       transition: transform 0.2s ease, color 0.2s ease;
     }
-    .contact-phone:hover, .contact-phone:focus-visible { color: #fff; transform: scale(1.03); }
-    .contact-phone:focus-visible { outline: 3px solid var(--aroo-violet); outline-offset: 6px; }
+    .contact-phone:hover, .contact-phone:focus-visible { transform: scale(1.04); }
+    .contact-phone:focus-visible { outline: 3px solid #fff; outline-offset: 6px; }
 
     @media (max-width: 640px) {
       .contact { padding: 64px 20px 72px; }
@@ -318,8 +314,8 @@
       min-width: 230px;
       padding: 68px 30px 26px;
       border-radius: 18px;
-      background: var(--aroo-violet);
-      box-shadow: 0 18px 40px rgba(40, 20, 90, 0.3);
+      background: var(--aroo-teal);
+      box-shadow: 0 18px 40px rgba(5, 60, 58, 0.3);
       opacity: 0;
       visibility: hidden;
       transform: translateY(-8px) scale(0.98);
@@ -346,7 +342,10 @@
       letter-spacing: 0.01em;
       transition: color 0.15s ease;
     }
-    .menu-panel a:hover, .menu-panel a:focus-visible { color: var(--aroo-yellow); outline: none; }
+    .menu-panel a:hover, .menu-panel a:focus-visible { text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 6px; outline: none; }
+    /* Over the white part of the About section the bars turn teal so they stay visible. */
+    .menu.on-light:not(.is-open) .bars span { background: var(--aroo-teal); box-shadow: none; }
+    .menu.on-light:not(.is-open) .menu-toggle:focus-visible { outline-color: var(--aroo-teal); }
   </style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -377,7 +376,7 @@
       <img src="assets/about/about-dog.jpg"
            srcset="assets/about/about-dog-1200.jpg 1200w, assets/about/about-dog.jpg 2400w"
            sizes="100vw" alt="A smiling golden-red dog sitting by a lake" loading="lazy">
-      <img class="about-wordmark" src="assets/brand/aroo-wordmark-white.png" alt="" aria-hidden="true">
+      <img class="about-wordmark" src="assets/brand/aroo-wordmark-teal.png" alt="" aria-hidden="true">
     </div>
     <div class="about-body">
       <p class="about-text">We are a local, personal dog waste removal company in Kansas. We clean up your dog’s poop so you can <span class="hl">let them go!</span> We offer competitive pricing while delivering premium service. Oh, and we want to know your dog’s name!</p>
@@ -397,7 +396,7 @@
         <li>LAWRENCE</li><li>TOPEKA</li><li>MANHATTAN</li>
       </ul>
       <div class="contact-row">
-        <img class="contact-map" src="assets/contact/map.png" width="694" height="402" alt="" aria-hidden="true" loading="lazy">
+        <img class="contact-map" src="assets/contact/map.png?v=2" width="694" height="402" alt="" aria-hidden="true" loading="lazy">
         <ul class="contact-prices brush">
           <li>STARTING AT $14.99</li>
         </ul>
@@ -575,6 +574,20 @@
       document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') { setOpen(false); btn.focus(); }
       });
+
+      // Teal bars while they sit over the white part of the About section.
+      var light = document.querySelector('.about-body');
+      var ticking = false;
+      function checkLight() {
+        ticking = false;
+        var b = btn.getBoundingClientRect(), r = light.getBoundingClientRect();
+        var y = b.top + b.height / 2;
+        menu.classList.toggle('on-light', y >= r.top && y <= r.bottom);
+      }
+      function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(checkLight); } }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll);
+      checkLight();
     })();
   </script>
 </body>
