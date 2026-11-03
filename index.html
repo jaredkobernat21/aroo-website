@@ -139,13 +139,13 @@
       object-fit: cover;
       object-position: 60% 40%;
     }
-    /* White wordmark sits near the photo's bottom edge, fully on the photo. */
+    /* White wordmark rests on the photo's bottom edge, right against the white section. */
     .about-wordmark {
       position: absolute;
       left: 50%;
       width: 60.5%;
-      bottom: 5%;
-      transform: translateX(-50%);
+      bottom: 0;
+      transform: translate(-50%, 1.2%); /* letters rest right on the photo edge (PNG has ~1% padding) */
       filter: drop-shadow(0 2px 14px rgba(0,0,0,0.18));
       z-index: 1;
       pointer-events: none;
