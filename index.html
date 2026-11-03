@@ -139,13 +139,14 @@
       object-fit: cover;
       object-position: 60% 40%;
     }
-    /* Teal wordmark sits on the photo's bottom edge, dipping slightly onto the white below. */
+    /* White wordmark sits near the photo's bottom edge, fully on the photo. */
     .about-wordmark {
       position: absolute;
       left: 50%;
-      bottom: 0;
       width: 60.5%;
-      transform: translate(-50%, 8%);
+      bottom: 5%;
+      transform: translateX(-50%);
+      filter: drop-shadow(0 2px 14px rgba(0,0,0,0.18));
       z-index: 1;
       pointer-events: none;
     }
@@ -431,7 +432,7 @@
       <img src="assets/about/about-dogs.jpg"
            srcset="assets/about/about-dogs-1200.jpg 1200w, assets/about/about-dogs.jpg 2400w"
            sizes="100vw" alt="Two happy dogs sitting side by side in the grass" loading="lazy">
-      <img class="about-wordmark" src="assets/brand/aroo-wordmark-teal.png?v=2" alt="" aria-hidden="true">
+      <img class="about-wordmark" src="assets/brand/aroo-wordmark-white.png" alt="" aria-hidden="true">
     </div>
     <div class="about-body">
       <p class="about-text">We are a local, personal dog waste removal company in Kansas. We clean up your dog’s poop so you can <span class="hl">let them go!</span> We offer competitive pricing while delivering premium service. Oh, and we want to know your dog’s name!</p>
@@ -446,7 +447,7 @@
     <div class="contact-poster">
       <h2 class="contact-title wide">LET THEM GO</h2>
       <p class="contact-sub brush">WE HANDLE THE CLEANUP</p>
-      <img class="contact-photo" src="assets/contact/puppy.jpg" width="1400" height="1290" alt="A merle puppy trotting through dry grass" loading="lazy">
+      <img class="contact-photo" src="assets/contact/contact-dog.jpg" width="1400" height="1290" alt="A woman hugging a smiling shiba inu in a park" loading="lazy">
       <ul class="contact-cities wide" aria-label="Service areas">
         <li>LAWRENCE</li><li>TOPEKA</li><li>MANHATTAN</li>
       </ul>
