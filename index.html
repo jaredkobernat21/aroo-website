@@ -302,6 +302,28 @@
       .contact-cta .lead { font-size: 4.6cqw; }
       .contact-phone { font-size: 9.6cqw; margin-top: 3cqw; }
     }
+    /* ---------- Footer ---------- */
+    .site-footer {
+      background: var(--aroo-teal);
+      color: #fff;
+      padding: 22px 24px calc(22px + env(safe-area-inset-bottom));
+      border-top: 1px solid rgba(255,255,255,0.35);
+      font-family: "Jost", "Futura", "Century Gothic", system-ui, sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0.01em;
+    }
+    .site-footer .inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px 24px;
+    }
+    .site-footer a { color: #fff; text-underline-offset: 3px; }
+    .site-footer a:hover, .site-footer a:focus-visible { text-decoration-thickness: 2px; }
+
     /* ---------- Menu ---------- */
     html { scroll-behavior: smooth; }
     .menu {
@@ -440,6 +462,12 @@
       </p>
     </div>
   </section>
+  <footer class="site-footer">
+    <div class="inner">
+      <span>&copy; 2026 aroo. &middot; Operated by ROQ Innovation LLC</span>
+      <a href="/terms/">Terms of Service</a>
+    </div>
+  </footer>
 
   <script>
     (function () {
