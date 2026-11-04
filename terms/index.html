@@ -109,6 +109,7 @@
       gap: 8px 24px;
     }
     .site-footer a { color: #fff; }
+    .footer-links { display: inline-flex; flex-wrap: wrap; gap: 6px 20px; }
 
     @media (max-width: 640px) {
       body { font-size: 16px; }
@@ -183,7 +184,7 @@
   <footer class="site-footer">
     <div class="inner">
       <span>&copy; 2026 aroo. &middot; Operated by ROQ Innovation LLC</span>
-      <a href="/terms/" aria-current="page">Terms of Service</a>
+      <span class="footer-links"><a href="/terms/" aria-current="page">Terms of Service</a> <a href="/privacy/">Privacy Policy</a></span>
     </div>
   </footer>
 </body>

@@ -3,21 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>aroo.</title>
-  <meta name="description" content="Local, personal dog waste removal in Lawrence, Topeka and Manhattan, Kansas. Text DOG to (785) 600-8801.">
+  <title>Dog Waste Removal in Topeka, KS | aroo.</title>
+  <meta name="description" content="Aroo makes dog poop cleanup easy. Affordable weekly and one-time dog waste removal in Topeka, Kansas. Get started with a cleaner yard today.">
   <link rel="canonical" href="https://aroodog.com/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="aroo.">
-  <meta property="og:title" content="aroo. | Dog waste removal in Kansas">
-  <meta property="og:description" content="Local, personal dog waste removal in Lawrence, Topeka and Manhattan, Kansas. Text DOG to (785) 600-8801.">
+  <meta property="og:title" content="Dog Waste Removal in Topeka, KS | aroo.">
+  <meta property="og:description" content="Aroo makes dog poop cleanup easy. Affordable weekly and one-time dog waste removal in Topeka, Kansas. Get started with a cleaner yard today.">
   <meta property="og:url" content="https://aroodog.com/">
   <meta property="og:image" content="https://aroodog.com/assets/brand/og-image.png?v=3">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="aroo. logo">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:image:alt" content="aroo. logo">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="aroo. | Dog waste removal in Kansas">
-  <meta name="twitter:description" content="Local, personal dog waste removal in Lawrence, Topeka and Manhattan, Kansas. Text DOG to (785) 600-8801.">
+  <meta name="twitter:title" content="Dog Waste Removal in Topeka, KS | aroo.">
+  <meta name="twitter:description" content="Aroo makes dog poop cleanup easy. Affordable weekly and one-time dog waste removal in Topeka, Kansas. Get started with a cleaner yard today.">
   <meta name="twitter:image" content="https://aroodog.com/assets/brand/og-image.png?v=3">
   <meta name="theme-color" content="#174B50">
   <link rel="icon" href="/favicon.ico?v=4" sizes="48x48">
@@ -27,33 +29,154 @@
   <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png?v=4">
   <link rel="manifest" href="/site.webmanifest">
   <script type="application/ld+json">
-  [
+{
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      "@context": "https://schema.org",
       "@type": "WebSite",
+      "@id": "https://aroodog.com/#website",
+      "url": "https://aroodog.com/",
       "name": "aroo.",
-      "alternateName": ["aroo", "aroo dog"],
-      "url": "https://aroodog.com/"
+      "alternateName": [
+        "Aroo Dog Waste Removal",
+        "aroo"
+      ],
+      "inLanguage": "en-US",
+      "publisher": {
+        "@id": "https://aroodog.com/#business"
+      }
     },
     {
-      "@context": "https://schema.org",
       "@type": "LocalBusiness",
-      "name": "aroo.",
-      "description": "Local, personal dog waste removal in Lawrence, Topeka and Manhattan, Kansas.",
+      "@id": "https://aroodog.com/#business",
+      "name": "Aroo Dog Waste Removal",
+      "alternateName": "aroo.",
       "url": "https://aroodog.com/",
+      "description": "Local, personal weekly and one-time dog waste removal in Topeka, Lawrence and Manhattan, Kansas.",
       "logo": "https://aroodog.com/assets/brand/icon-512.png",
       "image": "https://aroodog.com/assets/brand/og-image.png",
       "telephone": "+1-785-600-8801",
       "email": "hello@aroodog.com",
-      "priceRange": "$",
-      "address": { "@type": "PostalAddress", "addressLocality": "Topeka", "addressRegion": "KS", "addressCountry": "US" },
+      "priceRange": "From $14.99",
       "areaServed": [
-        { "@type": "City", "name": "Lawrence, KS" },
-        { "@type": "City", "name": "Topeka, KS" },
-        { "@type": "City", "name": "Manhattan, KS" }
+        {
+          "@type": "City",
+          "name": "Topeka",
+          "containedInPlace": {
+            "@type": "State",
+            "name": "Kansas"
+          }
+        },
+        {
+          "@type": "City",
+          "name": "Lawrence",
+          "containedInPlace": {
+            "@type": "State",
+            "name": "Kansas"
+          }
+        },
+        {
+          "@type": "City",
+          "name": "Manhattan",
+          "containedInPlace": {
+            "@type": "State",
+            "name": "Kansas"
+          }
+        }
+      ],
+      "parentOrganization": {
+        "@type": "Organization",
+        "name": "ROQ Innovation LLC"
+      },
+      "makesOffer": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@id": "https://aroodog.com/#service-weekly"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@id": "https://aroodog.com/#service-one-time"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://aroodog.com/#service-weekly",
+      "name": "Weekly dog waste removal",
+      "serviceType": "Dog waste removal",
+      "description": "Recurring dog waste removal on a scheduled service day.",
+      "provider": {
+        "@id": "https://aroodog.com/#business"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Topeka",
+          "containedInPlace": {
+            "@type": "State",
+            "name": "Kansas"
+          }
+        },
+        {
+          "@type": "City",
+          "name": "Lawrence",
+          "containedInPlace": {
+            "@type": "State",
+            "name": "Kansas"
+          }
+        },
+        {
+          "@type": "City",
+          "name": "Manhattan",
+          "containedInPlace": {
+            "@type": "State",
+            "name": "Kansas"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://aroodog.com/#service-one-time",
+      "name": "One-time dog waste cleanup",
+      "serviceType": "Dog waste removal",
+      "description": "A single dog waste cleanup visit.",
+      "provider": {
+        "@id": "https://aroodog.com/#business"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Topeka",
+          "containedInPlace": {
+            "@type": "State",
+            "name": "Kansas"
+          }
+        },
+        {
+          "@type": "City",
+          "name": "Lawrence",
+          "containedInPlace": {
+            "@type": "State",
+            "name": "Kansas"
+          }
+        },
+        {
+          "@type": "City",
+          "name": "Manhattan",
+          "containedInPlace": {
+            "@type": "State",
+            "name": "Kansas"
+          }
+        }
       ]
     }
   ]
+}
   </script>
   <style>
     :root {
@@ -121,6 +244,33 @@
       height: auto;
       filter: drop-shadow(0 2px 18px rgba(0,0,0,0.18));
     }
+    .hero-h1 {
+      margin: clamp(14px, 2vw, 24px) 0 0;
+      color: #fff;
+      text-align: center;
+      font-family: "Jost", "Futura", "Century Gothic", system-ui, sans-serif;
+      font-weight: 600;
+      font-size: clamp(13px, 1.5vw, 18px);
+      line-height: 1.35;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-shadow: 0 1px 12px rgba(0,0,0,0.35);
+    }
+    .sr-only {
+      position: absolute !important;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0 0 0 0);
+      white-space: nowrap; border: 0;
+    }
+    .skip-link {
+      position: fixed; left: 12px; top: 12px; z-index: 100;
+      padding: 10px 16px; border-radius: 8px;
+      background: #fff; color: var(--aroo-teal);
+      font: 600 16px "Jost", system-ui, sans-serif;
+      transform: translateY(-160%);
+    }
+    .skip-link:focus { transform: none; outline: 3px solid var(--aroo-butter, #F4D774); }
     @media (max-width: 640px) {
       .wordmark { width: 68vw; }
     }
@@ -430,6 +580,108 @@
       .contact-cta .lead { font-size: 4.6cqw; }
       .contact-phone { font-size: 9.6cqw; margin-top: 3cqw; }
     }
+    /* ---------- Request form ---------- */
+    .request {
+      max-width: 560px;
+      margin: clamp(72px, 9vw, 120px) auto 0;
+      color: #fff;
+      font-family: "Jost", "Futura", "Century Gothic", system-ui, sans-serif;
+    }
+    .request-title {
+      margin: 0;
+      text-align: center;
+      font-family: "Archivo", "Arial Black", sans-serif;
+      font-weight: 900;
+      font-stretch: 125%;
+      font-variation-settings: "wdth" 125;
+      font-size: clamp(26px, 4vw, 40px);
+      line-height: 1.05;
+      text-transform: uppercase;
+    }
+    .request-sub { margin: 10px 0 0; text-align: center; font-weight: 400; font-size: 17px; opacity: 0.9; }
+    .rq-form { margin-top: 32px; display: grid; gap: 22px; }
+    .rq-form[hidden], .rq-success[hidden] { display: none; }
+    .rq-field { display: grid; gap: 8px; min-width: 0; border: 0; margin: 0; padding: 0; }
+    .rq-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .rq-label, .rq-field legend { font-weight: 600; font-size: 16px; padding: 0; }
+    .rq-opt { font-weight: 400; opacity: 0.8; }
+    .rq-input {
+      width: 100%;
+      min-height: 52px;
+      padding: 12px 14px;
+      border: 2px solid transparent;
+      border-radius: 10px;
+      background: #fff;
+      color: var(--aroo-teal);
+      font: 400 17px/1.4 "Jost", "Futura", "Century Gothic", system-ui, sans-serif; /* 16px+ avoids iOS zoom */
+    }
+    textarea.rq-input { min-height: 96px; resize: vertical; }
+    .rq-input:focus-visible { outline: 3px solid var(--aroo-butter); outline-offset: 1px; }
+    .rq-input[aria-invalid="true"] { border-color: #FF9C8A; }
+    .rq-pills { display: flex; flex-wrap: wrap; gap: 10px; }
+    .rq-pill { position: relative; }
+    .rq-pill input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+    .rq-pill span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 64px;
+      min-height: 48px;
+      padding: 0 20px;
+      border: 2px solid rgba(255,255,255,0.7);
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 17px;
+      transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    }
+    .rq-pill input:checked + span { background: var(--aroo-butter); border-color: var(--aroo-butter); color: var(--aroo-teal); }
+    .rq-pill input:focus-visible + span { outline: 3px solid var(--aroo-butter); outline-offset: 3px; }
+    .rq-field[aria-invalid="true"] .rq-pill span { border-color: #FF9C8A; }
+    .rq-hint { margin: 0; font-size: 15px; opacity: 0.85; }
+    .rq-error { margin: 0; color: var(--aroo-butter); font-weight: 600; font-size: 15px; }
+    .rq-error:empty { display: none; }
+    .rq-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+    .rq-submit {
+      min-height: 56px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--aroo-butter);
+      color: var(--aroo-teal);
+      font-family: "Archivo", "Arial Black", sans-serif;
+      font-weight: 900;
+      font-stretch: 125%;
+      font-variation-settings: "wdth" 125;
+      font-size: 17px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform 0.15s ease, background-color 0.15s ease;
+    }
+    .rq-submit:hover { background: #F8E297; }
+    .rq-submit:active { transform: scale(0.99); }
+    .rq-submit:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+    .rq-submit[disabled] { opacity: 0.7; cursor: progress; }
+    .rq-alert {
+      margin: 0;
+      padding: 14px 16px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.12);
+      border-left: 4px solid #FF9C8A;
+      font-size: 16px;
+    }
+    .rq-alert:empty { display: none; }
+    .rq-alert a, .rq-privacy a, .rq-text a { color: #fff; }
+    .rq-privacy { margin: 0; font-size: 14px; line-height: 1.5; opacity: 0.85; }
+    .rq-success { margin-top: 32px; padding: 28px 24px; border-radius: 14px; background: rgba(255,255,255,0.1); text-align: center; font-size: 20px; font-weight: 600; line-height: 1.4; }
+    .rq-success:focus { outline: none; }
+    .rq-text { margin: 28px 0 0; text-align: center; font-size: 17px; }
+    .rq-text a { font-weight: 600; text-underline-offset: 3px; }
+    @media (max-width: 480px) {
+      .rq-row { grid-template-columns: 1fr; }
+      .rq-pill { flex: 1 1 0; }
+      .rq-pill span { width: 100%; padding: 0 12px; }
+    }
+
     /* ---------- Footer ---------- */
     .site-footer {
       background: var(--aroo-teal);
@@ -450,6 +702,7 @@
       gap: 8px 24px;
     }
     .site-footer a { color: #fff; text-underline-offset: 3px; }
+    .footer-links { display: inline-flex; flex-wrap: wrap; gap: 6px 20px; }
     .site-footer a:hover, .site-footer a:focus-visible { text-decoration-thickness: 2px; }
 
     /* ---------- Menu ---------- */
@@ -535,6 +788,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600&family=Archivo:wdth,wght@125,900&family=Chewy&display=swap" rel="stylesheet">
 </head>
 <body>
+  <a class="skip-link" href="#about">Skip to content</a>
   <nav class="menu" id="menu" aria-label="Site">
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-panel" aria-label="Open menu">
       <span class="bars" aria-hidden="true"><span></span><span></span></span>
@@ -549,22 +803,24 @@
   </nav>
   <main class="hero" id="home">
     <div class="stage" id="stage"></div>
-    <h1 class="wordmark">
-      <img src="assets/brand/aroo-wordmark-white.png" alt="aroo.">
-    </h1>
+    <div class="wordmark">
+      <img src="assets/brand/aroo-wordmark-white.png" width="1354" height="348" alt="aroo.">
+      <h1 class="hero-h1">Dog Waste Removal in Topeka, Kansas</h1>
+    </div>
   </main>
 
-  <section class="about" id="about" aria-label="About aroo">
+  <section class="about" id="about" aria-labelledby="about-title">
+    <h2 class="sr-only" id="about-title">About aroo.</h2>
     <div class="about-photo">
       <img src="assets/about/about-dogs.jpg"
            srcset="assets/about/about-dogs-1200.jpg 1200w, assets/about/about-dogs.jpg 2400w"
-           sizes="100vw" alt="Two happy dogs sitting side by side in the grass" loading="lazy">
-      <img class="about-wordmark" src="assets/brand/aroo-wordmark-white.png" alt="" aria-hidden="true">
+           sizes="100vw" width="2400" height="1600" alt="Two happy dogs sitting side by side in the grass" loading="lazy" decoding="async">
+      <img class="about-wordmark" src="assets/brand/aroo-wordmark-white.png" width="1354" height="348" alt="" aria-hidden="true">
     </div>
     <div class="about-body">
       <p class="about-text">We are a local, personal dog waste removal company in Kansas. We clean up your dog’s poop so you can <span class="hl">let them go!</span> We offer competitive pricing while delivering premium service. Oh, and we want to know your dog’s name!</p>
       <figure class="about-dog">
-        <img src="assets/about/ember.jpg" alt="Ember, a black and white puppy, sitting on a porch step" loading="lazy">
+        <img src="assets/about/ember.jpg" width="555" height="555" alt="Ember, a black and white puppy, sitting on a porch step" loading="lazy" decoding="async">
         <figcaption>Ember | Topeka, KS</figcaption>
       </figure>
     </div>
@@ -655,35 +911,114 @@
 
       <div class="faq-cta">
         <p>Ready for a cleaner yard?</p>
-        <a href="#contact">Get Started <span aria-hidden="true">&rarr;</span></a>
+        <a href="#request">Get Started <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
   </section>
 
-  <section class="contact" id="contact" aria-label="Contact aroo">
+  <section class="contact" id="contact" aria-labelledby="contact-title">
     <div class="contact-poster">
-      <h2 class="contact-title wide">LET THEM GO</h2>
+      <h2 class="contact-title wide" id="contact-title">LET THEM GO</h2>
       <p class="contact-sub brush">WE HANDLE THE CLEANUP</p>
-      <img class="contact-photo" src="assets/contact/contact-dog.jpg" width="1400" height="1290" alt="A woman hugging a smiling shiba inu in a park" loading="lazy">
+      <img class="contact-photo" src="assets/contact/contact-dog.jpg" srcset="assets/contact/contact-dog-700.jpg 700w, assets/contact/contact-dog.jpg 1400w" sizes="(max-width: 640px) 100vw, 510px" width="1400" height="1290" decoding="async" alt="A woman hugging a smiling shiba inu in a park" loading="lazy">
       <ul class="contact-cities wide" aria-label="Service areas">
         <li>LAWRENCE</li><li>TOPEKA</li><li>MANHATTAN</li>
       </ul>
       <div class="contact-row">
-        <img class="contact-map" src="assets/contact/map.png?v=3" width="694" height="402" alt="" aria-hidden="true" loading="lazy">
+        <img class="contact-map" src="assets/contact/map.png?v=4" width="694" height="402" alt="" aria-hidden="true" loading="lazy">
         <ul class="contact-prices brush">
           <li>STARTING AT $14.99</li>
         </ul>
       </div>
       <p class="contact-cta wide">
         <span class="lead">TEXT <b>DOG</b> TO</span>
-        <a class="contact-phone" href="sms:+17856008801?&amp;body=DOG" aria-label="Text DOG to (785) 600-8801">(785) 600-8801</a>
+        <a class="contact-phone" href="sms:+17856008801?&amp;body=DOG" data-sms="contact" aria-label="Text DOG to (785) 600-8801">(785) 600-8801</a>
       </p>
+    </div>
+
+    <div class="request" id="request">
+      <h2 class="request-title" id="request-title">Request service</h2>
+      <p class="request-sub">Takes under a minute. No account needed.</p>
+
+      <form class="rq-form" id="rq-form" novalidate aria-labelledby="request-title">
+        <div class="rq-row">
+          <div class="rq-field">
+            <label class="rq-label" for="rq-name">First name</label>
+            <input class="rq-input" id="rq-name" name="first_name" type="text" autocomplete="given-name" maxlength="60" required aria-describedby="rq-name-err">
+            <p class="rq-error" id="rq-name-err"></p>
+          </div>
+          <div class="rq-field">
+            <label class="rq-label" for="rq-zip">ZIP code</label>
+            <input class="rq-input" id="rq-zip" name="zip" type="text" inputmode="numeric" autocomplete="postal-code" maxlength="5" pattern="[0-9]{5}" required aria-describedby="rq-zip-err">
+            <p class="rq-error" id="rq-zip-err"></p>
+          </div>
+        </div>
+
+        <fieldset class="rq-field" id="rq-dogs" aria-describedby="rq-dogs-err">
+          <legend>Number of dogs</legend>
+          <div class="rq-pills">
+            <label class="rq-pill"><input type="radio" name="dogs" value="1" required><span>1</span></label>
+            <label class="rq-pill"><input type="radio" name="dogs" value="2"><span>2</span></label>
+            <label class="rq-pill"><input type="radio" name="dogs" value="3+"><span>3+</span></label>
+          </div>
+          <p class="rq-error" id="rq-dogs-err"></p>
+        </fieldset>
+
+        <fieldset class="rq-field" id="rq-service" aria-describedby="rq-service-err">
+          <legend>Service type</legend>
+          <div class="rq-pills">
+            <label class="rq-pill"><input type="radio" name="service_type" value="weekly" required><span>Weekly</span></label>
+            <label class="rq-pill"><input type="radio" name="service_type" value="one_time"><span>One-time</span></label>
+          </div>
+          <p class="rq-error" id="rq-service-err"></p>
+        </fieldset>
+
+        <fieldset class="rq-field" aria-describedby="rq-contact-hint rq-contact-err">
+          <legend>How can we reach you?</legend>
+          <p class="rq-hint" id="rq-contact-hint">Phone or email. At least one is required.</p>
+          <div class="rq-row">
+            <div class="rq-field">
+              <label class="rq-label" for="rq-phone">Phone</label>
+              <input class="rq-input" id="rq-phone" name="phone" type="tel" autocomplete="tel" maxlength="20" aria-describedby="rq-phone-err">
+              <p class="rq-error" id="rq-phone-err"></p>
+            </div>
+            <div class="rq-field">
+              <label class="rq-label" for="rq-email">Email</label>
+              <input class="rq-input" id="rq-email" name="email" type="email" autocomplete="email" maxlength="254" aria-describedby="rq-email-err">
+              <p class="rq-error" id="rq-email-err"></p>
+            </div>
+          </div>
+          <p class="rq-error" id="rq-contact-err"></p>
+        </fieldset>
+
+        <div class="rq-field">
+          <label class="rq-label" for="rq-notes">Notes <span class="rq-opt">(optional)</span></label>
+          <textarea class="rq-input" id="rq-notes" name="notes" maxlength="1000" rows="3" placeholder="Gate code, yard size, anything we should know" aria-describedby="rq-notes-err"></textarea>
+          <p class="rq-error" id="rq-notes-err"></p>
+        </div>
+
+        <!-- Spam trap: hidden from people, bots tend to fill it in. -->
+        <div class="rq-hp" aria-hidden="true">
+          <label for="rq-website">Website</label>
+          <input id="rq-website" name="website" type="text" tabindex="-1" autocomplete="off">
+        </div>
+
+        <p class="rq-alert" id="rq-alert" role="alert"></p>
+
+        <button class="rq-submit" id="rq-submit" type="submit">Request Service</button>
+
+        <p class="rq-privacy">We&rsquo;ll only use your details to respond to this request. We don&rsquo;t sell your information or send marketing texts. See our <a href="/privacy/">Privacy Policy</a>.</p>
+      </form>
+
+      <div class="rq-success" id="rq-success" tabindex="-1" role="status" hidden>Thanks! We&rsquo;ve received your request and will be in touch.</div>
+
+      <p class="rq-text">Prefer to text us? <a href="sms:+17856008801?&amp;body=DOG" data-sms="request">Text DOG to (785) 600-8801</a></p>
     </div>
   </section>
   <footer class="site-footer">
     <div class="inner">
       <span>&copy; 2026 aroo. &middot; Operated by ROQ Innovation LLC</span>
-      <a href="/terms/">Terms of Service</a>
+      <span class="footer-links"><a href="/terms/">Terms of Service</a> <a href="/privacy/">Privacy Policy</a></span>
     </div>
   </footer>
 
@@ -885,6 +1220,145 @@
           q.setAttribute('aria-expanded', open ? 'false' : 'true');
           panel.hidden = open;
         });
+      });
+    })();
+  </script>
+  <script>
+    // Service request form: validates in the browser, then posts to the
+    // aroo-service-request Supabase function. Success shows only after the
+    // server confirms the request was saved.
+    (function () {
+      var ENDPOINT = 'https://pgcospvlhorcvssafjoo.supabase.co/functions/v1/aroo-service-request';
+      var form = document.getElementById('rq-form');
+      var alertBox = document.getElementById('rq-alert');
+      var submit = document.getElementById('rq-submit');
+      var success = document.getElementById('rq-success');
+      var started = Date.now();
+      var TEXT_LINK = ' Or <a href="sms:+17856008801?&amp;body=DOG" data-sms="request-error">text DOG to (785) 600-8801</a>.';
+
+      var fields = {
+        first_name: { el: document.getElementById('rq-name'), err: 'rq-name-err' },
+        zip: { el: document.getElementById('rq-zip'), err: 'rq-zip-err' },
+        dogs: { el: document.getElementById('rq-dogs'), err: 'rq-dogs-err' },
+        service_type: { el: document.getElementById('rq-service'), err: 'rq-service-err' },
+        phone: { el: document.getElementById('rq-phone'), err: 'rq-phone-err' },
+        email: { el: document.getElementById('rq-email'), err: 'rq-email-err' },
+        contact: { el: null, err: 'rq-contact-err' },
+        notes: { el: document.getElementById('rq-notes'), err: 'rq-notes-err' }
+      };
+
+      function setError(name, msg) {
+        var f = fields[name];
+        document.getElementById(f.err).textContent = msg || '';
+        if (f.el) f.el.setAttribute('aria-invalid', msg ? 'true' : 'false');
+        if (name === 'contact') {
+          fields.phone.el.setAttribute('aria-invalid', msg ? 'true' : fields.phone.el.getAttribute('aria-invalid'));
+          fields.email.el.setAttribute('aria-invalid', msg ? 'true' : fields.email.el.getAttribute('aria-invalid'));
+        }
+      }
+
+      function values() {
+        var fd = new FormData(form);
+        return {
+          first_name: (fd.get('first_name') || '').trim(),
+          zip: (fd.get('zip') || '').trim(),
+          dogs: fd.get('dogs') || '',
+          service_type: fd.get('service_type') || '',
+          phone: (fd.get('phone') || '').trim(),
+          email: (fd.get('email') || '').trim(),
+          notes: (fd.get('notes') || '').trim(),
+          website: fd.get('website') || ''
+        };
+      }
+
+      function validate(v) {
+        var e = {};
+        if (!v.first_name) e.first_name = 'Please enter your first name.';
+        if (!/^[0-9]{5}$/.test(v.zip)) e.zip = 'Please enter a 5-digit ZIP code.';
+        if (!v.dogs) e.dogs = 'Please choose how many dogs.';
+        if (!v.service_type) e.service_type = 'Please choose weekly or one-time.';
+        if (v.phone) {
+          var d = v.phone.replace(/\D/g, '');
+          if (d.length === 11 && d.charAt(0) === '1') d = d.slice(1);
+          if (d.length !== 10) e.phone = 'Please enter a 10-digit phone number.';
+        }
+        if (v.email && !/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(v.email)) e.email = 'Please enter a valid email address.';
+        if (!v.phone && !v.email) e.contact = 'Please add a phone number or email so we can reach you.';
+        if (v.notes.length > 1000) e.notes = 'Please keep notes under 1,000 characters.';
+        return e;
+      }
+
+      function showErrors(e) {
+        Object.keys(fields).forEach(function (k) { setError(k, e[k]); });
+        var order = ['first_name', 'zip', 'dogs', 'service_type', 'phone', 'email', 'contact', 'notes'];
+        for (var i = 0; i < order.length; i++) {
+          if (e[order[i]]) {
+            var el = order[i] === 'contact' ? fields.phone.el : fields[order[i]].el;
+            var focusable = el.matches('fieldset') ? el.querySelector('input') : el;
+            focusable.focus();
+            break;
+          }
+        }
+      }
+
+      // Clear a field's error as soon as it's fixed.
+      form.addEventListener('input', function (ev) {
+        var name = ev.target.name;
+        if (name === 'zip') ev.target.value = ev.target.value.replace(/\D/g, '').slice(0, 5);
+        if (!fields[name]) return;
+        var e = validate(values());
+        if (!e[name]) setError(name, '');
+        if ((name === 'phone' || name === 'email') && !e.contact) setError('contact', '');
+      });
+
+      form.addEventListener('submit', function (ev) {
+        ev.preventDefault();
+        alertBox.innerHTML = '';
+        var v = values();
+        var e = validate(v);
+        if (Object.keys(e).length) { showErrors(e); return; }
+        showErrors({});
+
+        submit.disabled = true;
+        submit.textContent = 'Sending…';
+        v.action = 'request';
+        v.elapsed_ms = Date.now() - started;
+
+        fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(v) })
+          .then(function (res) {
+            return res.json().catch(function () { return {}; }).then(function (data) { return { ok: res.ok && data.ok, data: data }; });
+          })
+          .then(function (r) {
+            if (r.ok) {
+              form.hidden = true;
+              success.hidden = false;
+              success.focus();
+              return;
+            }
+            if (r.data && r.data.fields) showErrors(r.data.fields);
+            var msg = (r.data && r.data.error) || 'We couldn’t send your request. Please try again.';
+            alertBox.innerHTML = escapeHtml(msg) + (/text us/i.test(msg) ? '' : TEXT_LINK);
+          })
+          .catch(function () {
+            alertBox.innerHTML = 'We couldn’t send your request. Please check your connection and try again.' + TEXT_LINK;
+          })
+          .then(function () {
+            submit.disabled = false;
+            submit.textContent = 'Request Service';
+          });
+      });
+
+      function escapeHtml(s) {
+        return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; });
+      }
+
+      // Count taps on "text us" links (no personal info is sent).
+      document.addEventListener('click', function (ev) {
+        var a = ev.target.closest && ev.target.closest('a[href^="sms:"]');
+        if (!a || !navigator.sendBeacon) return;
+        try {
+          navigator.sendBeacon(ENDPOINT, JSON.stringify({ action: 'event', event: 'sms_click', placement: a.getAttribute('data-sms') || 'other' }));
+        } catch (err) {}
       });
     })();
   </script>
