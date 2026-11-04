@@ -207,6 +207,133 @@
       .about-dog { grid-column: 1; grid-row: 2; width: min(76vw, 340px); margin-top: 48px; }
       .about-dog figcaption { font-size: clamp(24px, 7.4vw, 34px); }
     }
+    /* ---------- How it works + FAQ ---------- */
+    :root {
+      --aroo-cream: #F7F2E6;
+      --aroo-butter: #F4D774;
+      --aroo-line: rgba(23, 75, 80, 0.16);
+    }
+    .how, .faq {
+      color: var(--aroo-teal);
+      font-family: "Jost", "Futura", "Century Gothic", system-ui, sans-serif;
+    }
+    .how { background: var(--aroo-cream); padding: clamp(72px, 9vw, 130px) 24px; }
+    .faq { background: var(--aroo-cream); padding: 0 24px clamp(80px, 10vw, 140px); }
+    .section-title {
+      margin: 0;
+      font-family: "Archivo", "Arial Black", sans-serif;
+      font-weight: 900;
+      font-stretch: 125%;
+      font-variation-settings: "wdth" 125;
+      font-size: clamp(28px, 4.2vw, 48px);
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+    }
+    .how-inner { max-width: 1120px; margin: 0 auto; }
+    .how-steps {
+      list-style: none;
+      margin: clamp(40px, 5vw, 64px) 0 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(32px, 4.5vw, 64px);
+    }
+    .how-steps li { border-top: 1px solid var(--aroo-line); padding-top: 24px; }
+    .step-num {
+      display: inline-grid;
+      place-items: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--aroo-butter);
+      color: var(--aroo-teal);
+      font-family: "Archivo", "Arial Black", sans-serif;
+      font-weight: 900;
+      font-size: 16px;
+    }
+    .how-steps h3 {
+      margin: 20px 0 8px;
+      font-weight: 600;
+      font-size: clamp(22px, 2.1vw, 28px);
+      line-height: 1.2;
+    }
+    .how-steps p, .faq-panel p {
+      margin: 0;
+      font-weight: 400;
+      font-size: clamp(17px, 1.35vw, 19px);
+      line-height: 1.6;
+      color: #2A4F53;
+    }
+
+    .faq-inner { max-width: 760px; margin: 0 auto; border-top: 1px solid var(--aroo-line); padding-top: clamp(64px, 8vw, 110px); }
+    .faq-list { margin: clamp(28px, 4vw, 44px) 0 0; border-top: 1px solid var(--aroo-line); }
+    .faq-item { border-bottom: 1px solid var(--aroo-line); }
+    .faq-item h3 { margin: 0; font-size: inherit; font-weight: inherit; }
+    .faq-q {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      width: 100%;
+      padding: 22px 0;
+      border: 0;
+      background: none;
+      color: inherit;
+      font: 600 clamp(18px, 1.6vw, 21px)/1.35 "Jost", "Futura", "Century Gothic", system-ui, sans-serif;
+      text-align: left;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .faq-q:focus-visible { outline: 2px solid var(--aroo-teal); outline-offset: 4px; border-radius: 4px; }
+    /* Plus sign that turns into a minus when open */
+    .faq-icon { position: relative; flex: none; width: 28px; height: 28px; border-radius: 50%; background: var(--aroo-butter); }
+    .faq-icon::before, .faq-icon::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 12px;
+      height: 2px;
+      margin: -1px 0 0 -6px;
+      border-radius: 2px;
+      background: var(--aroo-teal);
+      transition: transform 0.2s ease;
+    }
+    .faq-icon::after { transform: rotate(90deg); }
+    .faq-q[aria-expanded="true"] .faq-icon::after { transform: rotate(0deg); }
+    .faq-panel { padding: 0 48px 24px 0; }
+    .faq-panel p + p { margin-top: 12px; }
+    .faq-panel a { color: var(--aroo-teal); text-underline-offset: 3px; }
+
+    .faq-cta { margin: clamp(56px, 7vw, 88px) 0 0; text-align: center; }
+    .faq-cta p { margin: 0; font-weight: 600; font-size: clamp(22px, 2.2vw, 28px); }
+    .faq-cta a {
+      display: inline-block;
+      margin-top: 14px;
+      color: var(--aroo-teal);
+      font-family: "Archivo", "Arial Black", sans-serif;
+      font-weight: 900;
+      font-stretch: 125%;
+      font-variation-settings: "wdth" 125;
+      font-size: 15px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 6px 2px;
+      border-bottom: 3px solid var(--aroo-butter);
+      transition: border-color 0.2s ease;
+    }
+    .faq-cta a:hover, .faq-cta a:focus-visible { border-bottom-color: var(--aroo-teal); outline: none; }
+    .faq-cta a span { display: inline-block; transition: transform 0.2s ease; }
+    .faq-cta a:hover span { transform: translateX(3px); }
+
+    @media (max-width: 760px) {
+      .how-steps { grid-template-columns: 1fr; gap: 32px; }
+      .how-steps h3 { margin-top: 16px; }
+      .faq-panel { padding-right: 0; }
+    }
+
     /* ---------- Contact ---------- */
     .contact { background: var(--aroo-teal); color: #fff; overflow: hidden; padding: clamp(72px, 9vw, 130px) 0 clamp(64px, 7vw, 110px); }
     /* The poster scales as one piece: sizes are in cqw (1cqw = 1% of poster width; design was 1080px wide). */
@@ -405,7 +532,7 @@
   </style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@600&family=Archivo:wdth,wght@125,900&family=Chewy&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600&family=Archivo:wdth,wght@125,900&family=Chewy&display=swap" rel="stylesheet">
 </head>
 <body>
   <nav class="menu" id="menu" aria-label="Site">
@@ -440,6 +567,96 @@
         <img src="assets/about/ember.jpg" alt="Ember, a black and white puppy, sitting on a porch step" loading="lazy">
         <figcaption>Ember | Topeka, KS</figcaption>
       </figure>
+    </div>
+  </section>
+
+  <section class="how" id="how-it-works" aria-labelledby="how-title">
+    <div class="how-inner">
+      <h2 class="section-title" id="how-title">How it works</h2>
+      <ol class="how-steps">
+        <li>
+          <span class="step-num" aria-hidden="true">1</span>
+          <h3>Tell us about your yard</h3>
+          <p>Share your address, number of dogs, and preferred service.</p>
+        </li>
+        <li>
+          <span class="step-num" aria-hidden="true">2</span>
+          <h3>We handle the dirty work</h3>
+          <p>Aroo visits on your scheduled service day and cleans up the dog waste.</p>
+        </li>
+        <li>
+          <span class="step-num" aria-hidden="true">3</span>
+          <h3>Enjoy your yard</h3>
+          <p>Spend less time scooping and more time with your dogs.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="faq" id="faq" aria-labelledby="faq-title">
+    <div class="faq-inner">
+      <h2 class="section-title" id="faq-title">Questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3><button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a1" id="faq-q1">Do I need to be home?<span class="faq-icon" aria-hidden="true"></span></button></h3>
+          <div class="faq-panel" id="faq-a1" role="region" aria-labelledby="faq-q1">
+            <p>No. We just need safe access to the areas we&rsquo;re cleaning on your service day, so leave the gate unlocked or send us access instructions. We never need to come inside your home.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <h3><button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a2" id="faq-q2">Can my dogs be in the yard?<span class="faq-icon" aria-hidden="true"></span></button></h3>
+          <div class="faq-panel" id="faq-a2" role="region" aria-labelledby="faq-q2">
+            <p>Please keep dogs safely secured while we&rsquo;re there, unless we&rsquo;ve agreed on another arrangement with you ahead of time. Let us know about your pets and anything in the yard that could be a safety concern.</p>
+          </div>
+        </div>
+        <!-- TODO(aroo): "What happens to the waste?" is hidden until the disposal method is confirmed.
+             Nothing on the site or in the Terms says how waste is disposed of. Add the confirmed answer, then uncomment.
+        <div class="faq-item">
+          <h3><button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a3" id="faq-q3">What happens to the waste?<span class="faq-icon" aria-hidden="true"></span></button></h3>
+          <div class="faq-panel" id="faq-a3" role="region" aria-labelledby="faq-q3">
+            <p>TODO: confirmed disposal method.</p>
+          </div>
+        </div>
+        -->
+        <div class="faq-item">
+          <h3><button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a4" id="faq-q4">How does weekly scheduling work?<span class="faq-icon" aria-hidden="true"></span></button></h3>
+          <div class="faq-panel" id="faq-a4" role="region" aria-labelledby="faq-q4">
+            <!-- TODO(aroo): confirm how a service day is chosen (customer picks vs. route-assigned) and which visit frequencies are offered before adding those details. -->
+            <p>Recurring service runs on a regular scheduled visit day. Your service day, scope, and price are confirmed with you before we start.</p>
+            <p>To change, pause, or cancel your service, email <a href="mailto:hello@aroodog.com">hello@aroodog.com</a>.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <h3><button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a5" id="faq-q5">How and when am I billed?<span class="faq-icon" aria-hidden="true"></span></button></h3>
+          <div class="faq-panel" id="faq-a5" role="region" aria-labelledby="faq-q5">
+            <!-- TODO(aroo): confirm how one-time cleanups are billed (e.g. invoice after the visit) before adding it here. -->
+            <p>Pricing is agreed on before any work begins. Recurring customers are billed monthly for completed visits, with invoices typically sent at the end of each month. You can pay securely through Stripe.</p>
+            <p>Automatic payments are optional, and we&rsquo;ll only charge a saved card after you&rsquo;ve separately authorized it.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <h3><button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a6" id="faq-q6">What happens during bad weather?<span class="faq-icon" aria-hidden="true"></span></button></h3>
+          <div class="faq-panel" id="faq-a6" role="region" aria-labelledby="faq-q6">
+            <p>Severe weather or hazardous conditions can occasionally shift the schedule. We&rsquo;ll do our best to let you know and set up another service date when practical, and you&rsquo;re never charged for a visit we didn&rsquo;t make.</p>
+            <p>Snow, ice, or standing water can also make some waste hard to reach, which may limit how complete a cleanup can be.</p>
+          </div>
+        </div>
+        <!-- TODO(aroo): "Is the first cleanup priced differently?" is hidden until confirmed.
+             The site only says "Starting at $14.99", and the Terms only say pricing is agreed before work begins.
+             Nothing says whether a first or initial cleanup costs more. Add the confirmed answer, then uncomment.
+        <div class="faq-item">
+          <h3><button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a7" id="faq-q7">Is the first cleanup priced differently?<span class="faq-icon" aria-hidden="true"></span></button></h3>
+          <div class="faq-panel" id="faq-a7" role="region" aria-labelledby="faq-q7">
+            <p>TODO: confirmed first-cleanup pricing.</p>
+          </div>
+        </div>
+        -->
+      </div>
+
+      <div class="faq-cta">
+        <p>Ready for a cleaner yard?</p>
+        <a href="#contact">Get Started <span aria-hidden="true">&rarr;</span></a>
+      </div>
     </div>
   </section>
 
@@ -638,18 +855,37 @@
       });
 
       // Teal bars while they sit over the white part of the About section.
-      var light = document.querySelector('.about-body');
+      var lights = document.querySelectorAll('.about-body, .how, .faq');
       var ticking = false;
       function checkLight() {
         ticking = false;
-        var b = btn.getBoundingClientRect(), r = light.getBoundingClientRect();
+        var b = btn.getBoundingClientRect();
         var y = b.top + b.height / 2;
-        menu.classList.toggle('on-light', y >= r.top && y <= r.bottom);
+        var on = false;
+        lights.forEach(function (el) {
+          var r = el.getBoundingClientRect();
+          if (y >= r.top && y <= r.bottom) on = true;
+        });
+        menu.classList.toggle('on-light', on);
       }
       function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(checkLight); } }
       window.addEventListener('scroll', onScroll, { passive: true });
       window.addEventListener('resize', onScroll);
       checkLight();
+    })();
+  </script>
+  <script>
+    // FAQ accordion: each question is a button that shows or hides its answer.
+    (function () {
+      document.querySelectorAll('.faq-q').forEach(function (q) {
+        var panel = document.getElementById(q.getAttribute('aria-controls'));
+        panel.hidden = true; // answers stay visible if JavaScript doesn't run
+        q.addEventListener('click', function () {
+          var open = q.getAttribute('aria-expanded') === 'true';
+          q.setAttribute('aria-expanded', open ? 'false' : 'true');
+          panel.hidden = open;
+        });
+      });
     })();
   </script>
 </body>
