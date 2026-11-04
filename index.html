@@ -28,6 +28,7 @@
   <link rel="icon" type="image/png" sizes="192x192" href="/assets/brand/icon-192.png?v=4">
   <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png?v=4">
   <link rel="manifest" href="/site.webmanifest">
+  <link rel="preload" as="image" href="assets/brand/aroo-wordmark-white.png" fetchpriority="high">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -770,7 +771,8 @@
   </style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600&family=Archivo:wdth,wght@125,900&family=Chewy&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600&family=Archivo:wdth,wght@125,900&family=Chewy&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600&family=Archivo:wdth,wght@125,900&family=Chewy&display=swap" rel="stylesheet"></noscript>
 </head>
 <body>
   <a class="skip-link" href="#about">Skip to content</a>
@@ -789,7 +791,7 @@
   <main class="hero" id="home">
     <div class="stage" id="stage"></div>
     <div class="wordmark">
-      <img src="assets/brand/aroo-wordmark-white.png" width="1354" height="348" alt="aroo.">
+      <img src="assets/brand/aroo-wordmark-white.png" width="1354" height="348" alt="aroo." fetchpriority="high">
       <h1 class="hero-h1">Dog Waste Removal in Topeka, Kansas</h1>
     </div>
   </main>
@@ -1002,7 +1004,10 @@
 
   <script>
     (function () {
-      var SCENES = [1, 2, 3, 4, 5, 6].map(function (n) { return 'assets/video/scene' + n + '.mp4?v=2'; });
+      var SCENES = [1, 2, 3, 4, 5, 6];
+      // Phones get lighter 720p copies; desktop panels get the full 1080p clips.
+      function sceneUrl(i) { return (desktopQuery.matches ? 'assets/video/' : 'assets/video/m/') + 'scene' + SCENES[i] + '.mp4?v=2'; }
+      function posterUrl(i) { return 'assets/video/poster/scene' + SCENES[i] + '.jpg'; }
       var FADE = 0.9;      // seconds of crossfade
       var LEAD = 1.4;      // start loading the next scene this many seconds before the current one ends
       // Desktop = landscape screen at least 768px wide: three panels side by side.
@@ -1067,7 +1072,7 @@
         var self = this;
         var cur = this.videos[this.current];
         var nxt = this.videos[1 - this.current];
-        nxt.src = SCENES[next];
+        nxt.src = sceneUrl(next);
         nxt.load();
         var started = false;
         function go() {
@@ -1099,12 +1104,18 @@
       Panel.prototype.start = function (sceneIdx) {
         var v = this.videos[0];
         this.scene = sceneIdx;
-        v.src = SCENES[sceneIdx];
+        // Show a still of the first frame right away; start the video once the page
+        // has finished loading so the logo and text appear first.
+        v.poster = posterUrl(sceneIdx);
         v.classList.add('is-active');
-        var p = v.play();
-        if (p && p.catch) p.catch(function () {
-          // Autoplay blocked (e.g. iOS Low Power Mode): start on first tap.
-          document.addEventListener('touchstart', function () { v.play(); }, { once: true, passive: true });
+        afterLoad(function () {
+          if (v.getAttribute('src')) return;
+          v.src = sceneUrl(sceneIdx);
+          var p = v.play();
+          if (p && p.catch) p.catch(function () {
+            // Autoplay blocked (e.g. iOS Low Power Mode): start on first tap.
+            document.addEventListener('touchstart', function () { v.play(); }, { once: true, passive: true });
+          });
         });
       };
 
@@ -1112,6 +1123,11 @@
         this.videos.forEach(function (v) { v.pause(); v.removeAttribute('src'); v.load(); });
         this.el.remove();
       };
+
+      function afterLoad(fn) {
+        if (document.readyState === 'complete') setTimeout(fn, 0);
+        else window.addEventListener('load', function () { setTimeout(fn, 0); }, { once: true });
+      }
 
       function build() {
         panels.forEach(function (p) { p.destroy(); });

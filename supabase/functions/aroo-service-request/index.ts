@@ -20,9 +20,9 @@ const ALLOWED_ORIGINS = new Set([
 ]);
 
 const NOTIFY_TO = "hello@aroodog.com";
-// roqhome.com is the verified Resend sending domain today. Once aroodog.com is
-// verified in Resend, switch to "aroo. <requests@aroodog.com>".
-const NOTIFY_FROM = "aroo. requests <notifications@roqhome.com>";
+// Preferred sender is aroodog.com. Until that domain is verified in Resend, Resend
+// rejects it, so we fall back to the already-verified roqhome.com sender.
+const NOTIFY_FROM = ["aroo. requests <requests@aroodog.com>", "aroo. requests <notifications@roqhome.com>"];
 
 const LIMITS = {
   request: { max: 5, windowMin: 60 },
@@ -206,22 +206,24 @@ Deno.serve(async (req: Request) => {
       ${email ? `<p><strong>Email:</strong> <a href="mailto:${esc(email)}">${esc(email)}</a></p>` : ""}
       ${notes ? `<p><strong>Notes:</strong><br>${esc(notes).replace(/\n/g, "<br>")}</p>` : ""}
       <p style="color:#777;font-size:12px">Request ${esc(id)} · saved in Supabase table aroo_service_requests</p>`;
-    try {
-      const r = await fetch("https://api.resend.com/emails", {
-        method: "POST",
-        headers: { Authorization: `Bearer ${resendKey}`, "Content-Type": "application/json" },
-        body: JSON.stringify({
-          from: NOTIFY_FROM,
-          to: [NOTIFY_TO],
-          ...(email ? { reply_to: email } : {}),
-          subject: `New request: ${serviceLabel}, ${dogsLabel}, ${zip}`,
-          html,
-        }),
-      });
-      emailStatus = r.ok ? "sent" : "failed";
-      if (!r.ok) console.error("aroo-service-request: email failed", r.status);
-    } catch {
-      console.error("aroo-service-request: email error");
+    for (const from of NOTIFY_FROM) {
+      try {
+        const r = await fetch("https://api.resend.com/emails", {
+          method: "POST",
+          headers: { Authorization: `Bearer ${resendKey}`, "Content-Type": "application/json" },
+          body: JSON.stringify({
+            from,
+            to: [NOTIFY_TO],
+            ...(email ? { reply_to: email } : {}),
+            subject: `New request: ${serviceLabel}, ${dogsLabel}, ${zip}`,
+            html,
+          }),
+        });
+        if (r.ok) { emailStatus = from.includes("aroodog.com") ? "sent" : "sent_fallback"; break; }
+        console.error("aroo-service-request: email failed", r.status);
+      } catch {
+        console.error("aroo-service-request: email error");
+      }
     }
   }
   await db(`aroo_service_requests?id=eq.${id}`, { method: "PATCH", body: JSON.stringify({ email_status: emailStatus }) })
