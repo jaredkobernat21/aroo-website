@@ -240,13 +240,12 @@
       white-space: nowrap; border: 0;
     }
     .skip-link {
-      position: fixed; left: 12px; top: 12px; z-index: 100;
+      position: fixed; left: -9999px; top: 12px; z-index: 100;
       padding: 10px 16px; border-radius: 8px;
       background: #fff; color: var(--aroo-teal);
       font: 600 16px "Jost", system-ui, sans-serif;
-      transform: translateY(-160%);
     }
-    .skip-link:focus { transform: none; outline: 3px solid var(--aroo-butter, #F4D774); }
+    .skip-link:focus { left: 12px; outline: 3px solid var(--aroo-butter, #F4D774); }
     @media (max-width: 640px) {
       .wordmark { width: 68vw; }
       /* One line on phones: a bit wider than the logo, sized to the screen width. */
@@ -271,13 +270,14 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: 60% 40%;
+      object-position: 62% 32%;
     }
     /* White wordmark rests on the photo's bottom edge, right against the white section. */
     .about-wordmark {
       position: absolute;
       left: 50%;
       width: 60.5%;
+      height: auto;
       bottom: 0;
       transform: translate(-50%, 8%); /* dips slightly onto the white section, as in the original layout */
       filter: drop-shadow(0 2px 14px rgba(0,0,0,0.18));
@@ -351,7 +351,7 @@
       color: var(--aroo-teal);
       font-family: "Jost", "Futura", "Century Gothic", system-ui, sans-serif;
     }
-    .how { background: var(--aroo-cream); padding: clamp(72px, 9vw, 130px) 24px; }
+    .how { background: #F7DF75; padding: clamp(72px, 9vw, 130px) 24px; }
     .faq { background: var(--aroo-cream); padding: 0 24px clamp(80px, 10vw, 140px); }
     .section-title {
       margin: 0;
@@ -380,8 +380,8 @@
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      background: var(--aroo-butter);
-      color: var(--aroo-teal);
+      background: var(--aroo-teal);
+      color: #fff;
       font-family: "Archivo", "Arial Black", sans-serif;
       font-weight: 900;
       font-size: 16px;
@@ -400,7 +400,7 @@
       color: #2A4F53;
     }
 
-    .faq-inner { max-width: 760px; margin: 0 auto; border-top: 1px solid var(--aroo-line); padding-top: clamp(64px, 8vw, 110px); }
+    .faq-inner { max-width: 760px; margin: 0 auto; padding-top: clamp(64px, 8vw, 110px); }
     .faq-list { margin: clamp(28px, 4vw, 44px) 0 0; border-top: 1px solid var(--aroo-line); }
     .faq-item { border-bottom: 1px solid var(--aroo-line); }
     .faq-item h3 { margin: 0; font-size: inherit; font-weight: inherit; }
@@ -796,9 +796,9 @@
   <section class="about" id="about" aria-labelledby="about-title">
     <h2 class="sr-only" id="about-title">About aroo.</h2>
     <div class="about-photo">
-      <img src="assets/about/about-dogs.jpg"
-           srcset="assets/about/about-dogs-1200.jpg 1200w, assets/about/about-dogs.jpg 2400w"
-           sizes="100vw" width="2400" height="1600" alt="Two happy dogs sitting side by side in the grass" loading="lazy" decoding="async">
+      <img src="assets/about/about-hero.jpg"
+           srcset="assets/about/about-hero-1200.jpg 1200w, assets/about/about-hero.jpg 2400w"
+           sizes="100vw" width="2400" height="1600" alt="A red spaniel standing up to give a woman its paws" loading="lazy" decoding="async">
       <img class="about-wordmark" src="assets/brand/aroo-wordmark-white.png" width="1354" height="348" alt="" aria-hidden="true">
     </div>
     <div class="about-body">
@@ -846,7 +846,8 @@
         <div class="faq-item">
           <h3><button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a2" id="faq-q2">Can my dogs be in the yard?<span class="faq-icon" aria-hidden="true"></span></button></h3>
           <div class="faq-panel" id="faq-a2" role="region" aria-labelledby="faq-q2">
-            <p>Please keep dogs safely secured while we&rsquo;re there, unless we&rsquo;ve agreed on another arrangement with you ahead of time. Let us know about your pets and anything in the yard that could be a safety concern.</p>
+            <p>On our first visit, we&rsquo;d love to meet your dogs! After that, we ask that dogs be safely secured during regular service visits, unless we&rsquo;ve agreed on another arrangement with you ahead of time.</p>
+            <p>Please let us know about your pets and anything in the yard that could be a safety concern.</p>
           </div>
         </div>
         <div class="faq-item">
