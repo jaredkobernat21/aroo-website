@@ -315,6 +315,61 @@
       margin: clamp(80px, 12vw, 200px) 0 0;
       text-align: center;
     }
+    /* Dog photo slideshow: swipe on touch screens, arrows and dots everywhere. */
+    .dog-track {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior-x: contain;
+    }
+    .dog-track::-webkit-scrollbar { display: none; }
+    .dog-slide { flex: 0 0 100%; min-width: 0; margin: 0; scroll-snap-align: center; container-type: inline-size; }
+    /* Caption scales with the photo so "Ember | Topeka, KS" always fits under the circle. */
+    .about-dog .dog-slide figcaption { font-size: min(46px, 10cqw); }
+    .dog-controls { display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 18px; }
+    .dog-arrow {
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      padding: 0 0 3px;
+      border: 2px solid rgba(255,255,255,0.75);
+      border-radius: 50%;
+      background: transparent;
+      color: #fff;
+      font: 400 28px/1 "Jost", system-ui, sans-serif;
+      cursor: pointer;
+      transition: background-color 0.15s ease, color 0.15s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .dog-arrow:hover { background: #fff; color: var(--aroo-teal); }
+    .dog-arrow:focus-visible, .dog-dots button:focus-visible { outline: 3px solid var(--aroo-butter); outline-offset: 3px; }
+    .dog-dots { display: flex; gap: 4px; }
+    .dog-dots button {
+      width: 28px;
+      height: 28px;
+      padding: 0;
+      border: 0;
+      background: none;
+      cursor: pointer;
+      position: relative;
+    }
+    .dog-dots button::before {
+      content: "";
+      position: absolute;
+      inset: 50% auto auto 50%;
+      width: 10px;
+      height: 10px;
+      margin: -5px 0 0 -5px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.4);
+      transition: background-color 0.15s ease, transform 0.15s ease;
+    }
+    .dog-dots button[aria-current="true"]::before { background: #fff; transform: scale(1.2); }
+
     .about-dog img {
       display: block;
       width: 100%;
@@ -811,10 +866,26 @@
         <p>We’re a locally owned dog waste removal service making life easier for dogs and their people. We take care of the dirty work so you can spend less time cleaning up and more time enjoying your yard.</p>
         <p>Simple, reliable service with a personal touch. And yes, we want to know your dog’s name!</p>
       </div>
-      <figure class="about-dog">
-        <img src="assets/about/ember.jpg" width="555" height="555" alt="Ember, a black and white puppy, sitting on a porch step" loading="lazy" decoding="async">
-        <figcaption>Ember | Topeka, KS</figcaption>
-      </figure>
+      <div class="about-dog" role="region" aria-roledescription="carousel" aria-label="Dogs we take care of">
+        <div class="dog-track" id="dog-track">
+          <figure class="dog-slide" role="group" aria-roledescription="slide" aria-label="1 of 2">
+            <img src="assets/about/ember.jpg" width="555" height="555" alt="Ember, a black and white puppy, sitting on a porch step" loading="lazy" decoding="async">
+            <figcaption>Ember | Topeka, KS</figcaption>
+          </figure>
+          <figure class="dog-slide" role="group" aria-roledescription="slide" aria-label="2 of 2">
+            <img src="assets/about/raina.jpg" width="800" height="800" alt="Raina, a golden retriever, sitting in the sun in a living room" loading="lazy" decoding="async">
+            <figcaption>Raina</figcaption>
+          </figure>
+        </div>
+        <div class="dog-controls">
+          <button class="dog-arrow" type="button" data-dir="-1" aria-label="Previous dog" aria-controls="dog-track"><span aria-hidden="true">&lsaquo;</span></button>
+          <div class="dog-dots">
+            <button type="button" aria-label="Show Ember" aria-current="true" data-i="0"></button>
+            <button type="button" aria-label="Show Raina" data-i="1"></button>
+          </div>
+          <button class="dog-arrow" type="button" data-dir="1" aria-label="Next dog" aria-controls="dog-track"><span aria-hidden="true">&rsaquo;</span></button>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1359,6 +1430,35 @@
           navigator.sendBeacon(ENDPOINT, JSON.stringify({ action: 'event', event: 'sms_click', placement: a.getAttribute('data-sms') || 'other' }));
         } catch (err) {}
       });
+    })();
+  </script>
+  <script>
+    // About-section dog slideshow.
+    (function () {
+      var track = document.getElementById('dog-track');
+      if (!track) return;
+      var slides = track.querySelectorAll('.dog-slide');
+      var dots = document.querySelectorAll('.dog-dots button');
+      function index() { return Math.round(track.scrollLeft / track.clientWidth); }
+      function go(i) {
+        i = (i + slides.length) % slides.length;
+        track.scrollTo({ left: i * track.clientWidth });
+      }
+      function update() {
+        var i = index();
+        dots.forEach(function (d, k) { d.setAttribute('aria-current', k === i ? 'true' : 'false'); });
+        slides.forEach(function (sl, k) { sl.setAttribute('aria-hidden', k === i ? 'false' : 'true'); });
+      }
+      document.querySelectorAll('.dog-arrow').forEach(function (b) {
+        b.addEventListener('click', function () { go(index() + Number(b.getAttribute('data-dir'))); });
+      });
+      dots.forEach(function (d) {
+        d.addEventListener('click', function () { go(Number(d.getAttribute('data-i'))); });
+      });
+      var t;
+      track.addEventListener('scroll', function () { clearTimeout(t); t = setTimeout(update, 60); }, { passive: true });
+      window.addEventListener('resize', function () { track.scrollLeft = index() * track.clientWidth; });
+      update();
     })();
   </script>
 </body>
