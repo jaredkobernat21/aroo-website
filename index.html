@@ -260,7 +260,7 @@
     }
 
     /* ---------- About ---------- */
-    .about { background: #fff; }
+    .about { background: var(--aroo-teal); }
 
     .about-photo {
       position: relative;
@@ -273,14 +273,14 @@
       object-fit: cover;
       object-position: 62% 32%;
     }
-    /* White wordmark rests on the photo's bottom edge, right against the white section. */
+    /* White wordmark rests on the photo's bottom edge, dipping onto the teal below. */
     .about-wordmark {
       position: absolute;
       left: 50%;
       width: 60.5%;
       height: auto;
       bottom: 0;
-      transform: translate(-50%, 8%); /* dips slightly onto the white section, as in the original layout */
+      transform: translate(-50%, 8%); /* dips slightly onto the teal section below */
       filter: drop-shadow(0 2px 14px rgba(0,0,0,0.18));
       z-index: 1;
       pointer-events: none;
@@ -294,12 +294,14 @@
       margin: 0 auto;
       padding: clamp(56px, 7.5vw, 120px) 4.5vw clamp(72px, 9vw, 150px) 8vw;
     }
+    .about-text p { margin: 0; }
+    .about-text p + p { margin-top: 1em; }
     .about-text {
       grid-column: 2;
       grid-row: 1;
       font-family: "Jost", "Futura", "Century Gothic", system-ui, sans-serif;
       font-weight: 600;
-      color: var(--aroo-teal);
+      color: #fff;
       font-size: clamp(20px, 2.4vw, 38px);
       line-height: 1.24;
       letter-spacing: -0.005em;
@@ -325,7 +327,7 @@
       margin-top: 0.9em;
       font-family: "Jost", "Futura", "Century Gothic", system-ui, sans-serif;
       font-weight: 600;
-      color: var(--aroo-teal);
+      color: #fff;
       font-size: clamp(26px, 3.6vw, 56px);
       line-height: 1.1;
       letter-spacing: -0.01em;
@@ -805,7 +807,10 @@
       <img class="about-wordmark" src="assets/brand/aroo-wordmark-white.png" width="1354" height="348" alt="" aria-hidden="true">
     </div>
     <div class="about-body">
-      <p class="about-text">We are a local, personal dog waste removal company in Kansas. We clean up your dog’s poop so you can <span class="hl">let them go!</span> We offer competitive pricing while delivering premium service. Oh, and we want to know your dog’s name!</p>
+      <div class="about-text">
+        <p>We’re a locally owned dog waste removal service making life easier for dogs and their people. We take care of the dirty work so you can spend less time cleaning up and more time enjoying your yard.</p>
+        <p>Simple, reliable service with a personal touch. And yes, we want to know your dog’s name!</p>
+      </div>
       <figure class="about-dog">
         <img src="assets/about/ember.jpg" width="555" height="555" alt="Ember, a black and white puppy, sitting on a porch step" loading="lazy" decoding="async">
         <figcaption>Ember | Topeka, KS</figcaption>
@@ -1184,7 +1189,7 @@
       });
 
       // Teal bars while they sit over the white part of the About section.
-      var lights = document.querySelectorAll('.about-body, .how, .faq');
+      var lights = document.querySelectorAll('.how, .faq');
       var ticking = false;
       function checkLight() {
         ticking = false;
