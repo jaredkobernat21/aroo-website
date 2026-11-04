@@ -22,11 +22,11 @@
   <meta name="twitter:description" content="Aroo makes dog poop cleanup easy. Affordable weekly and one-time dog waste removal in Topeka, Kansas. Get started with a cleaner yard today.">
   <meta name="twitter:image" content="https://aroodog.com/assets/brand/og-image.png?v=3">
   <meta name="theme-color" content="#174B50">
-  <link rel="icon" href="/favicon.ico?v=4" sizes="48x48">
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32.png?v=4">
-  <link rel="icon" type="image/png" sizes="96x96" href="/assets/brand/favicon-96.png?v=4">
-  <link rel="icon" type="image/png" sizes="192x192" href="/assets/brand/icon-192.png?v=4">
-  <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png?v=4">
+  <link rel="icon" href="/favicon.ico?v=5" sizes="48x48">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32.png?v=5">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/brand/favicon-96.png?v=5">
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/brand/icon-192.png?v=5">
+  <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png?v=5">
   <link rel="manifest" href="/site.webmanifest">
   <link rel="preload" as="image" href="assets/brand/aroo-wordmark-white.png" fetchpriority="high">
   <script type="application/ld+json">
@@ -725,6 +725,27 @@
       .rq-pill span { width: 100%; padding: 0 12px; }
     }
 
+    .review { margin: 48px 0 0; padding-top: 36px; border-top: 1px solid rgba(255,255,255,0.2); text-align: center; }
+    .review p { margin: 0 0 14px; font-weight: 600; font-size: 18px; }
+    .review-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 48px;
+      padding: 0 24px;
+      border: 2px solid var(--aroo-butter);
+      border-radius: 999px;
+      color: #fff;
+      font-weight: 600;
+      font-size: 17px;
+      text-decoration: none;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+    .review-btn span[aria-hidden] { color: var(--aroo-butter); font-size: 18px; transition: color 0.15s ease; }
+    .review-btn:hover { background: var(--aroo-butter); color: var(--aroo-teal); }
+    .review-btn:hover span[aria-hidden] { color: var(--aroo-teal); }
+    .review-btn:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+
     /* ---------- Footer ---------- */
     .site-footer {
       background: var(--aroo-teal);
@@ -1069,6 +1090,13 @@
       <div class="rq-success" id="rq-success" tabindex="-1" role="status" hidden>Thanks! We&rsquo;ve received your request and will be in touch.</div>
 
       <p class="rq-text">Prefer to text us? <a href="sms:+17856008801?&amp;body=DOG" data-sms="request">Text DOG to (785) 600-8801</a></p>
+
+      <div class="review">
+        <p>Happy with your clean yard?</p>
+        <a class="review-btn" href="https://g.page/r/CSEv50ucIH2yEBM/review" target="_blank" rel="noopener">
+          <span aria-hidden="true">&#9733;</span> Leave us a Google review<span class="sr-only"> (opens in a new tab)</span>
+        </a>
+      </div>
     </div>
   </section>
   <footer class="site-footer">
