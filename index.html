@@ -249,6 +249,14 @@
     .skip-link:focus { transform: none; outline: 3px solid var(--aroo-butter, #F4D774); }
     @media (max-width: 640px) {
       .wordmark { width: 68vw; }
+      /* One line on phones: a bit wider than the logo, sized to the screen width. */
+      .hero-h1 {
+        width: 94vw;
+        margin-left: -13vw;
+        white-space: nowrap;
+        font-size: min(3.3vw, 18px);
+        letter-spacing: 0.1em;
+      }
     }
 
     /* ---------- About ---------- */
