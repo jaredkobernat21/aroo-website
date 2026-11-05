@@ -683,6 +683,9 @@
     .rq-hint { margin: 0; font-size: 15px; opacity: 0.85; }
     .rq-error { margin: 0; color: var(--aroo-butter); font-weight: 600; font-size: 15px; }
     .rq-error:empty { display: none; }
+    @media (min-width: 641px) { .rq-promo { max-width: 320px; } }
+    #rq-promo { text-transform: uppercase; letter-spacing: 0.04em; }
+    #rq-promo::placeholder { text-transform: none; letter-spacing: 0; }
     .rq-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
     .rq-submit {
       min-height: 56px;
@@ -1068,6 +1071,12 @@
           <p class="rq-error" id="rq-contact-err"></p>
         </fieldset>
 
+        <div class="rq-field rq-promo">
+          <label class="rq-label" for="rq-promo">Promo code <span class="rq-opt">(optional)</span></label>
+          <input class="rq-input" id="rq-promo" name="promo_code" type="text" maxlength="30" autocomplete="off" autocapitalize="characters" spellcheck="false" aria-describedby="rq-promo-err">
+          <p class="rq-error" id="rq-promo-err"></p>
+        </div>
+
         <div class="rq-field">
           <label class="rq-label" for="rq-notes">Notes <span class="rq-opt">(optional)</span></label>
           <textarea class="rq-input" id="rq-notes" name="notes" maxlength="1000" rows="3" placeholder="Gate code, yard size, anything we should know" aria-describedby="rq-notes-err"></textarea>
@@ -1342,8 +1351,16 @@
         phone: { el: document.getElementById('rq-phone'), err: 'rq-phone-err' },
         email: { el: document.getElementById('rq-email'), err: 'rq-email-err' },
         contact: { el: null, err: 'rq-contact-err' },
+        promo_code: { el: document.getElementById('rq-promo'), err: 'rq-promo-err' },
         notes: { el: document.getElementById('rq-notes'), err: 'rq-notes-err' }
       };
+
+      // Partner links can prefill the code: aroodog.com/?promo=CODE#request
+      try {
+        var qp = new URLSearchParams(location.search);
+        var pre = (qp.get('promo') || qp.get('code') || qp.get('ref') || '').replace(/[^a-z0-9_-]/gi, '').slice(0, 30).toUpperCase();
+        if (pre) fields.promo_code.el.value = pre;
+      } catch (err) {}
 
       function setError(name, msg) {
         var f = fields[name];
@@ -1364,6 +1381,7 @@
           service_type: fd.get('service_type') || '',
           phone: (fd.get('phone') || '').trim(),
           email: (fd.get('email') || '').trim(),
+          promo_code: (fd.get('promo_code') || '').replace(/\s+/g, '').toUpperCase(),
           notes: (fd.get('notes') || '').trim(),
           website: fd.get('website') || ''
         };
@@ -1382,13 +1400,14 @@
         }
         if (v.email && !/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(v.email)) e.email = 'Please enter a valid email address.';
         if (!v.phone && !v.email) e.contact = 'Please add a phone number or email so we can reach you.';
+        if (v.promo_code && !/^[A-Z0-9_-]{1,30}$/.test(v.promo_code)) e.promo_code = 'Promo codes use letters, numbers and dashes only.';
         if (v.notes.length > 1000) e.notes = 'Please keep notes under 1,000 characters.';
         return e;
       }
 
       function showErrors(e) {
         Object.keys(fields).forEach(function (k) { setError(k, e[k]); });
-        var order = ['first_name', 'zip', 'dogs', 'service_type', 'phone', 'email', 'contact', 'notes'];
+        var order = ['first_name', 'zip', 'dogs', 'service_type', 'phone', 'email', 'contact', 'promo_code', 'notes'];
         for (var i = 0; i < order.length; i++) {
           if (e[order[i]]) {
             var el = order[i] === 'contact' ? fields.phone.el : fields[order[i]].el;

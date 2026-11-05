@@ -5,7 +5,7 @@
 // --no-verify-jwt, so the site sends no key at all.
 //
 // POST { action: "request", first_name, zip, dogs, service_type, phone, email,
-//        notes, website (honeypot), elapsed_ms }
+//        notes, promo_code, website (honeypot), elapsed_ms }
 //   -> saves to aroo_service_requests, logs a request_submitted event, emails
 //      hello@aroodog.com. Success is returned only after the row is saved.
 // POST { action: "event", event: "sms_click", placement }
@@ -170,12 +170,21 @@ Deno.serve(async (req: Request) => {
   if (notesRaw.length > 1000) errors.notes = "Please keep notes under 1,000 characters.";
   const notes = notesRaw ? notesRaw.slice(0, 1000) : null;
 
+  // Optional referral / promo code. Stored uppercase; any code is accepted and
+  // checked by hand, so partners can hand out new codes without a code change.
+  const promoRaw = str(body.promo_code, 30).replace(/\s+/g, "").toUpperCase();
+  let promo: string | null = null;
+  if (promoRaw) {
+    if (!/^[A-Z0-9_-]{1,30}$/.test(promoRaw)) errors.promo_code = "Promo codes use letters, numbers and dashes only.";
+    else promo = promoRaw;
+  }
+
   if (Object.keys(errors).length) {
     return json(origin, { error: "Please fix the highlighted fields.", fields: errors }, 400);
   }
 
   // ---- Save (success depends only on this) ----
-  const row = { first_name: firstName, zip, dogs, service_type: service, phone, email, notes };
+  const row = { first_name: firstName, zip, dogs, service_type: service, phone, email, notes, promo_code: promo };
   const saved = await db("aroo_service_requests", {
     method: "POST",
     headers: { Prefer: "return=representation" },
@@ -204,6 +213,7 @@ Deno.serve(async (req: Request) => {
       <p><strong>Service:</strong> ${esc(serviceLabel)}</p>
       ${phone ? `<p><strong>Phone:</strong> <a href="tel:${esc(phone.replace(/\D/g, ""))}">${esc(phone)}</a></p>` : ""}
       ${email ? `<p><strong>Email:</strong> <a href="mailto:${esc(email)}">${esc(email)}</a></p>` : ""}
+      ${promo ? `<p><strong>Promo code:</strong> ${esc(promo)}</p>` : ""}
       ${notes ? `<p><strong>Notes:</strong><br>${esc(notes).replace(/\n/g, "<br>")}</p>` : ""}
       <p style="color:#777;font-size:12px">Request ${esc(id)} · saved in Supabase table aroo_service_requests</p>`;
     for (const from of NOTIFY_FROM) {
@@ -215,7 +225,7 @@ Deno.serve(async (req: Request) => {
             from,
             to: [NOTIFY_TO],
             ...(email ? { reply_to: email } : {}),
-            subject: `New request: ${serviceLabel}, ${dogsLabel}, ${zip}`,
+            subject: `New request: ${serviceLabel}, ${dogsLabel}, ${zip}${promo ? ` (promo ${promo})` : ""}`,
             html,
           }),
         });
