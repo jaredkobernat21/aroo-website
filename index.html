@@ -272,17 +272,28 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: 62% 32%;
+      object-position: 40% 55%;
     }
     /* White wordmark rests on the photo's bottom edge, dipping onto the teal below. */
     .about-wordmark {
       position: absolute;
       left: 50%;
-      width: 60.5%;
-      height: auto;
       bottom: 0;
-      transform: translate(-50%, 8%); /* dips slightly onto the teal section below */
-      filter: drop-shadow(0 2px 14px rgba(0,0,0,0.18));
+      margin: 0;
+      width: max-content;
+      max-width: 94%;
+      color: #fff;
+      font-family: "Archivo", "Arial Black", sans-serif;
+      font-weight: 900;
+      font-stretch: 125%;
+      font-variation-settings: "wdth" 125;
+      font-size: clamp(30px, 5.4vw, 96px);
+      white-space: nowrap;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      text-align: center;
+      transform: translate(-50%, 28%); /* dips slightly onto the teal section below */
+      text-shadow: 0 2px 14px rgba(0,0,0,0.18);
       z-index: 1;
       pointer-events: none;
     }
@@ -392,7 +403,8 @@
 
     @media (max-width: 720px) {
       .about-photo { height: 64vh; height: 64svh; }
-      .about-wordmark { width: 82%; }
+      .about-wordmark { font-size: clamp(30px, 10.5vw, 56px); transform: translate(-50%, 18%); }
+      .about-wordmark span { display: block; }
       .about-body {
         grid-template-columns: 1fr;
         padding: 64px 24px 72px;
@@ -881,10 +893,10 @@
   <section class="about" id="about" aria-labelledby="about-title">
     <h2 class="sr-only" id="about-title">About aroo.</h2>
     <div class="about-photo">
-      <img src="assets/about/about-hero.jpg"
-           srcset="assets/about/about-hero-1200.jpg 1200w, assets/about/about-hero.jpg 2400w"
-           sizes="100vw" width="2400" height="1600" alt="A red spaniel standing up to give a woman its paws" loading="lazy" decoding="async">
-      <img class="about-wordmark" src="assets/brand/aroo-wordmark-white.png" width="1354" height="348" alt="" aria-hidden="true">
+      <img src="assets/about/happydogs.jpg"
+           srcset="assets/about/happydogs-1200.jpg 1200w, assets/about/happydogs.jpg 2400w"
+           sizes="100vw" width="2400" height="1671" alt="A golden puppy rolling on its back for a belly rub in the grass" loading="lazy" decoding="async">
+      <p class="about-wordmark" aria-hidden="true"><span>clean yards.</span> <span>happy dogs.</span></p>
     </div>
     <div class="about-body">
       <div class="about-text">
