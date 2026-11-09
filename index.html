@@ -263,39 +263,25 @@
     /* ---------- About ---------- */
     .about { background: var(--aroo-teal); }
 
-    .about-photo {
-      position: relative;
-      height: clamp(380px, 60vw, 92vh);
-    }
-    .about-photo > img:first-child {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: 40% 55%;
-    }
-    /* White wordmark rests on the photo's bottom edge, dipping onto the teal below. */
-    .about-wordmark {
-      position: absolute;
-      left: 50%;
-      bottom: 0;
-      margin: 0;
-      width: max-content;
-      max-width: 94%;
-      color: #fff;
-      font-family: "Archivo", "Arial Black", sans-serif;
-      font-weight: 900;
-      font-stretch: 125%;
-      font-variation-settings: "wdth" 125;
-      font-size: clamp(30px, 5.4vw, 96px);
-      white-space: nowrap;
-      line-height: 1;
-      letter-spacing: -0.02em;
+    .about-head {
+      padding: clamp(72px, 9vw, 140px) 24px 0;
       text-align: center;
-      transform: translate(-50%, 28%); /* dips slightly onto the teal section below */
-      text-shadow: 0 2px 14px rgba(0,0,0,0.18);
-      z-index: 1;
-      pointer-events: none;
+      color: #fff;
+    }
+    .about-head img {
+      display: block;
+      width: min(46vw, 560px);
+      height: auto;
+      margin: 0 auto;
+    }
+    .about-head p {
+      margin: clamp(16px, 2vw, 28px) auto 0;
+      max-width: 30em;
+      font-family: "Jost", "Futura", "Century Gothic", system-ui, sans-serif;
+      font-weight: 600;
+      font-size: clamp(18px, 2vw, 28px);
+      line-height: 1.35;
+      letter-spacing: 0.01em;
     }
 
     .about-body {
@@ -402,9 +388,8 @@
     }
 
     @media (max-width: 720px) {
-      .about-photo { height: 64vh; height: 64svh; }
-      .about-wordmark { font-size: clamp(30px, 10.5vw, 56px); transform: translate(-50%, 18%); }
-      .about-wordmark span { display: block; }
+      .about-head { padding-top: 64px; }
+      .about-head img { width: min(72vw, 360px); }
       .about-body {
         grid-template-columns: 1fr;
         padding: 64px 24px 72px;
@@ -892,11 +877,9 @@
 
   <section class="about" id="about" aria-labelledby="about-title">
     <h2 class="sr-only" id="about-title">About aroo.</h2>
-    <div class="about-photo">
-      <img src="assets/about/happydogs.jpg"
-           srcset="assets/about/happydogs-1200.jpg 1200w, assets/about/happydogs.jpg 2400w"
-           sizes="100vw" width="2400" height="1671" alt="A golden puppy rolling on its back for a belly rub in the grass" loading="lazy" decoding="async">
-      <p class="about-wordmark" aria-hidden="true"><span>clean yards.</span> <span>happy dogs.</span></p>
+    <div class="about-head">
+      <img src="assets/brand/aroo-wordmark-white.png" width="1354" height="348" alt="aroo." loading="lazy" decoding="async">
+      <p>serving dogs &amp; their people in the Topeka area.</p>
     </div>
     <div class="about-body">
       <div class="about-text">
