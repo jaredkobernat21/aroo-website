@@ -274,3 +274,34 @@ body.cream { background: var(--aroo-cream); }
   .trust { flex-direction: column; align-items: center; }
   .trust li + li { border-left: 0; }
 }
+
+/* Connect with us */
+.connect { padding: clamp(24px, 4vw, 48px) 24px clamp(64px, 8vw, 104px); text-align: center; }
+.connect h2 {
+  margin: 0;
+  color: var(--aroo-teal);
+  font-family: "Archivo", "Arial Black", sans-serif;
+  font-weight: 900;
+  font-stretch: 125%;
+  font-variation-settings: "wdth" 125;
+  font-size: clamp(24px, 3.4vw, 38px);
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+.social { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; margin: 26px 0 0; padding: 0; list-style: none; }
+.social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 22px 12px 16px;
+  border: 1.5px solid var(--aroo-line);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--aroo-teal);
+  font-weight: 600;
+  font-size: 17px;
+  text-decoration: none;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.social a:hover, .social a:focus-visible { border-color: var(--aroo-teal); transform: translateY(-1px); }
+.social svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
