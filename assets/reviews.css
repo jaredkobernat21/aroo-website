@@ -1,0 +1,139 @@
+/* Google review carousel, shared by the home page and /community/. */
+.rv {
+  --rv-teal: #174B50;
+  --rv-cream: #F7F2E6;
+  --rv-butter: #F7DF75;
+  --rv-star: #F5B82E;
+  --rv-muted: #5D6B6B;
+  color: var(--rv-teal);
+  font-family: "Jost", "Futura", "Century Gothic", system-ui, sans-serif;
+}
+.rv-head { text-align: center; }
+.rv-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 22px;
+  border-radius: 999px;
+  background: #FBF0C6;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--rv-teal);
+  text-decoration: none;
+}
+.rv-badge svg { width: 22px; height: 22px; flex: none; }
+.rv-score {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 20px;
+}
+.rv-score[hidden] { display: none; }
+.rv-num {
+  font-family: "Archivo", "Arial Black", sans-serif;
+  font-weight: 900;
+  font-size: clamp(52px, 7vw, 80px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.rv-stars { display: inline-flex; gap: 3px; color: var(--rv-star); }
+.rv-stars svg { width: 1em; height: 1em; }
+.rv-score .rv-stars { font-size: clamp(26px, 3.4vw, 38px); }
+.rv-based { margin: 6px 0 0; color: var(--rv-muted); font-size: 16px; }
+.rv-based a { color: inherit; }
+
+/* Carousel */
+.rv-viewport { position: relative; margin-top: clamp(32px, 4vw, 52px); }
+.rv-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 8px 14px 30px;
+  margin: 0 -14px;
+  scroll-padding: 0 14px;
+  scrollbar-width: none;
+}
+.rv-track::-webkit-scrollbar { display: none; }
+.rv-card {
+  flex: 0 0 calc((100% - 40px) / 3);
+  min-width: 0;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 28px 28px 24px;
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(23, 75, 80, 0.06), 0 10px 28px rgba(23, 75, 80, 0.08);
+}
+.rv-card .rv-stars { font-size: 22px; }
+.rv-card blockquote {
+  flex: 1;
+  margin: 18px 0 0;
+  font-size: 19px;
+  line-height: 1.5;
+  color: #1F3A3D;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.rv-card.is-open blockquote { -webkit-line-clamp: unset; display: block; }
+.rv-more { align-self: flex-start; margin-top: 8px; padding: 0; border: 0; background: none; cursor: pointer; font: 600 15px "Jost", system-ui, sans-serif; color: var(--rv-teal); text-decoration: underline; text-underline-offset: 3px; }
+.rv-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 22px;
+}
+.rv-avatar {
+  width: 44px; height: 44px;
+  flex: none;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: #FBF0C6;
+  color: var(--rv-teal);
+  font-weight: 600;
+  font-size: 18px;
+}
+.rv-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.rv-name { font-weight: 600; font-size: 18px; line-height: 1.2; color: var(--rv-teal); text-decoration: none; }
+a.rv-name:hover { text-decoration: underline; }
+.rv-when { display: block; color: var(--rv-muted); font-size: 14px; font-weight: 400; }
+.rv-g { margin-left: auto; width: 20px; height: 20px; flex: none; }
+
+.rv-controls { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 8px; }
+.rv-controls[hidden] { display: none; }
+.rv-arrow {
+  width: 44px; height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--rv-teal);
+  color: #fff;
+  font: 400 26px/1 "Jost", system-ui, sans-serif;
+  cursor: pointer;
+}
+.rv-arrow:disabled { opacity: 0.35; cursor: default; }
+.rv-dots { display: flex; gap: 4px; }
+.rv-dots button { width: 22px; height: 22px; padding: 0; border: 0; background: none; cursor: pointer; display: grid; place-items: center; }
+.rv-dots button::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: rgba(23, 75, 80, 0.25); }
+.rv-dots button[aria-current="true"]::before { background: var(--rv-teal); }
+
+.rv-empty { text-align: center; font-size: 19px; margin: clamp(28px, 4vw, 44px) 0 0; }
+.rv-empty a { color: var(--rv-teal); font-weight: 600; }
+
+@media (max-width: 900px) {
+  .rv-card { flex-basis: calc((100% - 20px) / 2); }
+}
+@media (max-width: 600px) {
+  .rv-card { flex-basis: 88%; padding: 24px 22px 20px; }
+  .rv-card blockquote { font-size: 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rv-track { scroll-behavior: auto; }
+}
