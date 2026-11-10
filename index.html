@@ -247,13 +247,6 @@
       white-space: nowrap;
       text-shadow: 0 1px 12px rgba(0,0,0,0.35);
     }
-    .hero-sub {
-      display: block;
-      margin-top: 4px;
-      font-size: 0.68em;
-      letter-spacing: 0.12em;
-      opacity: 0.92;
-    }
     .sr-only {
       position: absolute !important;
       width: 1px; height: 1px;
@@ -891,7 +884,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600&family=Archivo:wdth,wght@125,900&family=Chewy&display=swap" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600&family=Archivo:wdth,wght@125,900&family=Chewy&display=swap" rel="stylesheet"></noscript>
-  <link rel="stylesheet" href="/assets/reviews.css?v=1">
+  <link rel="stylesheet" href="/assets/reviews.css?v=2">
 </head>
 <body>
   <a class="skip-link" href="#about">Skip to content</a>
@@ -912,7 +905,7 @@
     <div class="stage" id="stage"></div>
     <div class="wordmark">
       <img src="assets/brand/aroo-wordmark-white.png" width="1354" height="348" alt="aroo." fetchpriority="high">
-      <h1 class="hero-h1">clean yards. happy dogs. <span class="hero-sub">dog waste removal &middot; Topeka &amp; Lawrence, KS</span></h1>
+      <h1 class="hero-h1">clean yards. happy dogs.<span class="sr-only"> Dog waste removal in Topeka &amp; Lawrence, Kansas</span></h1>
     </div>
   </main>
 
@@ -920,7 +913,7 @@
     <h2 class="sr-only" id="about-title">About aroo.</h2>
     <div class="about-head">
       <img src="assets/brand/aroo-wordmark-white.png" width="1354" height="348" alt="aroo." loading="lazy" decoding="async">
-      <p>serving dogs &amp; their people in Topeka &amp; Lawrence.</p>
+      <p>Dog waste removal in Topeka &amp; Lawrence, KS.</p>
     </div>
     <div class="about-body">
       <div class="about-text">
@@ -1568,6 +1561,6 @@
       update();
     })();
   </script>
-  <script src="/assets/reviews.js?v=1" defer></script>
+  <script src="/assets/reviews.js?v=2" defer></script>
 </body>
 </html>
