@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Dog Waste Removal in Topeka, KS | aroo.</title>
-  <meta name="description" content="aroo. makes dog poop cleanup easy. Affordable weekly and one-time dog waste removal in Topeka and Lawrence, Kansas. Get started with a cleaner yard today.">
+  <title>Dog Poop Cleanup &amp; Waste Removal in Topeka, KS | aroo.</title>
+  <meta name="description" content="Professional dog poop cleanup in Topeka &amp; Lawrence, KS. Weekly and one-time dog waste removal starting at $14.99. Get your free quote from aroo.">
   <link rel="canonical" href="https://aroodog.com/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="aroo.">
-  <meta property="og:title" content="Dog Waste Removal in Topeka, KS | aroo.">
-  <meta property="og:description" content="aroo. makes dog poop cleanup easy. Affordable weekly and one-time dog waste removal in Topeka and Lawrence, Kansas. Get started with a cleaner yard today.">
+  <meta property="og:title" content="Dog Poop Cleanup &amp; Waste Removal in Topeka, KS | aroo.">
+  <meta property="og:description" content="Professional dog poop cleanup in Topeka &amp; Lawrence, KS. Weekly and one-time dog waste removal starting at $14.99. Get your free quote from aroo.">
   <meta property="og:url" content="https://aroodog.com/">
   <meta property="og:image" content="https://aroodog.com/assets/brand/og-image.png?v=3">
   <meta property="og:image:width" content="1200">
@@ -18,8 +18,8 @@
   <meta property="og:locale" content="en_US">
   <meta name="twitter:image:alt" content="aroo. logo">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Dog Waste Removal in Topeka, KS | aroo.">
-  <meta name="twitter:description" content="aroo. makes dog poop cleanup easy. Affordable weekly and one-time dog waste removal in Topeka and Lawrence, Kansas. Get started with a cleaner yard today.">
+  <meta name="twitter:title" content="Dog Poop Cleanup &amp; Waste Removal in Topeka, KS | aroo.">
+  <meta name="twitter:description" content="Professional dog poop cleanup in Topeka &amp; Lawrence, KS. Weekly and one-time dog waste removal starting at $14.99. Get your free quote from aroo.">
   <meta name="twitter:image" content="https://aroodog.com/assets/brand/og-image.png?v=3">
   <meta name="theme-color" content="#174B50">
   <link rel="icon" href="/favicon.ico?v=5" sizes="48x48">
@@ -106,6 +106,12 @@
           "@type": "Offer",
           "itemOffered": {
             "@id": "https://aroodog.com/#service-one-time"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@id": "https://aroodog.com/commercial/#service"
           }
         }
       ]
@@ -412,11 +418,118 @@
       .about-dog { grid-column: 1; grid-row: 2; width: min(76vw, 340px); margin-top: 48px; }
       .about-dog figcaption { font-size: clamp(24px, 7.4vw, 34px); }
     }
+    /* ---------- Hero copy + buttons ---------- */
+    .hero-copy {
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      padding: 0 20px;
+      text-align: center;
+      color: #fff;
+      font-family: "Jost", "Futura", "Century Gothic", system-ui, sans-serif;
+      text-shadow: 0 1px 14px rgba(0,0,0,0.45);
+    }
+    .hero-lede {
+      margin: clamp(14px, 1.8vw, 22px) auto 0;
+      max-width: 34em;
+      font-weight: 600;
+      font-size: clamp(17px, 1.6vw, 21px);
+      line-height: 1.4;
+    }
+    .hero-ctas { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: clamp(18px, 2.2vw, 28px); }
+    .hero-price { margin: 14px 0 0; font-weight: 600; font-size: 15px; letter-spacing: 0.04em; opacity: 0.95; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 12px 26px;
+      border-radius: 999px;
+      font: 600 18px/1.2 "Jost", "Futura", system-ui, sans-serif;
+      text-decoration: none;
+      text-shadow: none;
+      transition: transform 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+    .btn-butter { background: #F7DF75; color: var(--aroo-teal); box-shadow: 0 8px 22px rgba(0,0,0,0.22); }
+    .btn-butter:hover { background: #FAE89A; }
+    .btn-ghost { border: 2px solid rgba(255,255,255,0.85); color: #fff; background: rgba(23,75,80,0.28); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
+    .btn-ghost:hover { background: rgba(23,75,80,0.5); }
+    .btn-teal { background: var(--aroo-teal); color: #fff; }
+    .btn-teal:hover { background: #0F3A3E; }
+    .btn-teal:focus-visible { outline-color: var(--aroo-teal); }
+    @media (max-width: 640px) {
+      .hero-ctas { flex-direction: column; align-items: center; gap: 10px; }
+      .hero-ctas .btn { width: min(300px, 86vw); }
+      .hero-lede { font-size: 16.5px; max-width: 22em; }
+    }
+
+    /* Menu quote button */
+    .menu-panel .menu-cta { margin-top: 10px; }
+    .menu-panel .menu-cta a { display: inline-block; padding: 8px 18px; border-radius: 999px; background: #F7DF75; color: var(--aroo-teal); text-decoration: none; }
+    .menu-panel .menu-cta a:hover, .menu-panel .menu-cta a:focus-visible { text-decoration: none; background: #FAE89A; }
+
+    /* Phone-only quote button that follows the visitor */
+    .sticky-cta {
+      position: fixed;
+      left: 50%;
+      bottom: calc(14px + env(safe-area-inset-bottom));
+      z-index: 40;
+      transform: translate(-50%, 140%);
+      width: min(340px, calc(100vw - 32px));
+      box-shadow: 0 10px 28px rgba(10,35,38,0.35);
+      transition: transform 0.3s ease;
+    }
+    .sticky-cta.is-visible { transform: translate(-50%, 0); }
+    @media (min-width: 721px) { .sticky-cta { display: none; } }
+
+    /* ---------- Services ---------- */
+    .services, .promise { color: var(--aroo-teal); font-family: "Jost", "Futura", "Century Gothic", system-ui, sans-serif; }
+    .services { background: #F7F2E6; padding: clamp(72px, 9vw, 130px) 24px; }
+    .services-inner, .promise-inner { max-width: 1080px; margin: 0 auto; }
+    .services .section-title, .promise .section-title { text-align: center; }
+    .section-lede { margin: 14px auto 0; max-width: 32em; text-align: center; color: #3F5557; font-size: clamp(18px, 1.8vw, 21px); line-height: 1.45; }
+    .service-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: clamp(36px, 4.5vw, 56px); }
+    .service-card {
+      display: flex;
+      flex-direction: column;
+      padding: clamp(26px, 3vw, 36px);
+      border-radius: 24px;
+      background: #fff;
+      box-shadow: 0 1px 2px rgba(23,75,80,0.06), 0 12px 30px rgba(23,75,80,0.08);
+    }
+    .service-card h3 { margin: 0; font-size: clamp(22px, 2.2vw, 27px); line-height: 1.2; }
+    .service-price { display: inline-block; align-self: flex-start; margin: 12px 0 0; padding: 5px 14px; border-radius: 14px; background: #FBF0C6; font-weight: 600; font-size: 16px; }
+    .service-card > p:not(.service-price) { margin: 16px 0 0; font-size: 18px; line-height: 1.5; color: #1F3A3D; }
+    .service-card ul { margin: 14px 0 24px; padding: 0; list-style: none; color: #1F3A3D; font-size: 16.5px; }
+    .service-card li { position: relative; padding-left: 26px; }
+    .service-card li + li { margin-top: 6px; }
+    .service-card li::before { content: ""; position: absolute; left: 2px; top: 0.45em; width: 12px; height: 7px; border-left: 2.5px solid var(--aroo-teal); border-bottom: 2.5px solid var(--aroo-teal); transform: rotate(-45deg); }
+    .service-card .btn { margin-top: auto; align-self: flex-start; }
+    .services-more { margin-top: clamp(28px, 3.5vw, 40px); text-align: center; font-size: 17px; line-height: 1.6; color: #1F3A3D; }
+    .services-more p { margin: 0; }
+    .services-more a { color: var(--aroo-teal); font-weight: 600; text-underline-offset: 3px; }
+    .services-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 6px 28px; margin-top: 12px !important; }
+    .services-links a { text-decoration: none; }
+    .services-links a:hover { text-decoration: underline; }
+
+    /* ---------- The aroo. promise ---------- */
+    .promise { background: #fff; padding: clamp(72px, 9vw, 130px) 24px; }
+    .promise-list { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin: clamp(36px, 4.5vw, 56px) 0 0; padding: 0; list-style: none; }
+    .promise-list li { padding: 26px 22px 22px; border-radius: 20px; background: #F7F2E6; border-top: 5px solid #F7DF75; }
+    .promise-list h3 { margin: 0; font-size: 20px; line-height: 1.25; }
+    .promise-list p { margin: 10px 0 0; font-size: 16.5px; line-height: 1.5; color: #1F3A3D; }
+    @media (max-width: 980px) { .promise-list { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 680px) {
+      .service-cards, .promise-list { grid-template-columns: 1fr; }
+      .service-card .btn { align-self: stretch; }
+    }
+
     /* ---------- Home review preview ---------- */
     .home-reviews { background: #fff; padding: clamp(72px, 9vw, 130px) 24px clamp(56px, 7vw, 100px); }
     .home-reviews .rv { max-width: 1160px; margin: 0 auto; }
     .home-reviews .home-reviews-title { margin-top: clamp(24px, 3vw, 36px); color: var(--aroo-teal); }
-    .home-reviews-more { margin: 24px 0 0; text-align: center; }
+    .home-reviews-more { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px 32px; margin: 24px 0 0; text-align: center; }
     .home-reviews-more a {
       color: var(--aroo-teal);
       font-family: "Archivo", "Arial Black", sans-serif;
@@ -888,17 +1001,19 @@
   <link rel="stylesheet" href="/assets/reviews.css?v=2">
 </head>
 <body>
-  <a class="skip-link" href="#about">Skip to content</a>
+  <a class="skip-link" href="#reviews">Skip to content</a>
   <nav class="menu" id="menu" aria-label="Site">
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-panel" aria-label="Open menu">
       <span class="bars" aria-hidden="true"><span></span><span></span></span>
     </button>
     <div class="menu-panel" id="menu-panel">
       <ul>
-        <li><a href="#home">HOME</a></li>
-        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#services">SERVICES</a></li>
+        <li><a href="/pricing/">PRICING</a></li>
+        <li><a href="/commercial/">COMMERCIAL</a></li>
         <li><a href="/community/">COMMUNITY</a></li>
         <li><a href="#contact">CONTACT</a></li>
+        <li class="menu-cta"><a href="#request">GET A QUOTE</a></li>
       </ul>
     </div>
   </nav>
@@ -907,8 +1022,125 @@
     <div class="wordmark">
       <img src="assets/brand/aroo-wordmark-white.png" width="1354" height="348" alt="aroo." fetchpriority="high">
       <h1 class="hero-h1">clean yards. happy dogs.<span class="sr-only"> Dog waste removal in Topeka &amp; Lawrence, Kansas</span></h1>
+      <div class="hero-copy">
+        <p class="hero-lede">Professional dog poop cleanup in Topeka &amp; Lawrence, KS. Simple, reliable service for dogs and their people.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-butter" href="#request" id="hero-cta">Get My Free Quote</a>
+          <a class="btn btn-ghost" href="#services">Explore Services</a>
+        </div>
+        <p class="hero-price">Weekly cleanup starting at $14.99 per visit</p>
+      </div>
     </div>
   </main>
+
+  <section class="home-reviews" id="reviews" aria-labelledby="home-reviews-title">
+    <div class="rv" data-reviews>
+      <div class="rv-head">
+        <a class="rv-badge" href="https://g.page/r/CSEv50ucIH2yEBM/review" target="_blank" rel="noopener">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>
+          Google Reviews
+        </a>
+        <div class="rv-score" hidden><span class="rv-num"></span><span class="rv-stars-slot"></span></div>
+        <p class="rv-based" hidden></p>
+        <h2 class="section-title home-reviews-title" id="home-reviews-title">Join the community!</h2>
+      </div>
+      <div class="rv-viewport">
+        <div class="rv-track" aria-live="polite"></div>
+        <div class="rv-controls" hidden>
+          <button type="button" class="rv-arrow rv-prev" aria-label="Previous review">&lsaquo;</button>
+          <div class="rv-dots"></div>
+          <button type="button" class="rv-arrow rv-next" aria-label="Next review">&rsaquo;</button>
+        </div>
+      </div>
+    </div>
+    <p class="home-reviews-more">
+      <a href="https://maps.google.com/?cid=12861471966500433697" target="_blank" rel="noopener">Read all reviews on Google <span aria-hidden="true">&rarr;</span></a>
+      <a href="/community/">See our community <span aria-hidden="true">&rarr;</span></a>
+    </p>
+  </section>
+
+  <section class="services" id="services" aria-labelledby="services-title">
+    <div class="services-inner">
+      <h2 class="section-title" id="services-title">Our services</h2>
+      <p class="section-lede">Friendly, dependable pooper scooper service for homes in Topeka, Lawrence, and nearby.</p>
+      <div class="service-cards">
+        <article class="service-card">
+          <h3>Weekly Dog Waste Removal</h3>
+          <p class="service-price">Starting at $14.99 per visit</p>
+          <p>Keep your yard clean and ready for everyday enjoyment.</p>
+          <ul>
+            <li>Service day set together with you</li>
+            <li>Billed monthly for completed visits</li>
+            <li>Change, pause, or cancel by email</li>
+          </ul>
+          <a class="btn btn-teal" href="#request" data-service="weekly">Get my weekly quote</a>
+        </article>
+        <article class="service-card">
+          <h3>One-Time Dog Waste Removal</h3>
+          <p class="service-price">Priced by yard size &amp; number of dogs</p>
+          <p>A fresh start for your yard, whether you&rsquo;re catching up or preparing for guests.</p>
+          <ul>
+            <li>Photo of your finished yard</li>
+            <li>Invoiced after the job is done</li>
+            <li>Pay online, by check, or Venmo</li>
+          </ul>
+          <a class="btn btn-teal" href="#request" data-service="one_time">Get my one-time quote</a>
+        </article>
+      </div>
+      <div class="services-more" id="areas">
+        <p><strong>Where we serve:</strong> Topeka, <a href="/lawrence/">Lawrence</a>, and nearby communities. Not sure we reach you? <a href="sms:+17856008801?&amp;body=DOG" data-sms="services">Text DOG to (785)&nbsp;600-8801</a>.</p>
+        <p class="services-links"><a href="/pricing/">See pricing details <span aria-hidden="true">&rarr;</span></a> <a href="/commercial/">Apartments, HOAs &amp; properties <span aria-hidden="true">&rarr;</span></a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="promise" id="promise" aria-labelledby="promise-title">
+    <div class="promise-inner">
+      <h2 class="section-title" id="promise-title">The aroo. promise</h2>
+      <p class="section-lede">What you can count on from us, every visit.</p>
+      <ul class="promise-list">
+        <li>
+          <h3>Reliable, scheduled cleanups</h3>
+          <p>We set your service day together and show up for it. If weather moves a visit, we&rsquo;ll let you know, and you&rsquo;re never charged for a visit we didn&rsquo;t make.</p>
+        </li>
+        <li>
+          <h3>Clear communication</h3>
+          <p>Your price, service day, and scope are confirmed before we start, and we&rsquo;ll keep you in the loop if anything needs to change.</p>
+        </li>
+        <li>
+          <h3>Respect for your yard &amp; gates</h3>
+          <p>We only work in the areas we agree on, treat your gate and your pets with care, and never need to come inside your home.</p>
+        </li>
+        <li>
+          <h3>Friendly &amp; locally owned</h3>
+          <p>We&rsquo;re your neighbors in Topeka, offering simple service with a personal touch. And yes, we want to know your dog&rsquo;s name.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="how" id="how-it-works" aria-labelledby="how-title">
+    <div class="how-inner">
+      <h2 class="section-title" id="how-title">How it works</h2>
+      <ol class="how-steps">
+        <li>
+          <span class="step-num" aria-hidden="true">1</span>
+          <h3>Request your quote</h3>
+          <p>Tell us about your yard and dogs.</p>
+        </li>
+        <li>
+          <span class="step-num" aria-hidden="true">2</span>
+          <h3>Choose your service</h3>
+          <p>Select a cleanup schedule that works for you.</p>
+        </li>
+        <li>
+          <span class="step-num" aria-hidden="true">3</span>
+          <h3>Enjoy your yard</h3>
+          <p>We handle the dirty work so you can enjoy more time outside.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
 
   <section class="about" id="about" aria-labelledby="about-title">
     <h2 class="sr-only" id="about-title">About aroo.</h2>
@@ -941,52 +1173,6 @@
           <button class="dog-arrow" type="button" data-dir="1" aria-label="Next dog" aria-controls="dog-track"><span aria-hidden="true">&rsaquo;</span></button>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="home-reviews" id="reviews" aria-labelledby="home-reviews-title">
-    <div class="rv" data-reviews>
-      <div class="rv-head">
-        <a class="rv-badge" href="https://g.page/r/CSEv50ucIH2yEBM/review" target="_blank" rel="noopener">
-          <svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>
-          Google Reviews
-        </a>
-        <div class="rv-score" hidden><span class="rv-num"></span><span class="rv-stars-slot"></span></div>
-        <p class="rv-based" hidden></p>
-        <h2 class="section-title home-reviews-title" id="home-reviews-title">Join the community!</h2>
-      </div>
-      <div class="rv-viewport">
-        <div class="rv-track" aria-live="polite"></div>
-        <div class="rv-controls" hidden>
-          <button type="button" class="rv-arrow rv-prev" aria-label="Previous review">&lsaquo;</button>
-          <div class="rv-dots"></div>
-          <button type="button" class="rv-arrow rv-next" aria-label="Next review">&rsaquo;</button>
-        </div>
-      </div>
-    </div>
-    <p class="home-reviews-more"><a href="/community/">See our community <span aria-hidden="true">&rarr;</span></a></p>
-  </section>
-
-  <section class="how" id="how-it-works" aria-labelledby="how-title">
-    <div class="how-inner">
-      <h2 class="section-title" id="how-title">How it works</h2>
-      <ol class="how-steps">
-        <li>
-          <span class="step-num" aria-hidden="true">1</span>
-          <h3>Tell us about your yard</h3>
-          <p>Share your address, number of dogs, and preferred service.</p>
-        </li>
-        <li>
-          <span class="step-num" aria-hidden="true">2</span>
-          <h3>We handle the dirty work</h3>
-          <p>aroo. visits on your scheduled service day and cleans up the dog waste.</p>
-        </li>
-        <li>
-          <span class="step-num" aria-hidden="true">3</span>
-          <h3>Enjoy your yard</h3>
-          <p>Spend less time scooping and more time with your dogs.</p>
-        </li>
-      </ol>
     </div>
   </section>
 
@@ -1162,10 +1348,12 @@
       </div>
     </div>
   </section>
+  <a class="btn btn-butter sticky-cta" href="#request" id="sticky-cta" aria-hidden="true" tabindex="-1">Get My Free Quote</a>
+
   <footer class="site-footer">
     <div class="inner">
       <span>&copy; 2026 aroo. &middot; Operated by ROQ Innovation LLC</span>
-      <span class="footer-links"><a href="/lawrence/">Lawrence</a> <a href="/pricing/">Pricing</a> <a href="/community/">Community</a> <a href="/terms/">Terms of Service</a> <a href="/privacy/">Privacy Policy</a></span>
+      <span class="footer-links"><a href="/lawrence/">Lawrence</a> <a href="/pricing/">Pricing</a> <a href="/commercial/">Commercial</a> <a href="/community/">Community</a> <a href="/terms/">Terms of Service</a> <a href="/privacy/">Privacy Policy</a></span>
     </div>
   </footer>
 
@@ -1351,7 +1539,7 @@
       });
 
       // Teal bars while they sit over the white part of the About section.
-      var lights = document.querySelectorAll('.how, .faq');
+      var lights = document.querySelectorAll('.home-reviews, .services, .promise, .how, .faq');
       var ticking = false;
       function checkLight() {
         ticking = false;
@@ -1415,6 +1603,19 @@
         var pre = (qp.get('promo') || qp.get('code') || qp.get('ref') || '').replace(/[^a-z0-9_-]/gi, '').slice(0, 30).toUpperCase();
         if (pre) fields.promo_code.el.value = pre;
       } catch (err) {}
+
+      // Service buttons and links like /?service=weekly#request pick the service for the visitor.
+      function pickService(v) {
+        var r = document.querySelector('#rq-service input[value="' + v + '"]');
+        if (r) r.checked = true;
+      }
+      try {
+        var sv = new URLSearchParams(location.search).get('service');
+        if (sv === 'weekly' || sv === 'one_time') pickService(sv);
+      } catch (err) {}
+      document.querySelectorAll('[data-service]').forEach(function (a) {
+        a.addEventListener('click', function () { pickService(a.getAttribute('data-service')); });
+      });
 
       function setError(name, msg) {
         var f = fields[name];
@@ -1563,5 +1764,24 @@
     })();
   </script>
   <script src="/assets/reviews.js?v=2" defer></script>
+  <script>
+    // Phones: show a "Get My Free Quote" button once the hero buttons scroll away,
+    // and hide it again while the request form is on screen.
+    (function () {
+      var cta = document.getElementById('sticky-cta');
+      var hero = document.getElementById('hero-cta');
+      var form = document.getElementById('contact');
+      if (!cta || !hero || !form || !('IntersectionObserver' in window)) return;
+      var heroVisible = true, formVisible = false;
+      function update() {
+        var show = !heroVisible && !formVisible;
+        cta.classList.toggle('is-visible', show);
+        cta.setAttribute('aria-hidden', show ? 'false' : 'true');
+        cta.tabIndex = show ? 0 : -1;
+      }
+      new IntersectionObserver(function (e) { heroVisible = e[0].isIntersecting; update(); }).observe(hero);
+      new IntersectionObserver(function (e) { formVisible = e[0].isIntersecting; update(); }, { rootMargin: '0px 0px -30% 0px' }).observe(form);
+    })();
+  </script>
 </body>
 </html>
