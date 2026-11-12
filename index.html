@@ -261,8 +261,10 @@
       letter-spacing: -0.01em;
       text-transform: uppercase;
     }
-    /* Each phrase stays whole, so narrow screens break between them. */
-    .hero-h1 .phrase { display: inline-block; }
+    /* Always two lines: "For dogs &" / "their people." Phones size the text to the
+       screen so the longer line still fits. */
+    .hero-h1 .phrase { display: block; white-space: nowrap; }
+    @media (max-width: 640px) { .hero-h1 { font-size: 8.8vw; } }
     .sr-only {
       position: absolute !important;
       width: 1px; height: 1px;
@@ -993,7 +995,7 @@
     <div class="stage" id="stage"></div>
     <a class="hero-logo" href="/" aria-label="aroo. home"><img src="assets/brand/aroo-wordmark-white.png" width="1354" height="348" alt="aroo." fetchpriority="high"></a>
     <div class="hero-content">
-      <h1 class="hero-h1"><span class="phrase">For dogs</span> <span class="phrase">&amp; their people.</span><span class="sr-only"> Dog waste removal in Topeka &amp; Lawrence, Kansas</span></h1>
+      <h1 class="hero-h1"><span class="phrase">For dogs &amp;</span> <span class="phrase">their people.</span><span class="sr-only"> Dog waste removal in Topeka &amp; Lawrence, Kansas</span></h1>
       <p class="hero-sub">Dog poop cleanup starting at $14.99</p>
       <div class="hero-ctas">
         <a class="btn btn-butter" href="#request" id="hero-cta">Get My Free Quote</a>
