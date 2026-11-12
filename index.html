@@ -303,32 +303,12 @@
     }
 
     .about-body {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      column-gap: 3.5vw;
-      max-width: 1600px;
-      margin: 0 auto;
-      padding: clamp(56px, 7.5vw, 120px) 4.5vw clamp(72px, 9vw, 150px) 8vw;
-    }
-    .about-text p { margin: 0; }
-    .about-text p + p { margin-top: 1em; }
-    .about-text {
-      grid-column: 2;
-      grid-row: 1;
-      font-family: "Jost", "Futura", "Century Gothic", system-ui, sans-serif;
-      font-weight: 600;
-      color: #fff;
-      font-size: clamp(20px, 2.4vw, 38px);
-      line-height: 1.24;
-      letter-spacing: -0.005em;
-      max-width: 18.5em;
+      display: flex;
+      justify-content: center;
+      padding: clamp(40px, 5vw, 72px) 24px clamp(72px, 9vw, 150px);
     }
     .about-dog {
-      grid-column: 1;
-      grid-row: 1;
-      justify-self: center;
       width: min(100%, 440px);
-      margin: clamp(80px, 12vw, 200px) 0 0;
       text-align: center;
     }
     /* Dog photo slideshow: swipe on touch screens, arrows and dots everywhere. */
@@ -345,6 +325,7 @@
     .dog-slide { flex: 0 0 100%; min-width: 0; margin: 0; scroll-snap-align: center; container-type: inline-size; }
     /* Caption scales with the photo so "Ember | Topeka, KS" always fits under the circle. */
     .about-dog .dog-slide figcaption { font-size: min(46px, 10cqw); }
+    .about-more { margin-top: clamp(28px, 3vw, 40px); }
     .dog-controls { display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 18px; }
     .dog-arrow {
       display: grid;
@@ -408,12 +389,8 @@
     @media (max-width: 720px) {
       .about-head { padding-top: 64px; }
       .about-head img { width: min(72vw, 360px); }
-      .about-body {
-        grid-template-columns: 1fr;
-        padding: 64px 24px 72px;
-      }
-      .about-text { grid-column: 1; font-size: clamp(21px, 5.6vw, 26px); }
-      .about-dog { grid-column: 1; grid-row: 2; width: min(76vw, 340px); margin-top: 48px; }
+      .about-body { padding: 40px 24px 72px; }
+      .about-dog { width: min(76vw, 340px); }
       .about-dog figcaption { font-size: clamp(24px, 7.4vw, 34px); }
     }
     /* ---------- Hero copy + buttons ---------- */
@@ -458,7 +435,8 @@
 
     /* ---------- Services ---------- */
     .services, .promise { color: var(--aroo-teal); font-family: "Jost", "Futura", "Century Gothic", system-ui, sans-serif; }
-    .services { background: #F7F2E6; padding: clamp(72px, 9vw, 130px) 24px; }
+    .services { background: #15B5B0; padding: clamp(72px, 9vw, 130px) 24px; }
+    .services .section-lede { color: #0E3A3E; font-weight: 600; }
     .services-inner, .promise-inner { max-width: 1080px; margin: 0 auto; }
     .services .section-title, .promise .section-title { text-align: center; }
     .section-lede { margin: 14px auto 0; max-width: 32em; text-align: center; color: #3F5557; font-size: clamp(18px, 1.8vw, 21px); line-height: 1.45; }
@@ -469,24 +447,26 @@
       padding: clamp(26px, 3vw, 36px);
       border-radius: 24px;
       background: #fff;
-      box-shadow: 0 1px 2px rgba(23,75,80,0.06), 0 12px 30px rgba(23,75,80,0.08);
+      border-top: 6px solid var(--aroo-teal);
+      box-shadow: 0 1px 2px rgba(14,58,62,0.12), 0 16px 36px rgba(14,58,62,0.18);
     }
     .service-card h3 { margin: 0; font-size: clamp(22px, 2.2vw, 27px); line-height: 1.2; }
-    .service-price { display: inline-block; align-self: flex-start; margin: 12px 0 0; padding: 5px 14px; border-radius: 14px; background: #FBF0C6; font-weight: 600; font-size: 16px; }
+    .service-price { display: inline-block; align-self: flex-start; margin: 12px 0 0; padding: 5px 14px; border-radius: 14px; background: var(--aroo-teal); color: #fff; font-weight: 600; font-size: 16px; }
     .service-card > p:not(.service-price) { margin: 16px 0 0; font-size: 18px; line-height: 1.5; color: #1F3A3D; }
     .service-card ul { margin: 14px 0 24px; padding: 0; list-style: none; color: #1F3A3D; font-size: 16.5px; }
     .service-card li { position: relative; padding-left: 26px; }
     .service-card li + li { margin-top: 6px; }
     .service-card li::before { content: ""; position: absolute; left: 2px; top: 0.45em; width: 12px; height: 7px; border-left: 2.5px solid var(--aroo-teal); border-bottom: 2.5px solid var(--aroo-teal); transform: rotate(-45deg); }
     .service-card .btn { margin-top: auto; align-self: flex-start; }
-    .services-more { margin-top: clamp(28px, 3.5vw, 40px); text-align: center; font-size: 17px; line-height: 1.6; color: #1F3A3D; }
+    .services-more { margin-top: clamp(28px, 3.5vw, 40px); text-align: center; font-size: 17px; line-height: 1.6; color: #0E3A3E; }
     .services-more p { margin: 0; }
-    .services-more a { color: var(--aroo-teal); font-weight: 600; text-underline-offset: 3px; }
+    .services-more a { color: #0E3A3E; font-weight: 600; text-underline-offset: 3px; }
+    .services-links a { display: inline-block; padding: 8px 18px; border-radius: 999px; background: #fff; color: var(--aroo-teal) !important; }
     .services-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 6px 28px; margin-top: 12px !important; }
     .services-links a { text-decoration: none; }
-    .services-links a:hover { text-decoration: underline; }
+    .services-links a:hover { background: var(--aroo-teal); color: #fff !important; text-decoration: none; }
 
-    /* ---------- The aroo. promise ---------- */
+    /* ---------- Why choose aroo? ---------- */
     .promise { background: #fff; padding: clamp(72px, 9vw, 130px) 24px; }
     .promise-list { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin: clamp(36px, 4.5vw, 56px) 0 0; padding: 0; list-style: none; }
     .promise-list li { padding: 26px 22px 22px; border-radius: 20px; background: #F7F2E6; border-top: 5px solid #F7DF75; }
@@ -1066,7 +1046,7 @@
 
   <section class="promise" id="promise" aria-labelledby="promise-title">
     <div class="promise-inner">
-      <h2 class="section-title" id="promise-title">The aroo. promise</h2>
+      <h2 class="section-title" id="promise-title">Why choose aroo?</h2>
       <p class="section-lede">What you can count on from us, every visit.</p>
       <ul class="promise-list">
         <li>
@@ -1116,32 +1096,29 @@
     <h2 class="sr-only" id="about-title">About aroo.</h2>
     <div class="about-head">
       <img src="assets/brand/aroo-wordmark-white.png" width="1354" height="348" alt="aroo." loading="lazy" decoding="async">
-      <p>Dog waste removal in Topeka &amp; Lawrence, KS.</p>
+      <p>we want to meet your dogs!</p>
     </div>
     <div class="about-body">
-      <div class="about-text">
-        <p>We’re a locally owned dog waste removal service making life easier for dogs and their people. We take care of the dirty work so you can spend less time cleaning up and more time enjoying your yard.</p>
-        <p>Simple, reliable service with a personal touch. And yes, we want to know your dog’s name!</p>
-      </div>
       <div class="about-dog" role="region" aria-roledescription="carousel" aria-label="Dogs we take care of">
         <div class="dog-track" id="dog-track">
           <figure class="dog-slide" role="group" aria-roledescription="slide" aria-label="1 of 2">
-            <img src="assets/about/ember.jpg" width="555" height="555" alt="Ember, a black and white puppy, sitting on a porch step" loading="lazy" decoding="async">
-            <figcaption>Ember | Topeka, KS</figcaption>
-          </figure>
-          <figure class="dog-slide" role="group" aria-roledescription="slide" aria-label="2 of 2">
             <img src="assets/about/raina.jpg" width="800" height="800" alt="Raina, a golden retriever, sitting in the sun in a living room" loading="lazy" decoding="async">
             <figcaption>Raina | Topeka, KS</figcaption>
+          </figure>
+          <figure class="dog-slide" role="group" aria-roledescription="slide" aria-label="2 of 2">
+            <img src="assets/about/ember.jpg" width="555" height="555" alt="Ember, a black and white border collie puppy, sitting on a porch step" loading="lazy" decoding="async">
+            <figcaption>Ember | Topeka, KS</figcaption>
           </figure>
         </div>
         <div class="dog-controls">
           <button class="dog-arrow" type="button" data-dir="-1" aria-label="Previous dog" aria-controls="dog-track"><span aria-hidden="true">&lsaquo;</span></button>
           <div class="dog-dots">
-            <button type="button" aria-label="Show Ember" aria-current="true" data-i="0"></button>
-            <button type="button" aria-label="Show Raina" data-i="1"></button>
+            <button type="button" aria-label="Show Raina" aria-current="true" data-i="0"></button>
+            <button type="button" aria-label="Show Ember" data-i="1"></button>
           </div>
           <button class="dog-arrow" type="button" data-dir="1" aria-label="Next dog" aria-controls="dog-track"><span aria-hidden="true">&rsaquo;</span></button>
         </div>
+        <a class="btn btn-butter about-more" href="/dogs/">Meet our dogs</a>
       </div>
     </div>
   </section>
@@ -1321,7 +1298,7 @@
   <footer class="site-footer">
     <div class="inner">
       <span>&copy; 2026 aroo. &middot; Operated by ROQ Innovation LLC</span>
-      <span class="footer-links"><a href="/lawrence/">Lawrence</a> <a href="/pricing/">Pricing</a> <a href="/commercial/">Commercial</a> <a href="/community/">Community</a> <a href="/terms/">Terms of Service</a> <a href="/privacy/">Privacy Policy</a></span>
+      <span class="footer-links"><a href="/lawrence/">Lawrence</a> <a href="/pricing/">Pricing</a> <a href="/commercial/">Commercial</a> <a href="/community/">Community</a> <a href="/dogs/">Our dogs</a> <a href="/terms/">Terms of Service</a> <a href="/privacy/">Privacy Policy</a></span>
     </div>
   </footer>
 
