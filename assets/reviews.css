@@ -148,3 +148,29 @@ a.rv-name:hover { text-decoration: underline; }
 @media (prefers-reduced-motion: reduce) {
   .rv-card, .rv-track { transition: none; }
 }
+
+/* Dark photo backdrop behind the reviews (home + /community/). */
+.reviews-photo {
+  position: relative;
+  isolation: isolate;
+  background: #0E2E31 url("/assets/reviews/bg.jpg") center / cover no-repeat;
+  color: #fff;
+}
+.reviews-photo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(9, 32, 35, 0.84) 0%, rgba(9, 32, 35, 0.9) 100%);
+}
+@media (max-width: 720px) {
+  .reviews-photo { background-image: url("/assets/reviews/bg-mobile.jpg"); }
+}
+.reviews-photo .rv { color: #fff; }
+.reviews-photo .rv-based { color: rgba(255, 255, 255, 0.82); }
+.reviews-photo .rv-empty, .reviews-photo .rv-empty a { color: #fff; }
+.reviews-photo .rv-arrow { background: #F7DF75; color: #174B50; }
+.reviews-photo .rv-dots button::before { background: rgba(255, 255, 255, 0.35); }
+.reviews-photo .rv-dots button[aria-current="true"]::before { background: #fff; }
+.reviews-photo .rv-card[data-pos="left"],
+.reviews-photo .rv-card[data-pos="right"] { opacity: 0.5; }

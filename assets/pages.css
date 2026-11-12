@@ -415,3 +415,17 @@ body.cream { background: var(--aroo-cream); }
 .dog-grid li { width: min(240px, 40vw); }
 .dog-grid img { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; border-radius: 50%; box-shadow: 0 10px 26px rgba(23, 75, 80, 0.14); }
 .dog-grid span { display: block; margin-top: 12px; color: var(--aroo-teal); font-weight: 600; font-size: 18px; }
+
+/* Community reviews sit on the dark photo backdrop (see reviews.css). */
+.community-reviews.reviews-photo { max-width: none; }
+.community-reviews > * { max-width: 1160px; margin-left: auto; margin-right: auto; }
+.reviews-photo .community-title { color: #fff; }
+.reviews-photo .community-sub { color: rgba(255, 255, 255, 0.85); }
+.reviews-photo .community-cta .button { background: var(--aroo-butter); color: var(--aroo-teal); box-shadow: 0 8px 22px rgba(0, 0, 0, 0.3); }
+.reviews-photo .community-cta .button:hover, .reviews-photo .community-cta .button:focus-visible { background: #FAE89A; }
+.reviews-photo .trust { color: rgba(255, 255, 255, 0.88); }
+.reviews-photo .trust li + li { border-left-color: rgba(255, 255, 255, 0.25); }
+.reviews-photo .trust svg { stroke: var(--aroo-butter); }
+/* Tuck the photo up under the curved header so no cream shows at its corners. */
+.page-hero--slim { position: relative; z-index: 2; }
+.community-reviews.reviews-photo { margin-top: -40px; padding-top: calc(clamp(56px, 7vw, 92px) + 40px); }
