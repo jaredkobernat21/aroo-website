@@ -513,7 +513,7 @@
       letter-spacing: -0.01em;
       text-transform: uppercase;
     }
-    /* Always two lines: "For dogs &" / "their people." Phones size the text to the
+    /* Always two lines: "Clean yards." / "Happy dogs." Phones size the text to the
        screen so the longer line still fits. */
     .hero-h1 .phrase { display: block; white-space: nowrap; }
     @media (max-width: 640px) { .hero-h1 { font-size: 8.8vw; } }
@@ -763,7 +763,10 @@
       color: var(--aroo-teal);
       font-family: "Jost", "Futura", "Century Gothic", system-ui, sans-serif;
     }
-    .how { background: #F7DF75; padding: clamp(72px, 9vw, 130px) 24px; }
+    .how { background: #15B5B0; padding: clamp(72px, 9vw, 130px) 24px; }
+    .how .section-title, .how-steps h3 { color: #0E3A3E; }
+    .how .how-steps li { border-top-color: rgba(14, 58, 62, 0.28); }
+    .how .how-steps p { color: #0E3A3E; }
     .faq { background: var(--aroo-cream); padding: 0 24px clamp(80px, 10vw, 140px); }
     .section-title {
       margin: 0;
@@ -1230,7 +1233,7 @@
     <div class="stage" id="stage"></div>
     <a class="hero-logo" href="/" aria-label="aroo home"><img src="assets/brand/aroo-wordmark-white.png" width="1354" height="348" alt="aroo" fetchpriority="high"></a>
     <div class="hero-content">
-      <h1 class="hero-h1"><span class="phrase">For dogs &amp;</span> <span class="phrase">their people.</span><span class="sr-only"> Dog waste removal in Topeka &amp; Lawrence, Kansas</span></h1>
+      <h1 class="hero-h1"><span class="phrase">Clean yards.</span> <span class="phrase">Happy dogs.</span><span class="sr-only"> Dog waste removal in Topeka &amp; Lawrence, Kansas</span></h1>
       <p class="hero-sub">Dog poop cleanup across Northeast Kansas.</p>
       <div class="hero-ctas">
         <a class="btn btn-cyan" href="#request" id="hero-cta">Get My Free Quote</a>
@@ -1374,7 +1377,7 @@
           </div>
           <button class="dog-arrow" type="button" data-dir="1" aria-label="Next dog" aria-controls="dog-track"><span aria-hidden="true">&rsaquo;</span></button>
         </div>
-        <a class="btn btn-butter about-more" href="/dogs/">Meet our dogs</a>
+        <a class="btn btn-cyan about-more" href="/dogs/">Meet our dogs</a>
       </div>
     </div>
   </section>
@@ -1566,7 +1569,7 @@
 
   <script>
     (function () {
-      var SCENES = [1, 2, 3, 4, 5, 6];
+      var SCENES = [1, 2, 6];
       // Phones get lighter 720p copies; desktop panels get the full 1080p clips.
       function sceneUrl(i) { return (desktopQuery.matches ? 'assets/video/' : 'assets/video/m/') + 'scene' + SCENES[i] + '.mp4?v=2'; }
       function posterUrl(i) { return 'assets/video/poster/scene' + SCENES[i] + '.jpg'; }
@@ -1620,7 +1623,13 @@
             if (v.duration - v.currentTime <= LEAD) self.queueNext();
           });
           v.addEventListener('ended', function () {
-            if (v === self.videos[self.current]) self.queueNext();
+            if (v !== self.videos[self.current]) return;
+            // Every other scene is already on screen: replay this one.
+            if (!self.loading && pickScene() === null) {
+              v.currentTime = 0;
+              var r = v.play();
+              if (r && r.catch) r.catch(function () {});
+            } else self.queueNext();
           });
         });
       }

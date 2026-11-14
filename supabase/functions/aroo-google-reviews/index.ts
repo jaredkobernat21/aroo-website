@@ -71,6 +71,16 @@ const FEATURED: Review[] = [
     published: null,
     url: null,
   },
+  {
+    author: "Tucker Pruett",
+    authorUrl: null,
+    photo: null,
+    text:
+      "Very easy to work with, quick, efficient, and the pricing was very fair as well! I would highly recommend them.",
+    when: "",
+    published: null,
+    url: null,
+  },
 ];
 
 let cache: { at: number; data: Payload } | null = null;
