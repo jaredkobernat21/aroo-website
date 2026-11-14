@@ -464,3 +464,10 @@ body.cream { background: var(--aroo-cream); }
 .dog-feed p { margin: 12px auto 0; max-width: 26em; color: var(--ink); font-size: clamp(18px, 2vw, 20px); line-height: 1.5; }
 .dog-feed-cta { padding: clamp(64px, 9vw, 110px) 24px clamp(72px, 10vw, 120px); text-align: center; }
 .dog-feed-cta p { margin: 0 0 22px; color: var(--aroo-teal); font-weight: 600; font-size: clamp(19px, 2.2vw, 24px); }
+
+/* Service area: one block per town */
+.towns { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: 18px; margin-top: 22px; }
+.town { border: 1px solid rgba(23, 75, 80, .16); border-radius: 18px; padding: 20px 22px; scroll-margin-top: 24px; }
+.town h3 { margin: 0 0 8px; }
+.town p { margin: 0; }
+.town .town-meta { margin-top: 10px; font-size: 14px; color: #4A6B6E; }
