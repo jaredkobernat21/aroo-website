@@ -714,6 +714,9 @@
     .service-card li + li { margin-top: 6px; }
     .service-card li::before { content: ""; position: absolute; left: 2px; top: 0.45em; width: 12px; height: 7px; border-left: 2.5px solid var(--aroo-teal); border-bottom: 2.5px solid var(--aroo-teal); transform: rotate(-45deg); }
     .service-card .btn { margin-top: auto; align-self: flex-start; }
+    .service-cards--single { grid-template-columns: minmax(0, 520px); justify-content: center; }
+    .service-offer { text-transform: uppercase; font-family: "Archivo", "Arial Black", sans-serif; font-weight: 900; font-stretch: 125%; font-variation-settings: "wdth" 125; letter-spacing: -0.01em; }
+    .services-note { margin: clamp(22px, 3vw, 32px) auto 0; text-align: center; color: #fff; font-size: 15px; line-height: 1.5; }
     .services-more { margin-top: clamp(28px, 3.5vw, 40px); text-align: center; font-size: 17px; line-height: 1.6; color: #0E3A3E; }
     .services-more p { margin: 0; }
     .services-more a { color: #0E3A3E; font-weight: 600; text-underline-offset: 3px; }
@@ -738,21 +741,7 @@
     .home-reviews { padding: clamp(72px, 9vw, 130px) 24px clamp(56px, 7vw, 100px); }
     .home-reviews .rv { max-width: 1160px; margin: 0 auto; }
     h2.rv-score { margin: 20px 0 0; font-size: inherit; font-weight: inherit; line-height: inherit; }
-    .home-reviews-more { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px 32px; margin: 24px 0 0; text-align: center; }
-    .home-reviews-more a {
-      color: #fff;
-      font-family: "Archivo", "Arial Black", sans-serif;
-      font-weight: 900;
-      font-stretch: 125%;
-      font-variation-settings: "wdth" 125;
-      font-size: 15px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      text-decoration: none;
-      border-bottom: 2px solid transparent;
-      padding: 6px 2px;
-    }
-    .home-reviews-more a:hover, .home-reviews-more a:focus-visible { border-bottom-color: #fff; }
+    .home-reviews-ctas { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin: clamp(28px, 3.5vw, 40px) 0 0; }
     /* ---------- How it works + FAQ ---------- */
     :root {
       --aroo-cream: #F7F2E6;
@@ -1262,44 +1251,31 @@
         </div>
       </div>
     </div>
-    <p class="home-reviews-more">
-      <a href="https://maps.google.com/?cid=12861471966500433697" target="_blank" rel="noopener">Read all reviews on Google <span aria-hidden="true">&rarr;</span></a>
-      <a href="/community/">See our community <span aria-hidden="true">&rarr;</span></a>
-    </p>
+    <div class="home-reviews-ctas">
+      <a class="btn btn-cyan" href="#request">Free Quote</a>
+      <a class="btn btn-ghost" href="https://g.page/r/CSEv50ucIH2yEBM/review" target="_blank" rel="noopener">Leave Review</a>
+    </div>
   </section>
 
   <section class="services" id="services" aria-labelledby="services-title">
     <div class="services-inner">
-      <h2 class="section-title" id="services-title">Our services</h2>
+      <h2 class="section-title" id="services-title">Dog poop cleanup</h2>
       <p class="section-lede">Friendly, dependable pooper scooper service for homes in Topeka, Lawrence, and nearby.</p>
-      <div class="service-cards">
+      <div class="service-cards service-cards--single">
         <article class="service-card">
-          <h3>Weekly Dog Waste Removal</h3>
-          <p class="service-price">Starting at $14.99 per visit</p>
-          <p>Keep your yard clean and ready for everyday enjoyment.</p>
+          <h3 class="service-offer">Free Poop Scoop</h3>
+          <p class="service-price">with weekly signup</p>
           <ul>
-            <li>Service day set together with you</li>
-            <li>Billed monthly for completed visits</li>
-            <li>Change, pause, or cancel by email</li>
+            <li>Starting at $14.99</li>
+            <li>Monthly autopay</li>
+            <li>No contracts, cancel anytime</li>
+            <li>Reminder texts &amp; gate photos</li>
+            <li>Personal team who knows your dog&rsquo;s name</li>
           </ul>
-          <a class="btn btn-teal" href="#request" data-service="weekly">Get my weekly quote</a>
-        </article>
-        <article class="service-card">
-          <h3>One-Time Dog Waste Removal</h3>
-          <p class="service-price">Priced by yard size &amp; number of dogs</p>
-          <p>A fresh start for your yard, whether you&rsquo;re catching up or preparing for guests.</p>
-          <ul>
-            <li>Photo of your finished yard</li>
-            <li>Invoiced after the job is done</li>
-            <li>Pay online, by check, or Venmo</li>
-          </ul>
-          <a class="btn btn-teal" href="#request" data-service="one_time">Get my one-time quote</a>
+          <a class="btn btn-cyan" href="#request" data-service="weekly">Free Quote</a>
         </article>
       </div>
-      <div class="services-more" id="areas">
-        <p><strong>Where we serve:</strong> Topeka, <a href="/lawrence/">Lawrence</a>, Silver Lake, Rossville, St. Marys, Auburn, Maple Hill, Wakarusa, Tecumseh, Perry, Meriden, and Hoyt. <a href="/service-area/">See our service area</a>. Not sure we reach you? <a href="sms:+17856008801?&amp;body=DOG" data-sms="services">Text DOG to (785)&nbsp;600-8801</a>.</p>
-        <p class="services-links"><a href="/pricing/">See pricing details <span aria-hidden="true">&rarr;</span></a> <a href="/one-time-cleanup/">One-time yard cleanups <span aria-hidden="true">&rarr;</span></a> <a href="/commercial/">Apartments, HOAs &amp; properties <span aria-hidden="true">&rarr;</span></a></p>
-      </div>
+      <p class="services-note">Pricing depends on number of dogs and cleanup frequency.</p>
     </div>
   </section>
 
@@ -1415,9 +1391,8 @@
         <div class="faq-item">
           <h3><button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a5" id="faq-q5">How and when am I billed?<span class="faq-icon" aria-hidden="true"></span></button></h3>
           <div class="faq-panel" id="faq-a5" role="region" aria-labelledby="faq-q5">
-            <p>Pricing is agreed on before any work begins. One-time cleanups are invoiced securely through Stripe after the job is done, along with a photo of the finished yard. Recurring customers are billed monthly for completed visits, with invoices typically sent at the end of each month.</p>
-            <p>You can pay through Stripe, or by check or Venmo if that&rsquo;s easier.</p>
-            <p>Automatic payments are optional, and we&rsquo;ll only charge a saved card after you&rsquo;ve separately authorized it.</p>
+            <p>Pricing is agreed on before any work begins. Weekly service is billed monthly by autopay for completed visits. No contracts, and you can cancel anytime.</p>
+            <p>One-time cleanups are invoiced securely through Stripe after the job is done, along with a photo of the finished yard. You can pay through Stripe, or by check or Venmo.</p>
           </div>
         </div>
         <div class="faq-item">
@@ -1428,9 +1403,9 @@
           </div>
         </div>
         <div class="faq-item">
-          <h3><button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a7" id="faq-q7">Is the first cleanup priced differently?<span class="faq-icon" aria-hidden="true"></span></button></h3>
+          <h3><button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a7" id="faq-q7">Is the first cleanup free?<span class="faq-icon" aria-hidden="true"></span></button></h3>
           <div class="faq-panel" id="faq-a7" role="region" aria-labelledby="faq-q7">
-            <p>First cleanups and weekly service are priced based on the number of dogs and the size of your yard, starting at $14.99. You&rsquo;ll know your exact price before we begin.</p>
+            <p>Yes, when you sign up for weekly service, your first poop scoop is free. After that, weekly service starts at $14.99, depending on the number of dogs and cleanup frequency. You&rsquo;ll know your exact price before we begin.</p>
           </div>
         </div>
         <div class="faq-item">
@@ -1531,7 +1506,7 @@
 
         <div class="rq-field">
           <label class="rq-label" for="rq-notes">Notes <span class="rq-opt">(optional)</span></label>
-          <textarea class="rq-input" id="rq-notes" name="notes" maxlength="1000" rows="3" placeholder="Gate code, yard size, anything we should know" aria-describedby="rq-notes-err"></textarea>
+          <textarea class="rq-input" id="rq-notes" name="notes" maxlength="1000" rows="3" placeholder="Gate code, anything we should know" aria-describedby="rq-notes-err"></textarea>
           <p class="rq-error" id="rq-notes-err"></p>
         </div>
 
