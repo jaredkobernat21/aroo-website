@@ -479,16 +479,6 @@
     }
 
     /* Logo in the top-left corner, level with the menu button. */
-    .hero-logo {
-      position: absolute;
-      top: max(26px, calc(env(safe-area-inset-top) + 12px));
-      left: max(24px, env(safe-area-inset-left));
-      z-index: 3;
-      display: block;
-      width: clamp(96px, 9vw, 132px);
-    }
-    .hero-logo img { display: block; width: 100%; height: auto; filter: drop-shadow(0 2px 12px rgba(0,0,0,0.25)); }
-    .hero-logo:focus-visible { outline: 2px solid #fff; outline-offset: 6px; border-radius: 6px; }
 
     .hero-content {
       position: absolute;
@@ -532,7 +522,7 @@
     }
     .skip-link:focus { left: 12px; outline: 3px solid var(--aroo-butter, #F4D774); }
     /* ---------- About ---------- */
-    .about { background: var(--aroo-teal); }
+    .about { background: #fff; }
 
     .about-body {
       display: flex;
@@ -565,17 +555,17 @@
       width: 44px;
       height: 44px;
       padding: 0 0 3px;
-      border: 2px solid rgba(255,255,255,0.75);
+      border: 2px solid #15B5B0;
       border-radius: 50%;
       background: transparent;
-      color: #fff;
+      color: #15B5B0;
       font: 400 28px/1 "Jost", system-ui, sans-serif;
       cursor: pointer;
       transition: background-color 0.15s ease, color 0.15s ease;
       -webkit-tap-highlight-color: transparent;
     }
-    .dog-arrow:hover { background: #fff; color: var(--aroo-teal); }
-    .dog-arrow:focus-visible, .dog-dots button:focus-visible { outline: 3px solid var(--aroo-butter); outline-offset: 3px; }
+    .dog-arrow:hover { background: #15B5B0; color: #fff; }
+    .dog-arrow:focus-visible, .dog-dots button:focus-visible { outline: 3px solid #15B5B0; outline-offset: 3px; }
     .dog-dots { display: flex; gap: 4px; }
     .dog-dots button {
       width: 28px;
@@ -594,10 +584,10 @@
       height: 10px;
       margin: -5px 0 0 -5px;
       border-radius: 50%;
-      background: rgba(255,255,255,0.4);
+      background: rgba(21,181,176,0.35);
       transition: background-color 0.15s ease, transform 0.15s ease;
     }
-    .dog-dots button[aria-current="true"]::before { background: #fff; transform: scale(1.2); }
+    .dog-dots button[aria-current="true"]::before { background: #15B5B0; transform: scale(1.2); }
 
     .about-dog img {
       display: block;
@@ -611,7 +601,7 @@
       margin-top: 0.9em;
       font-family: "Jost", "Futura", "Century Gothic", system-ui, sans-serif;
       font-weight: 600;
-      color: #fff;
+      color: #15B5B0;
       font-size: clamp(26px, 3.6vw, 56px);
       line-height: 1.1;
       letter-spacing: -0.01em;
@@ -1198,13 +1188,11 @@
   </nav>
   <main class="hero" id="home">
     <div class="stage" id="stage"></div>
-    <a class="hero-logo" href="/" aria-label="aroo home"><img src="assets/brand/aroo-wordmark-white.png" width="1354" height="348" alt="aroo" fetchpriority="high"></a>
     <div class="hero-content">
-      <h1 class="hero-h1"><img class="hero-wordmark" src="assets/brand/aroo-wordmark-white.png" width="1354" height="348" alt="" aria-hidden="true"><span class="sr-only">aroo dog poop cleanup in Topeka &amp; Lawrence, Kansas</span></h1>
+      <h1 class="hero-h1"><img class="hero-wordmark" src="assets/brand/aroo-wordmark-white.png" width="1354" height="348" alt="" aria-hidden="true" fetchpriority="high"><span class="sr-only">aroo dog poop cleanup in Topeka &amp; Lawrence, Kansas</span></h1>
       <p class="hero-sub hero-sub--caps">Dog poop cleanup</p>
       <div class="hero-ctas">
         <a class="btn btn-cyan" href="#request" id="hero-cta">Free Quote</a>
-        <a class="btn btn-ghost" href="#reviews">Read Reviews</a>
       </div>
     </div>
   </main>
@@ -1237,7 +1225,7 @@
   <section class="services" id="services" aria-labelledby="services-title">
     <div class="services-inner">
       <h2 class="section-title" id="services-title">Dog poop cleanup</h2>
-      <p class="section-lede">Friendly, dependable pooper scooper service for homes in Topeka, Lawrence, and nearby.</p>
+      <p class="section-lede">Pooper scooper service based in Topeka.</p>
       <div class="service-cards service-cards--single">
         <article class="service-card">
           <h3 class="service-offer">Free Cleanup</h3>
@@ -1253,54 +1241,6 @@
         </article>
       </div>
       <p class="services-note">Pricing depends on number of dogs and cleanup frequency.</p>
-    </div>
-  </section>
-
-  <section class="promise" id="promise" aria-labelledby="promise-title">
-    <div class="promise-inner">
-      <h2 class="section-title" id="promise-title">Why choose aroo?</h2>
-      <p class="section-lede">What you can count on from us, every visit.</p>
-      <ul class="promise-list">
-        <li>
-          <h3>Reliable, scheduled cleanups</h3>
-          <p>We set your service day together and show up for it. If weather moves a visit, we&rsquo;ll let you know, and you&rsquo;re never charged for a visit we didn&rsquo;t make.</p>
-        </li>
-        <li>
-          <h3>Clear communication</h3>
-          <p>Your price, service day, and scope are confirmed before we start, and we&rsquo;ll keep you in the loop if anything needs to change.</p>
-        </li>
-        <li>
-          <h3>Respect for your yard &amp; gates</h3>
-          <p>We only work in the areas we agree on, treat your gate and your pets with care, and never need to come inside your home.</p>
-        </li>
-        <li>
-          <h3>Friendly &amp; locally owned</h3>
-          <p>We&rsquo;re your neighbors in Topeka, offering simple service with a personal touch. And yes, we want to know your dog&rsquo;s name.</p>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="how" id="how-it-works" aria-labelledby="how-title">
-    <div class="how-inner">
-      <h2 class="section-title" id="how-title">How it works</h2>
-      <ol class="how-steps">
-        <li>
-          <span class="step-num" aria-hidden="true">1</span>
-          <h3>Request your quote</h3>
-          <p>Tell us about your yard and dogs.</p>
-        </li>
-        <li>
-          <span class="step-num" aria-hidden="true">2</span>
-          <h3>Choose your service</h3>
-          <p>Select a cleanup schedule that works for you.</p>
-        </li>
-        <li>
-          <span class="step-num" aria-hidden="true">3</span>
-          <h3>Enjoy your yard</h3>
-          <p>We handle the dirty work so you can enjoy more time outside.</p>
-        </li>
-      </ol>
     </div>
   </section>
 
@@ -1511,7 +1451,7 @@
   <footer class="site-footer">
     <div class="inner">
       <span>&copy; 2026 aroo dog poop cleanup &middot; Operated by ROQ Innovation LLC</span>
-      <span class="footer-links"><a href="/lawrence/">Lawrence</a> <a href="/service-area/">Service area</a> <a href="/one-time-cleanup/">One-time cleanup</a> <a href="/pricing/">Pricing</a> <a href="/commercial/">Commercial</a> <a href="/community/">Community</a> <a href="/dogs/">Our dogs</a> <a href="/terms/">Terms of Service</a> <a href="/privacy/">Privacy Policy</a></span>
+      <span class="footer-links"><a href="/lawrence/">Lawrence</a> <a href="/service-area/">Service area</a> <a href="/how-it-works/">How it works</a> <a href="/one-time-cleanup/">One-time cleanup</a> <a href="/pricing/">Pricing</a> <a href="/commercial/">Commercial</a> <a href="/community/">Community</a> <a href="/dogs/">Our dogs</a> <a href="/terms/">Terms of Service</a> <a href="/privacy/">Privacy Policy</a></span>
     </div>
   </footer>
 
@@ -1703,7 +1643,7 @@
       });
 
       // Teal bars while they sit over the white part of the About section.
-      var lights = document.querySelectorAll('.services, .promise, .how, .faq');
+      var lights = document.querySelectorAll('.services, .about, .faq');
       var ticking = false;
       function checkLight() {
         ticking = false;
