@@ -14,7 +14,9 @@
   function safeUrl(u) { return /^(https:\/\/|\/(?!\/))/.test(u || '') ? u : null; }
 
   function card(r) {
-    var author = esc(r.author);
+    // "Chris Hancock" -> "Chris H."
+    var parts = String(r.author || '').trim().split(/\s+/);
+    var author = esc(parts.length > 1 ? parts[0] + ' ' + parts[parts.length - 1].charAt(0).toUpperCase() + '.' : parts[0]);
     var authorUrl = safeUrl(r.authorUrl);
     var photo = safeUrl(r.photo);
     var url = safeUrl(r.url);

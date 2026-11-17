@@ -113,7 +113,7 @@ a.rv-name:hover { text-decoration: underline; }
 .rv-when { display: block; color: var(--rv-muted); font-size: 14px; font-weight: 400; }
 .rv-g { margin-left: auto; width: 20px; height: 20px; flex: none; }
 
-.rv-controls { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 8px; }
+.rv-controls { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 28px; }
 .rv-controls[hidden] { display: none; }
 .rv-arrow {
   width: 44px; height: 44px;
@@ -169,7 +169,7 @@ a.rv-name:hover { text-decoration: underline; }
 .reviews-photo .rv { color: #fff; }
 .reviews-photo .rv-based { color: rgba(255, 255, 255, 0.82); }
 .reviews-photo .rv-empty, .reviews-photo .rv-empty a { color: #fff; }
-.reviews-photo .rv-arrow { background: #F7DF75; color: #174B50; }
+.reviews-photo .rv-arrow { background: #15B5B0; color: #fff; }
 .reviews-photo .rv-dots button::before { background: rgba(255, 255, 255, 0.35); }
 .reviews-photo .rv-dots button[aria-current="true"]::before { background: #fff; }
 .reviews-photo .rv-card[data-pos="left"],
