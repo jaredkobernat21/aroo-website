@@ -513,10 +513,10 @@
       letter-spacing: -0.01em;
       text-transform: uppercase;
     }
-    /* Always two lines: "Clean yards." / "Happy dogs." Phones size the text to the
-       screen so the longer line still fits. */
-    .hero-h1 .phrase { display: block; white-space: nowrap; }
-    @media (max-width: 640px) { .hero-h1 { font-size: 8.8vw; } }
+    /* The hero headline is the aroo. wordmark; the text version is for search and screen readers. */
+    .hero-wordmark { display: block; width: min(64vw, 620px); height: auto; margin: 0 auto; filter: drop-shadow(0 2px 14px rgba(0,0,0,0.25)); }
+    @media (max-width: 640px) { .hero-wordmark { width: 72vw; } }
+    .hero-sub--caps { text-transform: uppercase; letter-spacing: 0.14em; }
     .sr-only {
       position: absolute !important;
       width: 1px; height: 1px;
@@ -1200,8 +1200,8 @@
     <div class="stage" id="stage"></div>
     <a class="hero-logo" href="/" aria-label="aroo home"><img src="assets/brand/aroo-wordmark-white.png" width="1354" height="348" alt="aroo" fetchpriority="high"></a>
     <div class="hero-content">
-      <h1 class="hero-h1"><span class="phrase">Clean yards.</span> <span class="phrase">Happy dogs.</span><span class="sr-only"> Dog waste removal in Topeka &amp; Lawrence, Kansas</span></h1>
-      <p class="hero-sub">Dog poop cleanup across Northeast Kansas.</p>
+      <h1 class="hero-h1"><img class="hero-wordmark" src="assets/brand/aroo-wordmark-white.png" width="1354" height="348" alt="" aria-hidden="true"><span class="sr-only">aroo dog poop cleanup in Topeka &amp; Lawrence, Kansas</span></h1>
+      <p class="hero-sub hero-sub--caps">Dog poop cleanup</p>
       <div class="hero-ctas">
         <a class="btn btn-cyan" href="#request" id="hero-cta">Free Quote</a>
         <a class="btn btn-ghost" href="#reviews">Read Reviews</a>
