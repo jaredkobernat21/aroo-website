@@ -80,6 +80,25 @@ const FEATURED: Review[] = [
     when: "",
     published: null,
     url: null,
+  },  {
+    author: "Seth P.",
+    authorUrl: null,
+    photo: null,
+    text:
+      "Took care of my yard in a timely manner!",
+    when: "",
+    published: null,
+    url: null,
+  },
+  {
+    author: "Jessica W.",
+    authorUrl: null,
+    photo: null,
+    text:
+      "Nice friendly people they helped me get some dog food.",
+    when: "",
+    published: null,
+    url: null,
   },
 ];
 
