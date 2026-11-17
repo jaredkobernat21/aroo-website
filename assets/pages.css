@@ -61,8 +61,8 @@ a { color: var(--aroo-teal); text-underline-offset: 3px; }
   margin-top: 28px;
   padding: 10px 22px;
   border-radius: 999px;
-  background: var(--aroo-butter);
-  color: var(--aroo-teal);
+  background: #15B5B0;
+  color: #fff;
   font-family: "Archivo", "Arial Black", sans-serif;
   font-weight: 900;
   font-stretch: 125%;
@@ -270,7 +270,7 @@ body.cream { background: var(--aroo-cream); }
 
 .community-photo { position: relative; height: clamp(260px, 34vw, 460px); overflow: hidden; }
 .community-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 40% 55%; }
-.community-photo .wave { position: absolute; top: -1px; left: 0; width: 100%; height: clamp(36px, 6vw, 90px); fill: var(--aroo-cream); z-index: 1; }
+.community-photo .wave { position: absolute; top: -1px; left: 0; width: 100%; height: clamp(36px, 6vw, 90px); fill: #fff; z-index: 1; }
 
 @media (max-width: 640px) {
   .trust { flex-direction: column; align-items: center; }
@@ -278,7 +278,7 @@ body.cream { background: var(--aroo-cream); }
 }
 
 /* Connect with us */
-.connect { padding: clamp(24px, 4vw, 48px) 24px clamp(64px, 8vw, 104px); text-align: center; }
+.connect { padding: clamp(56px, 7vw, 88px) 24px clamp(64px, 8vw, 104px); text-align: center; background: #fff; }
 .connect h2 {
   margin: 0;
   color: var(--aroo-teal);
@@ -330,7 +330,7 @@ body.cream { background: var(--aroo-cream); }
 /* ---------- Commercial page ---------- */
 .eyebrow {
   margin: 0 0 14px;
-  color: var(--aroo-butter);
+  color: #15B5B0;
   font-weight: 600;
   font-size: 15px;
   letter-spacing: 0.12em;
@@ -341,14 +341,14 @@ body.cream { background: var(--aroo-cream); }
   margin-top: 28px;
   padding: 15px 30px;
   border-radius: 999px;
-  background: var(--aroo-butter);
-  color: var(--aroo-teal);
+  background: #15B5B0;
+  color: #fff;
   font-weight: 600;
   font-size: 18px;
   text-decoration: none;
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.2);
 }
-.hero-button:hover, .hero-button:focus-visible { background: #FAE89A; }
+.hero-button:hover, .hero-button:focus-visible { background: #3CC6C1; }
 .check-list { list-style: none; padding: 0; }
 .check-list li { position: relative; padding-left: 30px; }
 .check-list li + li { margin-top: 12px; }
