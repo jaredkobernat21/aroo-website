@@ -534,31 +534,10 @@
     /* ---------- About ---------- */
     .about { background: var(--aroo-teal); }
 
-    .about-head {
-      padding: clamp(72px, 9vw, 140px) 24px 0;
-      text-align: center;
-      color: #fff;
-    }
-    .about-head img {
-      display: block;
-      width: min(46vw, 560px);
-      height: auto;
-      margin: 0 auto;
-    }
-    .about-head p {
-      margin: clamp(16px, 2vw, 28px) auto 0;
-      max-width: 30em;
-      font-family: "Jost", "Futura", "Century Gothic", system-ui, sans-serif;
-      font-weight: 600;
-      font-size: clamp(18px, 2vw, 28px);
-      line-height: 1.35;
-      letter-spacing: 0.01em;
-    }
-
     .about-body {
       display: flex;
       justify-content: center;
-      padding: clamp(40px, 5vw, 72px) 24px clamp(72px, 9vw, 150px);
+      padding: clamp(72px, 9vw, 140px) 24px clamp(72px, 9vw, 150px);
     }
     .about-dog {
       width: min(100%, 440px);
@@ -640,9 +619,7 @@
     }
 
     @media (max-width: 720px) {
-      .about-head { padding-top: 64px; }
-      .about-head img { width: min(72vw, 360px); }
-      .about-body { padding: 40px 24px 72px; }
+      .about-body { padding: 64px 24px 72px; }
       .about-dog { width: min(76vw, 340px); }
       .about-dog figcaption { font-size: clamp(24px, 7.4vw, 34px); }
     }
@@ -1263,7 +1240,7 @@
       <p class="section-lede">Friendly, dependable pooper scooper service for homes in Topeka, Lawrence, and nearby.</p>
       <div class="service-cards service-cards--single">
         <article class="service-card">
-          <h3 class="service-offer">Free Poop Scoop</h3>
+          <h3 class="service-offer">Free Cleanup</h3>
           <p class="service-price">with weekly signup</p>
           <ul>
             <li>Starting at $14.99</li>
@@ -1328,11 +1305,7 @@
   </section>
 
   <section class="about" id="about" aria-labelledby="about-title">
-    <h2 class="sr-only" id="about-title">About aroo</h2>
-    <div class="about-head">
-      <img src="assets/brand/aroo-wordmark-white.png" width="1354" height="348" alt="aroo" loading="lazy" decoding="async">
-      <p>we want to meet your dogs!</p>
-    </div>
+    <h2 class="sr-only" id="about-title">Our dogs</h2>
     <div class="about-body">
       <div class="about-dog" role="region" aria-roledescription="carousel" aria-label="Dogs we take care of">
         <div class="dog-track" id="dog-track">
