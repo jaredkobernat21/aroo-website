@@ -651,8 +651,8 @@
 
     /* Menu quote button */
     .menu-panel .menu-cta { margin-top: 10px; }
-    .menu-panel .menu-cta a { display: inline-block; padding: 8px 18px; border-radius: 999px; background: #F7DF75; color: var(--aroo-teal); text-decoration: none; }
-    .menu-panel .menu-cta a:hover, .menu-panel .menu-cta a:focus-visible { text-decoration: none; background: #FAE89A; }
+    .menu-panel .menu-cta a { display: inline-block; padding: 8px 18px; border-radius: 999px; background: #fff; color: #0E3A3E; text-decoration: none; }
+    .menu-panel .menu-cta a:hover, .menu-panel .menu-cta a:focus-visible { text-decoration: none; background: #E6F7F6; }
 
 
     /* ---------- Services ---------- */
@@ -724,7 +724,11 @@
     .how-steps h3 { color: #0E3A3E; }
     .how .how-steps li { border-top-color: rgba(14, 58, 62, 0.28); }
     .how .how-steps p { color: #0E3A3E; }
-    .faq { background: var(--aroo-cream); padding: 0 24px clamp(80px, 10vw, 140px); }
+    .faq { background: #15B5B0; padding: 0 24px clamp(80px, 10vw, 140px); color: #0E3A3E; }
+    .faq .section-title, .faq-cta p { color: #fff; }
+    .faq .faq-list, .faq .faq-item { border-color: rgba(255,255,255,0.55); }
+    .faq .how-steps p, .faq .faq-panel p { color: #0E3A3E; }
+    .faq .faq-q:focus-visible { outline-color: #fff; }
     .section-title {
       margin: 0;
       font-family: "Archivo", "Arial Black", sans-serif;
@@ -793,7 +797,7 @@
     }
     .faq-q:focus-visible { outline: 2px solid var(--aroo-teal); outline-offset: 4px; border-radius: 4px; }
     /* Plus sign that turns into a minus when open */
-    .faq-icon { position: relative; flex: none; width: 28px; height: 28px; border-radius: 50%; background: var(--aroo-butter); }
+    .faq-icon { position: relative; flex: none; width: 28px; height: 28px; border-radius: 50%; background: #fff; }
     .faq-icon::before, .faq-icon::after {
       content: "";
       position: absolute;
@@ -803,7 +807,7 @@
       height: 2px;
       margin: -1px 0 0 -6px;
       border-radius: 2px;
-      background: var(--aroo-teal);
+      background: #15B5B0;
       transition: transform 0.2s ease;
     }
     .faq-icon::after { transform: rotate(90deg); }
@@ -814,7 +818,9 @@
 
     .faq-cta { margin: clamp(56px, 7vw, 88px) 0 0; text-align: center; }
     .faq-cta p { margin: 0; font-weight: 600; font-size: clamp(22px, 2.2vw, 28px); }
-    .faq-cta a {
+    .btn-outlined { border: 2px solid #fff; }
+    .faq-cta a.btn { margin-top: 18px; }
+    .faq-cta a:not(.btn) {
       display: inline-block;
       margin-top: 14px;
       color: var(--aroo-teal);
@@ -830,7 +836,7 @@
       border-bottom: 3px solid var(--aroo-butter);
       transition: border-color 0.2s ease;
     }
-    .faq-cta a:hover, .faq-cta a:focus-visible { border-bottom-color: var(--aroo-teal); outline: none; }
+    .faq-cta a:not(.btn):hover, .faq-cta a:not(.btn):focus-visible { border-bottom-color: var(--aroo-teal); outline: none; }
     .faq-cta a span { display: inline-block; transition: transform 0.2s ease; }
     .faq-cta a:hover span { transform: translateX(3px); }
 
@@ -1004,8 +1010,8 @@
       min-height: 56px;
       border: 0;
       border-radius: 999px;
-      background: var(--aroo-butter);
-      color: var(--aroo-teal);
+      background: #15B5B0;
+      color: #fff;
       font-family: "Archivo", "Arial Black", sans-serif;
       font-weight: 900;
       font-stretch: 125%;
@@ -1016,7 +1022,7 @@
       cursor: pointer;
       transition: transform 0.15s ease, background-color 0.15s ease;
     }
-    .rq-submit:hover { background: #F8E297; }
+    .rq-submit:hover { background: #3CC6C1; }
     .rq-submit:active { transform: scale(0.99); }
     .rq-submit:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
     .rq-submit[disabled] { opacity: 0.7; cursor: progress; }
@@ -1130,7 +1136,7 @@
       min-width: 230px;
       padding: 68px 30px 26px;
       border-radius: 18px;
-      background: var(--aroo-teal);
+      background: #15B5B0;
       box-shadow: 0 18px 40px rgba(10, 35, 38, 0.35);
       opacity: 0;
       visibility: hidden;
@@ -1331,7 +1337,7 @@
 
       <div class="faq-cta">
         <p>Ready for a cleaner yard?</p>
-        <a href="#request">Get Started <span aria-hidden="true">&rarr;</span></a>
+        <a class="btn btn-cyan btn-outlined" href="#request">Free Quote</a>
       </div>
     </div>
   </section>
@@ -1357,8 +1363,7 @@
     </div>
 
     <div class="request" id="request">
-      <h2 class="request-title" id="request-title">Request service</h2>
-      <p class="request-sub">Takes under a minute. No account needed.</p>
+      <h2 class="request-title" id="request-title">Free Quote</h2>
 
       <form class="rq-form" id="rq-form" novalidate aria-labelledby="request-title">
         <div class="rq-row">
@@ -1419,7 +1424,7 @@
 
         <div class="rq-field">
           <label class="rq-label" for="rq-notes">Notes <span class="rq-opt">(optional)</span></label>
-          <textarea class="rq-input" id="rq-notes" name="notes" maxlength="1000" rows="3" placeholder="Gate code, anything we should know" aria-describedby="rq-notes-err"></textarea>
+          <textarea class="rq-input" id="rq-notes" name="notes" maxlength="1000" rows="3" placeholder="Anything we should know" aria-describedby="rq-notes-err"></textarea>
           <p class="rq-error" id="rq-notes-err"></p>
         </div>
 
@@ -1431,7 +1436,7 @@
 
         <p class="rq-alert" id="rq-alert" role="alert"></p>
 
-        <button class="rq-submit" id="rq-submit" type="submit">Request Service</button>
+        <button class="rq-submit" id="rq-submit" type="submit">Free Quote</button>
 
         <p class="rq-privacy">We&rsquo;ll only use your details to respond to this request. We don&rsquo;t sell your information or send marketing texts. See our <a href="/privacy/">Privacy Policy</a>.</p>
       </form>
@@ -1820,7 +1825,7 @@
           })
           .then(function () {
             submit.disabled = false;
-            submit.textContent = 'Request Service';
+            submit.textContent = 'Free Quote';
           });
       });
 

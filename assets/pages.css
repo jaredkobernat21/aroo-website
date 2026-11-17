@@ -108,8 +108,8 @@ main li + li { margin-top: 6px; }
 .faq-list h3 { margin-top: 22px; }
 
 .cta {
-  background: var(--aroo-butter);
-  color: var(--aroo-teal);
+  background: #15B5B0;
+  color: #fff;
   text-align: center;
   padding: clamp(56px, 7vw, 96px) 24px;
 }
@@ -136,7 +136,7 @@ main li + li { margin-top: 6px; }
   text-decoration: none;
 }
 .cta .button:hover, .cta .button:focus-visible { background: #0F3A3E; }
-.cta .text-us { display: block; margin-top: 16px; font-weight: 600; }
+.cta .text-us { display: block; margin-top: 16px; font-weight: 600; color: #fff; }
 
 .site-footer {
   background: var(--aroo-teal);
@@ -313,14 +313,14 @@ body.cream { background: var(--aroo-cream); }
   flex: none;
   padding: 9px 18px;
   border-radius: 999px;
-  background: var(--aroo-butter);
-  color: var(--aroo-teal);
+  background: #15B5B0;
+  color: #fff;
   font-weight: 600;
   font-size: 15px;
   text-decoration: none;
   white-space: nowrap;
 }
-.page-nav .nav-cta:hover, .page-nav .nav-cta:focus-visible { background: #FAE89A; }
+.page-nav .nav-cta:hover, .page-nav .nav-cta:focus-visible { background: #3CC6C1; }
 .page-nav ul { margin-left: auto; }
 @media (max-width: 760px) {
   .page-nav { flex-wrap: wrap; row-gap: 14px; }
@@ -390,8 +390,8 @@ body.cream { background: var(--aroo-cream); }
   text-decoration: none;
 }
 .pq-btn:hover, .pq-btn:focus-visible { background: rgba(255, 255, 255, 0.1); }
-.pq-btn-primary { border-color: var(--aroo-butter); background: var(--aroo-butter); color: var(--aroo-teal); }
-.pq-btn-primary:hover, .pq-btn-primary:focus-visible { background: #FAE89A; }
+.pq-btn-primary { border-color: #15B5B0; background: #15B5B0; color: #fff; }
+.pq-btn-primary:hover, .pq-btn-primary:focus-visible { border-color: #3CC6C1; background: #3CC6C1; }
 .pq-fine { margin: 22px auto 0; max-width: 32em; text-align: center; font-size: 15px; line-height: 1.5; opacity: 0.88; }
 .pq-fine a { color: #fff; }
 @media (max-width: 640px) {
@@ -423,11 +423,11 @@ body.cream { background: var(--aroo-cream); }
 .community-reviews > * { max-width: 1160px; margin-left: auto; margin-right: auto; }
 .reviews-photo .community-title { color: #fff; }
 .reviews-photo .community-sub { color: rgba(255, 255, 255, 0.85); }
-.reviews-photo .community-cta .button { background: var(--aroo-butter); color: var(--aroo-teal); box-shadow: 0 8px 22px rgba(0, 0, 0, 0.3); }
-.reviews-photo .community-cta .button:hover, .reviews-photo .community-cta .button:focus-visible { background: #FAE89A; }
+.reviews-photo .community-cta .button { background: #15B5B0; color: #fff; box-shadow: 0 8px 22px rgba(0, 0, 0, 0.3); }
+.reviews-photo .community-cta .button:hover, .reviews-photo .community-cta .button:focus-visible { background: #3CC6C1; }
 .reviews-photo .trust { color: rgba(255, 255, 255, 0.88); }
 .reviews-photo .trust li + li { border-left-color: rgba(255, 255, 255, 0.25); }
-.reviews-photo .trust svg { stroke: var(--aroo-butter); }
+.reviews-photo .trust svg { stroke: #15B5B0; }
 /* Tuck the photo up under the curved header so no cream shows at its corners. */
 .page-hero--slim { position: relative; z-index: 2; }
 .community-reviews.reviews-photo { margin-top: -40px; padding-top: calc(clamp(56px, 7vw, 92px) + 40px); }
@@ -471,3 +471,14 @@ body.cream { background: var(--aroo-cream); }
 .town h3 { margin: 0 0 8px; }
 .town p { margin: 0; }
 .town .town-meta { margin-top: 10px; font-size: 14px; color: #4A6B6E; }
+
+/* Cyan teal CTA band (pricing page) */
+.cta--cyan { background: #15B5B0; color: #fff; }
+.cta--cyan .text-us { color: #fff; }
+
+/* Community: resources + dogs on cyan teal */
+.resources, .dogs { background: #15B5B0; }
+.resources h2, .dogs h2, .resources .resources-sub, .dogs .resources-sub, .dog-grid span { color: #fff; }
+.resources-note { color: rgba(255, 255, 255, 0.9); }
+.resource-list a { box-shadow: 0 1px 2px rgba(14, 58, 62, 0.12), 0 12px 28px rgba(14, 58, 62, 0.18); }
+.dog-grid img { box-shadow: 0 10px 26px rgba(14, 58, 62, 0.25); }
