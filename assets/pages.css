@@ -482,3 +482,27 @@ body.cream { background: var(--aroo-cream); }
 .resources-note { color: rgba(255, 255, 255, 0.9); }
 .resource-list a { box-shadow: 0 1px 2px rgba(14, 58, 62, 0.12), 0 12px 28px rgba(14, 58, 62, 0.18); }
 .dog-grid img { box-shadow: 0 10px 26px rgba(14, 58, 62, 0.25); }
+
+/* ---------- Guides ---------- */
+.guide-meta { margin: 0 0 8px; color: #5A6F71; font-size: 15px; }
+.guide-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 18px; margin: 28px 0 0; padding: 0; list-style: none; }
+.guide-list li + li { margin-top: 0; }
+.guide-list a { display: block; height: 100%; padding: 22px 22px 20px; border-radius: 18px; background: #fff; color: var(--ink); text-decoration: none; border-top: 5px solid #15B5B0; box-shadow: 0 1px 2px rgba(14, 58, 62, 0.10), 0 10px 26px rgba(14, 58, 62, 0.12); transition: transform 0.15s ease; }
+.guide-list a:hover, .guide-list a:focus-visible { transform: translateY(-2px); }
+.guide-list strong { display: block; color: var(--aroo-teal); font-size: 21px; line-height: 1.25; }
+.guide-list .desc { display: block; margin-top: 8px; font-size: 16px; line-height: 1.45; }
+.guide-list .site { display: block; margin-top: 12px; color: #0F8F8B; font-size: 15px; font-weight: 600; }
+.guide-more { margin-top: 24px; }
+.guide-cta { margin: clamp(40px, 6vw, 64px) 0 0; padding: 24px 26px; border-radius: 20px; background: #15B5B0; color: #fff; }
+.guide-cta p { margin: 0; font-size: 18px; line-height: 1.5; }
+.guide-cta .button { display: inline-block; margin-top: 16px; padding: 12px 26px; border-radius: 999px; background: #fff; color: #0E3A3E; font-weight: 600; text-decoration: none; }
+.guide-cta .button:hover, .guide-cta .button:focus-visible { background: #E6F7F6; }
+.guide-sources { margin-top: clamp(36px, 5vw, 52px); }
+.guide-sources h2 { font-size: clamp(18px, 2vw, 22px); }
+.guide-sources ul { font-size: 15px; }
+.guide-note { margin-top: 18px; color: #5A6F71; font-size: 14px; line-height: 1.5; }
+.guide-address { padding-left: 14px; border-left: 3px solid #15B5B0; }
+main section h3 { margin-top: 18px; }
+@media (max-width: 760px) { .page-nav ul { flex-wrap: wrap; row-gap: 10px; } }
+.resources-guides { margin: 14px 0 0; }
+.resources-guides a { color: #fff; font-weight: 600; text-underline-offset: 3px; }
