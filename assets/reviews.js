@@ -34,6 +34,52 @@
       (r.when ? '<span class="rv-when">' + esc(r.when) + '</span>' : '') + '</span>' + G + '</figcaption></figure>';
   }
 
+  // Grid card (home page): avatar on top, name, source, stars, centered quote.
+  function gridCard(r) {
+    var parts = String(r.author || '').trim().split(/\s+/);
+    var author = esc(parts.length > 1 ? parts[0] + ' ' + parts[parts.length - 1].charAt(0).toUpperCase() + '.' : parts[0]);
+    var photo = safeUrl(r.photo);
+    var avatar = photo
+      ? '<span class="rv-avatar"><img src="' + esc(photo) + '" alt="" referrerpolicy="no-referrer" loading="lazy" width="64" height="64"></span>'
+      : '<span class="rv-avatar" aria-hidden="true">' + esc(String(r.author || '?').charAt(0).toUpperCase()) + '</span>';
+    // "Read more" shows only when the quote is actually cut off (see fitMore).
+    return '<figure class="rv-gcard">' + avatar +
+      '<figcaption><span class="rv-name">' + author + '</span><span class="rv-src">Google review</span></figcaption>' +
+      stars(5) + '<blockquote>&ldquo;' + esc(r.text) + '&rdquo;</blockquote>' +
+      '<button type="button" class="rv-more" aria-expanded="false" hidden>Read more</button></figure>';
+  }
+
+  // Grid mode: a row of cards that scrolls sideways when there are more than fit.
+  function wireGrid(root) {
+    var track = root.querySelector('.rv-track');
+    var controls = root.querySelector('.rv-controls');
+    var prev = root.querySelector('.rv-prev');
+    var next = root.querySelector('.rv-next');
+    var dots = root.querySelector('.rv-dots');
+    if (dots) dots.remove();
+    function step() { var c = track.firstElementChild; return c ? c.getBoundingClientRect().width + 20 : track.clientWidth; }
+    function fitMore() {
+      track.querySelectorAll('.rv-gcard').forEach(function (c) {
+        if (c.classList.contains('is-open')) return;
+        var q = c.querySelector('blockquote');
+        c.querySelector('.rv-more').hidden = q.scrollHeight <= q.clientHeight + 1;
+      });
+    }
+    function update() {
+      fitMore();
+      var max = track.scrollWidth - track.clientWidth;
+      controls.hidden = max < 4;
+      prev.disabled = track.scrollLeft < 4;
+      next.disabled = track.scrollLeft > max - 4;
+    }
+    prev.addEventListener('click', function () { track.scrollBy({ left: -step(), behavior: reduceMotion ? 'auto' : 'smooth' }); });
+    next.addEventListener('click', function () { track.scrollBy({ left: step(), behavior: reduceMotion ? 'auto' : 'smooth' }); });
+    track.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(update);
+    update();
+  }
+
   // Layered carousel: the active review sits in the middle, its neighbors
   // tucked behind on each side. Rotates slowly; pauses on hover, focus, or
   // an opened review. Swipe or use the arrows/dots to move by hand.
@@ -140,17 +186,18 @@
       viewport.outerHTML = '<p class="rv-empty">Had a great experience? <a href="' + esc(writeUrl) + '" target="_blank" rel="noopener">Leave us a Google review</a>.</p>';
       return;
     }
-    viewport.querySelector('.rv-track').innerHTML = list.map(card).join('');
+    var grid = root.classList.contains('rv--grid');
+    viewport.querySelector('.rv-track').innerHTML = list.map(grid ? gridCard : card).join('');
     viewport.querySelectorAll('.rv-more').forEach(function (b) {
       b.addEventListener('click', function () {
         var open = b.getAttribute('aria-expanded') !== 'true';
-        b.closest('.rv-card').classList.toggle('is-open', open);
+        b.closest('.rv-card, .rv-gcard').classList.toggle('is-open', open);
         b.setAttribute('aria-expanded', open ? 'true' : 'false');
         b.textContent = open ? 'Show less' : 'Read more';
         if (root.rvLayout) root.rvLayout();
       });
     });
-    wire(root);
+    if (grid) wireGrid(root); else wire(root);
   }
 
   fetch(ENDPOINT)

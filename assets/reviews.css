@@ -174,3 +174,62 @@ a.rv-name:hover { text-decoration: underline; }
 .reviews-photo .rv-dots button[aria-current="true"]::before { background: #fff; }
 .reviews-photo .rv-card[data-pos="left"],
 .reviews-photo .rv-card[data-pos="right"] { opacity: 0.5; }
+
+/* Grid layout on a white background with black accents (home page). */
+.rv--grid { color: #111; }
+.rv--grid .rv-badge { background: #111; color: #fff; }
+.rv--grid .rv-stars { color: #111; }
+.rv--grid .rv-based { color: #555; }
+.rv--grid .rv-viewport { overflow: visible; padding: 0; }
+.rv--grid .rv-track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% - 60px) / 4);
+  gap: 20px;
+  min-height: 0;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding: 4px 2px 8px;
+}
+.rv--grid .rv-track::-webkit-scrollbar { display: none; }
+.rv-gcard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 28px 22px 26px;
+  border: 1px solid transparent;
+  border-radius: 16px;
+  background: #F6F7F9;
+  text-align: center;
+  scroll-snap-align: start;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.rv-gcard:first-child, .rv-gcard:hover { border-color: #111; background: #fff; }
+.rv--grid .rv-track:hover .rv-gcard:first-child:not(:hover) { border-color: transparent; background: #F6F7F9; }
+.rv-gcard .rv-avatar { width: 64px; height: 64px; background: #111; color: #fff; font-size: 26px; }
+.rv-gcard figcaption { display: flex; flex-direction: column; gap: 4px; margin-top: 16px; }
+.rv-gcard .rv-name { color: #111; font-size: 18px; }
+.rv-src { color: #666; font-size: 14px; }
+.rv-gcard .rv-stars { margin-top: 14px; font-size: 18px; }
+.rv-gcard blockquote {
+  margin: 14px 0 0;
+  color: #333;
+  font-size: 16px;
+  line-height: 1.55;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.rv-gcard.is-open blockquote { -webkit-line-clamp: unset; display: block; }
+.rv-gcard .rv-more { align-self: center; color: #111; }
+.rv--grid .rv-controls { margin-top: 24px; }
+.rv--grid .rv-arrow { background: #111; color: #fff; }
+@media (max-width: 1000px) { .rv--grid .rv-track { grid-auto-columns: calc((100% - 40px) / 3); } }
+@media (max-width: 760px) { .rv--grid .rv-track { grid-auto-columns: calc((100% - 20px) / 2); } }
+@media (max-width: 520px) {
+  .rv--grid .rv-viewport { margin: 0 -24px; }
+  .rv--grid .rv-track { grid-auto-columns: 78%; padding: 4px 24px 8px; scroll-padding: 0 24px; }
+}
