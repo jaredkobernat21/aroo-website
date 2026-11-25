@@ -177,7 +177,7 @@ a.rv-name:hover { text-decoration: underline; }
 
 /* Grid layout on a white background with black accents (home page). */
 .rv--grid { color: #111; }
-.rv--grid .rv-badge { background: #111; color: #fff; }
+.rv--grid .rv-badge { background: #15B5B0; color: #fff; }
 .rv--grid .rv-stars { color: #FBBC04; }
 .rv--grid .rv-based { color: #555; }
 .rv--grid .rv-viewport { overflow: visible; padding: 0; }
