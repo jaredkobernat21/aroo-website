@@ -230,6 +230,6 @@ a.rv-name:hover { text-decoration: underline; }
 @media (max-width: 1000px) { .rv--grid .rv-track { grid-auto-columns: calc((100% - 40px) / 3); } }
 @media (max-width: 760px) { .rv--grid .rv-track { grid-auto-columns: calc((100% - 20px) / 2); } }
 @media (max-width: 520px) {
-  .rv--grid .rv-viewport { margin: 0 -24px; }
+  .rv--grid .rv-viewport { margin: 32px -24px 0; }
   .rv--grid .rv-track { grid-auto-columns: 78%; padding: 4px 24px 8px; scroll-padding: 0 24px; }
 }

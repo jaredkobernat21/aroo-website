@@ -506,3 +506,12 @@ main section h3 { margin-top: 18px; }
 @media (max-width: 760px) { .page-nav ul { flex-wrap: wrap; row-gap: 10px; } }
 .resources-guides { margin: 14px 0 0; }
 .resources-guides a { color: #fff; font-weight: 600; text-underline-offset: 3px; }
+
+/* Community reviews on white with black accents, matching the home page. */
+.community-reviews--light { max-width: none; background: #fff; }
+.community-reviews--light .community-title { color: #111; }
+.community-reviews--light .community-sub { color: #444; }
+.community-reviews--light .trust { color: #222; }
+.community-reviews--light .trust svg { stroke: #111; }
+.community-reviews--light .community-cta .button { background: #15B5B0; color: #fff; }
+.community-reviews--light .community-cta .button:hover, .community-reviews--light .community-cta .button:focus-visible { background: #3CC6C1; }
