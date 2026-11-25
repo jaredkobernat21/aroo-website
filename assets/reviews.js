@@ -14,7 +14,7 @@
   // Reviewer photos we host ourselves, used when Google doesn't send one.
   var PHOTOS = {
     'Jeanette Wood': '/assets/reviews/jeanette.jpg',
-    'Chris Hancock': '/assets/reviews/chris.jpg'
+    'Chris Hancock': '/assets/reviews/chris.jpg?v=2'
   };
   function safeUrl(u) { return /^(https:\/\/|\/(?!\/))/.test(u || '') ? u : null; }
 
